@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <title>ArmaCrack — Armá a los Cracks del Mundial 2026 en Casa</title>
-<meta name="description" content="Kit imprimible para armar figuritas coleccionables y un estadio de cartón. Viví el Mundial 2026 en casa, en familia, lejos de la pantalla. Envío digital inmediato.">
+<meta name="description" content="Kit imprimible para armar figuritas coleccionables y un estadio de cartón. Viví el Mundial 2026 en casa, en familia, lejos de la pantalla. Acceso digital inmediato.">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#0D3B1E">
+<meta name="theme-color" content="#05132B">
 <link rel="canonical" href="https://landing-armacrack.vercel.app/">
 
 <!-- Open Graph / redes sociales -->
@@ -24,13 +24,12 @@
 <meta name="twitter:description" content="El kit imprimible para armar figuritas coleccionables y un estadio de cartón. Menos pantalla, más Mundial en familia.">
 <meta name="twitter:image" content="https://landing-armacrack.vercel.app/images/og-cover.jpg">
 
-<!-- Favicon -->
 <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E">
 
 <!-- Recursos críticos -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="images/hero-personaje.webp" fetchpriority="high">
+<link rel="preload" as="image" href="images/hero-estadio.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
 
 <!-- SEO: datos estructurados -->
@@ -39,7 +38,7 @@
   "@context": "https://schema.org",
   "@type": "Product",
   "name": "ArmaCrack — Kit imprimible Mundial 2026",
-  "image": "https://landing-armacrack.vercel.app/images/hero-personaje.webp",
+  "image": "https://landing-armacrack.vercel.app/images/og-cover.jpg",
   "description": "Kit imprimible para armar figuritas coleccionables y un estadio de cartón del Mundial 2026, con álbum, pack extra de figuritas y cuadernillo de actividades.",
   "brand": { "@type": "Brand", "name": "ArmaCrack" },
   "offers": {
@@ -74,19 +73,28 @@
 
 <style>
   :root{
-    --verde-oscuro:#0D3B1E;
-    --verde-cancha:#1E8E4A;
-    --dorado:#FFC93C;
-    --celeste:#75AADB;
-    --crema:#FAF6EE;
-    --texto:#12210F;
+    /* Paleta azul + dorado */
+    --azul-noche:#05132B;
+    --azul-profundo:#0A2247;
+    --azul-royal:#1B4F9C;
+    --celeste:#7FB3E3;
+    --celeste-suave:#B9D8F2;
+    --dorado:#E8B33C;
+    --dorado-claro:#F7D774;
+    --dorado-oscuro:#B8862A;
+    --crema:#FBF7EF;
     --blanco:#FFFFFF;
-    --radio-a:22px;
-    --radio-b:10px;
+    --texto:#10192B;
+    --gris-texto:#5A6478;
+
+    --radio-a:24px;
+    --radio-b:14px;
     --ease:cubic-bezier(.22,1,.36,1);
-    --dur:.7s;
-    --sombra-suave:0 10px 26px rgba(13,59,30,.08);
-    --sombra-fuerte:0 20px 45px rgba(13,59,30,.18);
+    --dur:.75s;
+    --sombra-suave:0 12px 30px rgba(10,34,71,.09);
+    --sombra-media:0 18px 44px rgba(10,34,71,.14);
+    --sombra-fuerte:0 28px 60px rgba(5,19,43,.30);
+    --borde-glass:1px solid rgba(255,255,255,.14);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -100,294 +108,438 @@
     text-rendering:optimizeLegibility;
   }
   img{max-width:100%;display:block;}
-  h1,h2,h3{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.3px;margin:0;line-height:1.05;}
+  h1,h2,h3{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.2px;margin:0;line-height:1.03;}
   a{color:inherit;}
-  .wrap{max-width:1180px;margin:0 auto;padding:0 20px;}
+  .wrap{max-width:1200px;margin:0 auto;padding:0 20px;}
+
+  /* Textura de grano: mata el look "IA plano" */
+  .grano::before{
+    content:'';position:absolute;inset:0;pointer-events:none;z-index:1;opacity:.055;
+    background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 200 200'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.82' numOctaves='4'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)'/%3E%3C/svg%3E");
+  }
+
+  .oro{
+    background:linear-gradient(135deg,#F7D774 0%,#E8B33C 42%,#FFF1C2 58%,#C9962C 100%);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
 
   .skip-link{
-    position:absolute;top:-100px;left:12px;background:var(--dorado);color:var(--verde-oscuro);
+    position:absolute;top:-100px;left:12px;background:var(--dorado);color:var(--azul-noche);
     padding:10px 16px;border-radius:8px;font-weight:700;z-index:200;transition:top .2s ease;
   }
   .skip-link:focus{top:12px;}
 
-  /* Barra de progreso de scroll */
   .progress-bar{
     position:fixed;top:0;left:0;height:3px;width:0%;
-    background:linear-gradient(90deg,var(--dorado),var(--celeste));
+    background:linear-gradient(90deg,var(--dorado-claro),var(--dorado),var(--celeste));
     z-index:60;transition:width .1s linear;
   }
 
+  /* ---------- Botones ---------- */
   .btn-cta{
-    display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    background:var(--dorado);color:var(--verde-oscuro);position:relative;overflow:hidden;
-    font-family:'Poppins',sans-serif;font-weight:800;font-size:1.05rem;
-    border:none;border-radius:100px;padding:18px 34px;cursor:pointer;
-    box-shadow:0 8px 0 #c99618, 0 14px 24px rgba(0,0,0,.25);
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    background:linear-gradient(135deg,#F7D774,#E8B33C 55%,#D3A02F);
+    color:var(--azul-noche);position:relative;overflow:hidden;
+    font-family:'Poppins',sans-serif;font-weight:800;font-size:1.05rem;letter-spacing:.2px;
+    border:none;border-radius:100px;padding:19px 36px;cursor:pointer;
+    box-shadow:0 6px 0 var(--dorado-oscuro), 0 16px 34px rgba(232,179,60,.35);
     transition:transform .18s var(--ease), box-shadow .18s var(--ease);
     text-decoration:none;
   }
   .btn-cta::after{
-    content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;
-    background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);
+    content:'';position:absolute;top:0;left:-60%;width:38%;height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.7),transparent);
     transform:skewX(-20deg);
   }
-  .btn-cta:hover{transform:translateY(-3px) scale(1.02);}
+  .btn-cta:hover{transform:translateY(-3px) scale(1.02);box-shadow:0 8px 0 var(--dorado-oscuro), 0 22px 44px rgba(232,179,60,.45);}
   .btn-cta:hover::after{animation:brillo 1.1s ease forwards;}
-  .btn-cta:active{transform:translateY(2px);box-shadow:0 4px 0 #c99618;}
-  .btn-cta.chico{padding:14px 26px;font-size:.95rem;box-shadow:0 6px 0 #c99618, 0 10px 18px rgba(0,0,0,.2);}
+  .btn-cta:active{transform:translateY(2px);box-shadow:0 3px 0 var(--dorado-oscuro);}
+  .btn-cta.chico{padding:14px 26px;font-size:.94rem;box-shadow:0 5px 0 var(--dorado-oscuro), 0 12px 24px rgba(232,179,60,.3);}
   @keyframes brillo{from{left:-60%;}to{left:130%;}}
   @keyframes pulso-cta{
-    0%,100%{box-shadow:0 8px 0 #c99618, 0 14px 24px rgba(0,0,0,.25), 0 0 0 0 rgba(255,201,60,.5);}
-    50%{box-shadow:0 8px 0 #c99618, 0 14px 24px rgba(0,0,0,.25), 0 0 0 12px rgba(255,201,60,0);}
+    0%,100%{box-shadow:0 6px 0 var(--dorado-oscuro), 0 16px 34px rgba(232,179,60,.35), 0 0 0 0 rgba(232,179,60,.5);}
+    50%{box-shadow:0 6px 0 var(--dorado-oscuro), 0 16px 34px rgba(232,179,60,.35), 0 0 0 14px rgba(232,179,60,0);}
   }
-  .btn-cta.pulsante{animation:pulso-cta 2.6s ease-in-out infinite;}
+  .btn-cta.pulsante{animation:pulso-cta 2.8s ease-in-out infinite;}
 
-  /* 1. Barra de urgencia */
+  /* ---------- 1. Barra de urgencia ---------- */
   .barra-urgencia{
-    background:var(--verde-oscuro);color:var(--dorado);
-    text-align:center;font-weight:600;font-size:.8rem;
-    padding:9px 12px;position:sticky;top:0;z-index:50;
+    background:linear-gradient(90deg,var(--azul-noche),var(--azul-royal),var(--azul-noche));
+    color:var(--dorado-claro);
+    text-align:center;font-weight:600;font-size:.8rem;letter-spacing:.2px;
+    padding:10px 12px;position:sticky;top:0;z-index:50;
   }
-  .barra-urgencia span{color:var(--crema);font-weight:400;}
+  .barra-urgencia span{color:#D6E6F7;font-weight:400;}
 
-  /* 2. Hero */
+  /* ---------- 2. Hero ---------- */
   .hero{
-    background:var(--verde-oscuro);
-    color:var(--crema);
-    padding:40px 0 40px;
+    background:
+      radial-gradient(ellipse 70% 50% at 15% -5%, rgba(27,79,156,.55) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 88% 8%, rgba(232,179,60,.22) 0%, transparent 62%),
+      radial-gradient(ellipse 60% 50% at 60% 100%, rgba(127,179,227,.16) 0%, transparent 60%),
+      linear-gradient(170deg, var(--azul-profundo) 0%, var(--azul-noche) 70%);
+    color:#EAF2FB;
+    padding:44px 0 56px;
     position:relative;
     overflow:hidden;
     isolation:isolate;
   }
-  .hero-blobs{position:absolute;inset:0;z-index:-1;}
-  .blob{
-    position:absolute;border-radius:50%;filter:blur(60px);opacity:.35;
-    animation:flotar 14s ease-in-out infinite;
+  /* Haces de luz tipo reflectores de estadio */
+  .hero .haz{
+    position:absolute;top:-30%;width:130px;height:160%;z-index:0;
+    background:linear-gradient(to bottom, rgba(232,179,60,.13), transparent 70%);
+    filter:blur(26px);
   }
-  .blob.b1{width:340px;height:340px;background:var(--verde-cancha);top:-100px;left:-80px;}
-  .blob.b2{width:280px;height:280px;background:var(--celeste);bottom:-100px;right:-60px;animation-delay:-6s;}
-  .blob.b3{width:200px;height:200px;background:var(--dorado);opacity:.18;top:30%;right:15%;animation-delay:-3s;}
-  @keyframes flotar{
-    0%,100%{transform:translate(0,0) scale(1);}
-    50%{transform:translate(20px,-24px) scale(1.08);}
-  }
-  .hero .wrap{display:grid;grid-template-columns:1fr;gap:26px;position:relative;}
+  .hero .haz.h1{left:12%;transform:rotate(14deg);animation:haz-latir 7s ease-in-out infinite;}
+  .hero .haz.h2{right:18%;transform:rotate(-12deg);animation:haz-latir 9s ease-in-out -3s infinite;}
+  @keyframes haz-latir{0%,100%{opacity:.5;}50%{opacity:.95;}}
+
+  .hero .wrap{display:grid;grid-template-columns:1fr;gap:30px;position:relative;z-index:2;}
   .hero-badge{
-    display:inline-flex;align-items:center;gap:6px;background:rgba(255,201,60,.15);border:1px solid var(--dorado);
-    color:var(--dorado);font-size:.76rem;font-weight:700;padding:6px 14px;border-radius:100px;
-    margin-bottom:16px;letter-spacing:.5px;
+    display:inline-flex;align-items:center;gap:8px;
+    background:rgba(232,179,60,.12);border:1px solid rgba(232,179,60,.55);
+    color:var(--dorado-claro);font-size:.74rem;font-weight:700;padding:7px 15px;border-radius:100px;
+    margin-bottom:18px;letter-spacing:1px;backdrop-filter:blur(8px);
   }
   .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--dorado);animation:parpadeo 1.6s ease-in-out infinite;}
-  @keyframes parpadeo{0%,100%{opacity:1;}50%{opacity:.25;}}
+  @keyframes parpadeo{0%,100%{opacity:1;}50%{opacity:.2;}}
+
   .hero h1{
-    font-size:clamp(1.9rem, 6vw, 3.5rem);
-    background:linear-gradient(180deg,#fff, #dcefe1 70%);
-    -webkit-background-clip:text;background-clip:text;color:transparent;
+    font-size:clamp(2.05rem, 7vw, 3.9rem);
+    text-wrap:balance;
+    color:#fff;
   }
+  .hero h1 .sub-linea{display:block;margin-top:8px;font-size:.62em;}
   .hero p.subhead{
-    font-size:clamp(1rem, 2.4vw, 1.15rem);line-height:1.55;margin-top:18px;max-width:540px;color:#e7f2ea;
+    font-size:clamp(1rem, 2.3vw, 1.16rem);line-height:1.6;margin-top:20px;max-width:540px;color:#C4D6EA;
   }
-  .hero-cta-row{margin-top:26px;display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
-  .prueba-rapida{display:flex;align-items:center;gap:8px;font-size:.94rem;color:var(--dorado);font-weight:600;}
+  .hero-cta-row{margin-top:30px;display:flex;flex-direction:column;gap:16px;align-items:flex-start;}
+  .prueba-rapida{display:flex;align-items:center;gap:8px;font-size:.93rem;color:var(--dorado-claro);font-weight:600;}
   .prueba-rapida .num{font-variant-numeric:tabular-nums;}
-  .trust-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
+  .trust-badges{display:flex;flex-wrap:wrap;gap:9px;margin-top:22px;}
   .trust-badge{
-    font-size:.74rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
-    padding:6px 12px;border-radius:100px;color:#dfeee3;backdrop-filter:blur(6px);
+    font-size:.73rem;background:rgba(255,255,255,.07);border:var(--borde-glass);
+    padding:7px 13px;border-radius:100px;color:#CFE0F2;backdrop-filter:blur(8px);
   }
+
   .hero-visual{
-    position:relative;border-radius:var(--radio-a);overflow:hidden;
-    transform:rotate(-1.2deg);
-    box-shadow:var(--sombra-fuerte);
-    justify-self:center;max-width:320px;
-    animation:hero-in 1s var(--ease) both, hero-flotar 5s ease-in-out 1s infinite;
+    position:relative;justify-self:center;width:100%;max-width:520px;
+    animation:hero-in 1s var(--ease) both;
   }
-  .hero-visual img{width:100%;}
-  @keyframes hero-in{from{opacity:0;transform:translateY(40px) rotate(-1.2deg);}to{opacity:1;transform:translateY(0) rotate(-1.2deg);}}
-  @keyframes hero-flotar{0%,100%{transform:translateY(0) rotate(-1.2deg);}50%{transform:translateY(-10px) rotate(-.4deg);}}
+  .hero-visual .marco{
+    border-radius:var(--radio-a);overflow:hidden;
+    border:1px solid rgba(232,179,60,.4);
+    box-shadow:var(--sombra-fuerte), 0 0 0 8px rgba(255,255,255,.04);
+    transform:rotate(-1.4deg);
+  }
+  .hero-visual .marco img{width:100%;}
+  /* Chip flotante sobre la foto */
+  .chip-flotante{
+    position:absolute;bottom:-16px;left:-8px;
+    background:rgba(5,19,43,.85);border:1px solid rgba(232,179,60,.5);backdrop-filter:blur(12px);
+    border-radius:100px;padding:10px 18px;display:flex;align-items:center;gap:9px;
+    font-size:.78rem;font-weight:700;color:var(--dorado-claro);
+    box-shadow:0 12px 28px rgba(0,0,0,.35);
+    animation:chip-flotar 4s ease-in-out 1.2s infinite;
+  }
+  @keyframes chip-flotar{0%,100%{transform:translateY(0);}50%{transform:translateY(-7px);}}
+  @keyframes hero-in{from{opacity:0;transform:translateY(38px);}to{opacity:1;transform:translateY(0);}}
+
   .scroll-cue{
-    display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:34px;opacity:.7;font-size:.72rem;
+    display:flex;flex-direction:column;align-items:center;gap:7px;margin-top:44px;opacity:.6;font-size:.7rem;
+    letter-spacing:1.5px;text-transform:uppercase;position:relative;z-index:2;
   }
-  .scroll-cue .flecha{width:18px;height:18px;border-right:2px solid var(--dorado);border-bottom:2px solid var(--dorado);
+  .scroll-cue .flecha{width:16px;height:16px;border-right:2px solid var(--dorado);border-bottom:2px solid var(--dorado);
     transform:rotate(45deg);animation:rebote 1.8s ease-in-out infinite;}
   @keyframes rebote{0%,100%{transform:rotate(45deg) translate(0,0);}50%{transform:rotate(45deg) translate(4px,4px);}}
 
-  /* 3. Qué recibís */
-  .seccion{padding:clamp(44px,8vw,64px) 0;}
-  .seccion.claro{background:var(--blanco);}
-  .titulo-seccion{font-size:clamp(1.5rem,4vw,2rem);color:var(--verde-oscuro);margin-bottom:8px;}
-  .kicker{
-    text-transform:uppercase;font-size:.75rem;font-weight:700;letter-spacing:1.5px;
-    color:var(--verde-cancha);margin-bottom:10px;display:block;
+  /* ---------- Marquee de figuritas ---------- */
+  .marquee-seccion{
+    background:var(--azul-noche);padding:26px 0;position:relative;overflow:hidden;
+    border-top:1px solid rgba(232,179,60,.18);border-bottom:1px solid rgba(232,179,60,.18);
   }
-  .items-recibis{display:flex;flex-direction:column;gap:14px;margin-top:28px;}
+  .marquee{display:flex;width:max-content;animation:desfilar 42s linear infinite;}
+  .marquee:hover{animation-play-state:paused;}
+  .marquee .pista{display:flex;gap:18px;padding-right:18px;}
+  .marquee img{
+    width:92px;height:92px;object-fit:contain;
+    background:rgba(255,255,255,.05);border:1px solid rgba(127,179,227,.2);
+    border-radius:16px;padding:6px;
+    transition:transform .3s var(--ease), border-color .3s var(--ease);
+  }
+  .marquee img:hover{transform:translateY(-6px) scale(1.06);border-color:var(--dorado);}
+  @keyframes desfilar{from{transform:translateX(0);}to{transform:translateX(-50%);}}
+  .marquee-fade{position:absolute;top:0;bottom:0;width:90px;z-index:2;pointer-events:none;}
+  .marquee-fade.izq{left:0;background:linear-gradient(90deg,var(--azul-noche),transparent);}
+  .marquee-fade.der{right:0;background:linear-gradient(270deg,var(--azul-noche),transparent);}
+
+  /* ---------- Banda de stats ---------- */
+  .stats{
+    background:linear-gradient(135deg,var(--azul-profundo),var(--azul-royal));
+    color:#fff;position:relative;overflow:hidden;
+  }
+  .stats .wrap{display:grid;grid-template-columns:repeat(2,1fr);gap:26px 16px;padding-top:44px;padding-bottom:44px;position:relative;z-index:2;}
+  .stat{text-align:center;}
+  .stat .valor{font-family:'Anton',sans-serif;font-size:clamp(1.9rem,7vw,2.7rem);line-height:1;
+    background:linear-gradient(135deg,#F7D774,#E8B33C);-webkit-background-clip:text;background-clip:text;color:transparent;}
+  .stat .etiqueta{font-size:.76rem;color:#C6DBF0;margin-top:8px;line-height:1.35;}
+
+  /* ---------- Secciones ---------- */
+  .seccion{padding:clamp(52px,9vw,80px) 0;position:relative;}
+  .seccion.claro{background:var(--blanco,#fff);}
+  .seccion.crema{background:var(--crema);}
+  .titulo-seccion{font-size:clamp(1.6rem,4.6vw,2.35rem);color:var(--azul-profundo);margin-bottom:10px;text-wrap:balance;}
+  .kicker{
+    display:inline-flex;align-items:center;gap:8px;
+    text-transform:uppercase;font-size:.72rem;font-weight:700;letter-spacing:1.8px;
+    color:var(--azul-royal);margin-bottom:14px;
+  }
+  .kicker::before{content:'';width:22px;height:2px;background:var(--dorado);border-radius:2px;}
+  .intro-seccion{color:var(--gris-texto);font-size:.98rem;line-height:1.6;max-width:560px;margin:0;}
+
+  /* ---------- Cómo funciona (3 pasos) ---------- */
+  .pasos{display:grid;grid-template-columns:1fr;gap:20px;margin-top:38px;position:relative;}
+  .paso{
+    background:#fff;border-radius:var(--radio-a);padding:28px 24px;
+    box-shadow:var(--sombra-suave);border:1px solid rgba(27,79,156,.08);
+    position:relative;transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+  }
+  .paso:hover{transform:translateY(-6px);box-shadow:var(--sombra-media);}
+  .paso .num{
+    width:46px;height:46px;border-radius:14px;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--azul-royal),var(--azul-profundo));
+    color:var(--dorado-claro);font-family:'Anton',sans-serif;font-size:1.35rem;
+    margin-bottom:16px;box-shadow:0 8px 18px rgba(27,79,156,.28);
+  }
+  .paso h3{font-size:1.1rem;color:var(--azul-profundo);margin-bottom:8px;}
+  .paso p{margin:0;font-size:.9rem;color:var(--gris-texto);line-height:1.55;}
+
+  /* ---------- Qué recibís ---------- */
+  .items-recibis{display:flex;flex-direction:column;gap:13px;margin-top:32px;}
   .item-recibis{
     display:flex;justify-content:space-between;align-items:center;gap:14px;
-    background:var(--crema);border-radius:var(--radio-b);padding:16px 20px;
-    border-left:5px solid var(--verde-cancha);
+    background:#fff;border-radius:var(--radio-b);padding:17px 20px;
+    border:1px solid rgba(27,79,156,.1);border-left:5px solid var(--azul-royal);
     transition:transform .25s var(--ease), box-shadow .25s var(--ease);
   }
-  .item-recibis:hover{transform:translateX(4px);box-shadow:var(--sombra-suave);}
+  .item-recibis:hover{transform:translateX(5px);box-shadow:var(--sombra-suave);}
   .item-recibis.bonus{border-left-color:var(--dorado);}
-  .item-nombre{font-weight:600;font-size:.98rem;}
-  .item-nombre small{display:block;font-weight:400;color:#5a6b57;font-size:.8rem;margin-top:2px;}
-  .item-valor{white-space:nowrap;font-weight:700;color:#9a9a9a;text-decoration:line-through;font-size:.92rem;}
+  .item-nombre{font-weight:600;font-size:.97rem;color:var(--texto);}
+  .item-nombre .tag{
+    display:inline-block;background:rgba(232,179,60,.18);color:var(--dorado-oscuro);
+    font-size:.65rem;font-weight:800;letter-spacing:.8px;padding:3px 8px;border-radius:6px;margin-right:7px;
+  }
+  .item-nombre small{display:block;font-weight:400;color:var(--gris-texto);font-size:.79rem;margin-top:3px;}
+  .item-valor{white-space:nowrap;font-weight:700;color:#A6AEBE;text-decoration:line-through;font-size:.9rem;}
+
   .total-box{
-    margin-top:22px;background:var(--verde-oscuro);color:var(--crema);border-radius:var(--radio-b);
-    padding:22px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;
-    position:relative;overflow:hidden;
+    margin-top:26px;border-radius:var(--radio-a);padding:28px 26px;
+    background:
+      radial-gradient(ellipse 60% 80% at 85% 10%, rgba(232,179,60,.22), transparent 65%),
+      linear-gradient(135deg,var(--azul-profundo),var(--azul-noche));
+    color:#EAF2FB;
+    display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:20px;
+    position:relative;overflow:hidden;border:1px solid rgba(232,179,60,.28);
   }
-  .total-box .val-tachado{text-decoration:line-through;color:#9fd1ac;font-size:1rem;}
-  .total-box .val-hoy{font-family:'Anton',sans-serif;font-size:2.1rem;color:var(--dorado);}
+  .total-box .val-tachado{text-decoration:line-through;color:#8FB0D0;font-size:.98rem;}
+  .total-box .ahorro{
+    display:inline-block;background:var(--dorado);color:var(--azul-noche);
+    font-size:.7rem;font-weight:800;padding:4px 10px;border-radius:100px;margin-top:8px;letter-spacing:.5px;
+  }
+  .total-box .val-hoy{font-family:'Anton',sans-serif;font-size:clamp(2rem,8vw,2.6rem);color:var(--dorado-claro);line-height:1.05;margin-top:6px;}
 
-  /* 4. Beneficios (bento asimétrico) */
-  .grid-beneficios{
-    display:grid;gap:16px;margin-top:30px;
-    grid-template-columns:1fr;
-  }
+  /* ---------- Beneficios (bento) ---------- */
+  .grid-beneficios{display:grid;gap:18px;margin-top:36px;grid-template-columns:1fr;}
   .card-beneficio{
-    background:var(--blanco);border-radius:var(--radio-a);padding:24px;
-    box-shadow:var(--sombra-suave);
+    background:#fff;border-radius:var(--radio-a);padding:28px 26px;
+    box-shadow:var(--sombra-suave);border:1px solid rgba(27,79,156,.08);
     transition:transform .3s var(--ease), box-shadow .3s var(--ease);
-    will-change:transform;
   }
-  .card-beneficio:hover{transform:translateY(-6px);box-shadow:var(--sombra-fuerte);}
-  .card-beneficio.grande{background:linear-gradient(135deg,var(--verde-cancha),#166b38);color:#fff;}
-  .card-beneficio .icono{font-size:2rem;margin-bottom:10px;display:block;}
-  .card-beneficio h3{font-size:1.15rem;margin-bottom:8px;}
-  .card-beneficio p{margin:0;font-size:.92rem;line-height:1.5;opacity:.9;}
+  .card-beneficio:hover{transform:translateY(-7px);box-shadow:var(--sombra-media);}
+  .card-beneficio.grande{
+    background:
+      radial-gradient(ellipse 70% 60% at 80% 0%, rgba(232,179,60,.18), transparent 60%),
+      linear-gradient(150deg,var(--azul-royal),var(--azul-profundo));
+    color:#fff;border-color:rgba(232,179,60,.25);
+  }
+  .card-beneficio .icono{
+    width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:1.5rem;
+    background:rgba(27,79,156,.09);margin-bottom:16px;
+  }
+  .card-beneficio.grande .icono{background:rgba(255,255,255,.12);}
+  .card-beneficio h3{font-size:1.13rem;margin-bottom:9px;color:var(--azul-profundo);}
+  .card-beneficio.grande h3{color:#fff;font-size:1.3rem;}
+  .card-beneficio p{margin:0;font-size:.91rem;line-height:1.6;color:var(--gris-texto);}
+  .card-beneficio.grande p{color:#C9DDF1;}
 
-  /* 5. Producto en acción */
-  .carrusel{
-    display:flex;gap:14px;overflow-x:auto;padding:26px 4px 14px;scroll-snap-type:x mandatory;
-    -webkit-overflow-scrolling:touch;
+  /* ---------- Producto en acción ---------- */
+  .galeria{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:34px;}
+  .galeria figure{
+    margin:0;border-radius:var(--radio-b);overflow:hidden;position:relative;
+    background:#fff;box-shadow:var(--sombra-suave);border:1px solid rgba(27,79,156,.08);
+    transition:transform .35s var(--ease), box-shadow .35s var(--ease);
   }
-  .carrusel::-webkit-scrollbar{height:6px;}
-  .carrusel::-webkit-scrollbar-thumb{background:var(--verde-cancha);border-radius:10px;}
-  .carrusel figure{
-    flex:0 0 190px;scroll-snap-align:start;margin:0;background:var(--blanco);
-    border-radius:var(--radio-b);padding:10px;box-shadow:0 8px 18px rgba(0,0,0,.08);
-    transition:transform .3s var(--ease);
+  .galeria figure:hover{transform:translateY(-6px) scale(1.015);box-shadow:var(--sombra-media);}
+  .galeria figure.ancha{grid-column:span 2;}
+  .galeria img{width:100%;height:100%;object-fit:cover;aspect-ratio:4/3;}
+  .galeria figure.retrato img{aspect-ratio:1/1;object-fit:contain;padding:14px;background:#F4F7FB;}
+  .galeria figcaption{
+    position:absolute;left:0;right:0;bottom:0;padding:22px 14px 12px;
+    background:linear-gradient(transparent,rgba(5,19,43,.88));
+    color:#fff;font-size:.78rem;font-weight:600;
   }
-  .carrusel figure:hover{transform:translateY(-6px);}
-  .carrusel figure img{border-radius:8px;}
-  .carrusel figcaption{font-size:.76rem;text-align:center;margin-top:8px;color:#5a6b57;font-weight:600;}
-  .carrusel figure.ancho{flex-basis:280px;}
+  .galeria figure.retrato figcaption{background:linear-gradient(transparent,rgba(5,19,43,.7));}
 
-  /* 6. Testimonios */
-  .grid-testimonios{display:grid;grid-template-columns:1fr;gap:20px;margin-top:30px;}
+  /* ---------- Testimonios ---------- */
+  .grid-testimonios{display:grid;grid-template-columns:1fr;gap:20px;margin-top:34px;}
   .testimonio{
-    background:var(--blanco);border-radius:var(--radio-a);overflow:hidden;
-    box-shadow:var(--sombra-suave);transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+    background:#fff;border-radius:var(--radio-a);overflow:hidden;
+    box-shadow:var(--sombra-suave);border:1px solid rgba(27,79,156,.08);
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease);
   }
-  .testimonio:hover{transform:translateY(-6px) scale(1.01);box-shadow:var(--sombra-fuerte);}
+  .testimonio:hover{transform:translateY(-7px);box-shadow:var(--sombra-media);}
   .testimonio img{width:100%;}
-  .testimonio-footer{padding:16px 18px;}
-  .estrellas{color:var(--dorado);font-size:.95rem;margin-bottom:4px;}
-  .testimonio-footer strong{font-size:.92rem;}
-  .testimonio-footer span{display:block;font-size:.78rem;color:#5a6b57;}
+  .testimonio-footer{padding:16px 18px;display:flex;align-items:center;gap:12px;}
+  .testimonio-footer .avatar{
+    width:38px;height:38px;border-radius:50%;flex:none;display:grid;place-items:center;
+    background:linear-gradient(135deg,var(--azul-royal),var(--azul-profundo));
+    color:var(--dorado-claro);font-weight:800;font-size:.9rem;
+  }
+  .estrellas{color:var(--dorado);font-size:.85rem;margin-bottom:2px;letter-spacing:1px;}
+  .testimonio-footer strong{font-size:.89rem;display:block;}
+  .testimonio-footer span{display:block;font-size:.74rem;color:var(--gris-texto);}
 
-  /* 7. Refuerzo del pack */
-  .grid-bonus{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px;}
+  /* ---------- Bonus ---------- */
+  .grid-bonus{display:grid;grid-template-columns:1fr;gap:18px;margin-top:34px;}
   .card-bonus{
-    background:var(--crema);border-radius:var(--radio-a);overflow:hidden;
-    border:2px solid #e7dfc9;transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+    background:#fff;border-radius:var(--radio-a);overflow:hidden;
+    border:1px solid rgba(232,179,60,.35);position:relative;
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease);
   }
-  .card-bonus:hover{transform:translateY(-6px);box-shadow:var(--sombra-suave);}
-  .card-bonus img{width:100%;}
-  .card-bonus .cuerpo{padding:16px 18px;}
-  .card-bonus h3{font-size:1.05rem;color:var(--verde-oscuro);margin-bottom:6px;}
-  .card-bonus p{font-size:.86rem;color:#4a4a4a;margin:0;}
-  .card-bonus .valor{margin-top:8px;font-size:.8rem;font-weight:700;color:var(--verde-cancha);}
+  .card-bonus:hover{transform:translateY(-7px);box-shadow:var(--sombra-media);}
+  .card-bonus .cinta{
+    position:absolute;top:14px;left:14px;z-index:2;
+    background:var(--dorado);color:var(--azul-noche);
+    font-size:.66rem;font-weight:800;letter-spacing:1px;padding:5px 11px;border-radius:100px;
+    box-shadow:0 6px 14px rgba(0,0,0,.2);
+  }
+  .card-bonus img{width:100%;aspect-ratio:3/2;object-fit:cover;}
+  .card-bonus .cuerpo{padding:20px;}
+  .card-bonus h3{font-size:1.06rem;color:var(--azul-profundo);margin-bottom:7px;}
+  .card-bonus p{font-size:.87rem;color:var(--gris-texto);margin:0;line-height:1.55;}
+  .card-bonus .valor{
+    margin-top:12px;font-size:.79rem;font-weight:700;color:var(--dorado-oscuro);
+    display:flex;align-items:center;gap:6px;
+  }
 
-  /* 8. Garantía */
+  /* ---------- Garantía ---------- */
   .garantia{
-    background:linear-gradient(135deg,#0D3B1E, #123f22);
-    color:var(--crema);text-align:center;
+    background:
+      radial-gradient(ellipse 60% 60% at 50% 0%, rgba(232,179,60,.20), transparent 62%),
+      linear-gradient(150deg,var(--azul-profundo),var(--azul-noche));
+    color:#EAF2FB;text-align:center;position:relative;overflow:hidden;
   }
-  .garantia img{width:150px;margin:0 auto 18px;}
-  .garantia h2{font-size:clamp(1.4rem,4vw,1.7rem);color:var(--dorado);margin-bottom:12px;}
-  .garantia p{max-width:520px;margin:0 auto;font-size:.98rem;line-height:1.6;color:#e2efe4;}
+  .garantia img{width:148px;margin:0 auto 20px;filter:drop-shadow(0 14px 30px rgba(232,179,60,.35));}
+  .garantia h2{font-size:clamp(1.5rem,4.5vw,2rem);margin-bottom:14px;}
+  .garantia p{max-width:540px;margin:0 auto;font-size:1rem;line-height:1.65;color:#C4D6EA;}
 
-  /* 9. Política de devolución */
-  .devolucion{background:var(--blanco);}
+  /* ---------- Devolución ---------- */
   .devolucion .caja{
-    background:var(--crema);border-radius:var(--radio-b);padding:22px 24px;
-    border-left:5px solid var(--celeste);
+    background:#fff;border-radius:var(--radio-a);padding:26px 26px;
+    border:1px solid rgba(27,79,156,.12);border-left:5px solid var(--celeste);
+    box-shadow:var(--sombra-suave);
   }
-  .devolucion h3{font-size:1.1rem;color:var(--verde-oscuro);margin-bottom:8px;}
-  .devolucion p{font-size:.9rem;line-height:1.6;color:#3d3d3d;margin:0;}
+  .devolucion h3{font-size:1.08rem;color:var(--azul-profundo);margin-bottom:10px;}
+  .devolucion p{font-size:.89rem;line-height:1.65;color:var(--gris-texto);margin:0;}
 
-  /* 10. FAQ (acordeón animado) */
-  .faq-item{border-bottom:1px solid #e2dcc9;}
+  /* ---------- FAQ ---------- */
+  .faq-lista{margin-top:30px;border-radius:var(--radio-a);overflow:hidden;border:1px solid rgba(27,79,156,.12);background:#fff;}
+  .faq-item + .faq-item{border-top:1px solid rgba(27,79,156,.1);}
   .faq-pregunta{
-    cursor:pointer;font-weight:700;font-size:.98rem;color:var(--verde-oscuro);
-    display:flex;justify-content:space-between;align-items:center;gap:14px;
-    width:100%;background:none;border:none;text-align:left;padding:16px 0;font-family:inherit;
+    cursor:pointer;font-weight:700;font-size:.96rem;color:var(--azul-profundo);
+    display:flex;justify-content:space-between;align-items:center;gap:16px;
+    width:100%;background:none;border:none;text-align:left;padding:19px 22px;font-family:inherit;
+    transition:background .2s ease;
   }
-  .faq-pregunta .mas{font-size:1.4rem;color:var(--verde-cancha);transition:transform .3s var(--ease);flex:none;}
+  .faq-pregunta:hover{background:rgba(27,79,156,.03);}
+  .faq-pregunta .mas{
+    font-size:1.3rem;color:var(--dorado-oscuro);transition:transform .3s var(--ease);flex:none;
+    width:26px;height:26px;display:grid;place-items:center;border-radius:8px;background:rgba(232,179,60,.14);
+    line-height:1;
+  }
   .faq-pregunta[aria-expanded="true"] .mas{transform:rotate(45deg);}
-  .faq-respuesta{
-    display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease);
-  }
+  .faq-respuesta{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease);}
   .faq-respuesta[data-abierta="true"]{grid-template-rows:1fr;}
   .faq-respuesta > div{overflow:hidden;}
-  .faq-respuesta p{margin:0 0 16px;font-size:.9rem;color:#4a4a4a;line-height:1.6;}
+  .faq-respuesta p{margin:0 22px 19px;font-size:.89rem;color:var(--gris-texto);line-height:1.65;}
 
-  /* 11. CTA final */
+  /* ---------- CTA final ---------- */
   .cta-final{
-    background:radial-gradient(circle at 80% 20%, #1E8E4A 0%, var(--verde-oscuro) 60%);
-    color:var(--crema);text-align:center;
+    background:
+      radial-gradient(ellipse 60% 50% at 20% 10%, rgba(27,79,156,.6), transparent 60%),
+      radial-gradient(ellipse 50% 50% at 85% 85%, rgba(232,179,60,.18), transparent 62%),
+      linear-gradient(160deg,var(--azul-profundo),var(--azul-noche));
+    color:#EAF2FB;text-align:center;position:relative;overflow:hidden;
   }
-  .cta-final h2{font-size:clamp(1.5rem,4.5vw,1.9rem);color:#fff;margin-bottom:10px;}
-  .cta-final p{font-size:1rem;color:#dcefe1;margin-bottom:26px;}
-  .cta-final .precio-final{font-family:'Anton',sans-serif;font-size:clamp(1.8rem,6vw,2.3rem);color:var(--dorado);margin-bottom:22px;}
+  .cta-final h2{font-size:clamp(1.6rem,5vw,2.4rem);color:#fff;margin-bottom:14px;text-wrap:balance;}
+  .cta-final p{font-size:1rem;color:#C4D6EA;margin-bottom:8px;max-width:520px;margin-left:auto;margin-right:auto;}
+  .cta-final .val-tachado{color:#8FB0D0;text-decoration:line-through;font-size:1rem;margin-top:22px;}
+  .cta-final .precio-final{font-family:'Anton',sans-serif;font-size:clamp(2.1rem,9vw,3rem);margin:4px 0 26px;}
 
-  /* 12. Footer */
-  footer{background:var(--verde-oscuro);color:#9fbfa8;text-align:center;padding:22px 0 90px;font-size:.8rem;}
+  /* ---------- Footer ---------- */
+  footer{background:var(--azul-noche);color:#7B93AF;text-align:center;padding:26px 0 96px;font-size:.79rem;}
 
-  /* CTA fija mobile */
+  /* ---------- CTA fija mobile ---------- */
   .cta-fija{
     position:fixed;left:0;right:0;bottom:0;z-index:55;
-    background:rgba(13,59,30,.92);backdrop-filter:blur(10px);
+    background:rgba(5,19,43,.93);backdrop-filter:blur(14px);
+    border-top:1px solid rgba(232,179,60,.3);
     padding:12px 16px calc(12px + env(safe-area-inset-bottom));
-    display:flex;align-items:center;justify-content:space-between;gap:12px;
-    transform:translateY(120%);transition:transform .4s var(--ease);
-    box-shadow:0 -8px 24px rgba(0,0,0,.25);
+    display:flex;align-items:center;justify-content:space-between;gap:14px;
+    transform:translateY(130%);transition:transform .4s var(--ease);
+    box-shadow:0 -10px 30px rgba(0,0,0,.35);
   }
   .cta-fija.visible{transform:translateY(0);}
-  .cta-fija .precio{color:var(--dorado);font-family:'Anton',sans-serif;font-size:1.15rem;}
-  .cta-fija .precio small{display:block;color:#cfe6d6;font-family:'Poppins',sans-serif;font-size:.65rem;font-weight:400;text-decoration:line-through;}
+  .cta-fija .precio{color:var(--dorado-claro);font-family:'Anton',sans-serif;font-size:1.2rem;line-height:1.1;}
+  .cta-fija .precio small{display:block;color:#93AFC9;font-family:'Poppins',sans-serif;font-size:.62rem;font-weight:400;text-decoration:line-through;}
 
-  /* Reveal on scroll */
+  /* ---------- Reveal ---------- */
   [data-reveal]{opacity:1;transform:none;}
-  .js-anim [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity var(--dur) var(--ease), transform var(--dur) var(--ease);}
+  .js-anim [data-reveal]{opacity:0;transform:translateY(30px);transition:opacity var(--dur) var(--ease), transform var(--dur) var(--ease);}
   .js-anim [data-reveal].visto{opacity:1;transform:none;}
-  .js-anim [data-reveal-stagger] > *{opacity:0;transform:translateY(20px) scale(.98);transition:opacity .55s var(--ease), transform .55s var(--ease);}
+  .js-anim [data-reveal-stagger] > *{opacity:0;transform:translateY(24px) scale(.97);transition:opacity .6s var(--ease), transform .6s var(--ease);}
   .js-anim [data-reveal-stagger].visto > *{opacity:1;transform:none;}
   .js-anim [data-reveal-stagger].visto > *:nth-child(1){transition-delay:.05s;}
-  .js-anim [data-reveal-stagger].visto > *:nth-child(2){transition-delay:.15s;}
-  .js-anim [data-reveal-stagger].visto > *:nth-child(3){transition-delay:.25s;}
-  .js-anim [data-reveal-stagger].visto > *:nth-child(4){transition-delay:.35s;}
+  .js-anim [data-reveal-stagger].visto > *:nth-child(2){transition-delay:.14s;}
+  .js-anim [data-reveal-stagger].visto > *:nth-child(3){transition-delay:.23s;}
+  .js-anim [data-reveal-stagger].visto > *:nth-child(4){transition-delay:.32s;}
+  .js-anim [data-reveal-stagger].visto > *:nth-child(5){transition-delay:.41s;}
 
   @media (prefers-reduced-motion: reduce){
     html{scroll-behavior:auto;}
     .js-anim [data-reveal], .js-anim [data-reveal-stagger] > *{opacity:1 !important;transform:none !important;transition:none !important;}
-    .blob, .hero-badge .dot, .scroll-cue .flecha, .hero-visual, .btn-cta.pulsante{animation:none !important;}
+    .hero .haz, .hero-badge .dot, .scroll-cue .flecha, .chip-flotante,
+    .btn-cta.pulsante, .marquee{animation:none !important;}
+    .marquee{width:100%;overflow-x:auto;}
   }
 
-  @media (min-width:700px){
-    .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:center;}
-    .hero-visual{justify-self:end;transform:rotate(2deg);}
-    @keyframes hero-flotar{0%,100%{transform:translateY(0) rotate(2deg);}50%{transform:translateY(-10px) rotate(3deg);}}
-    .grid-beneficios{grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;}
-    .card-beneficio.grande{grid-row:span 2;}
+  /* ---------- Responsive ---------- */
+  @media (min-width:640px){
+    .stats .wrap{grid-template-columns:repeat(4,1fr);}
+    .galeria{grid-template-columns:repeat(3,1fr);}
+    .galeria figure.ancha{grid-column:span 2;}
+  }
+  @media (min-width:820px){
+    .hero{padding:60px 0 70px;}
+    .hero .wrap{grid-template-columns:1.05fr .95fr;align-items:center;gap:44px;}
+    .hero-visual{justify-self:end;max-width:100%;}
+    .pasos{grid-template-columns:repeat(3,1fr);}
+    .grid-beneficios{grid-template-columns:1.25fr 1fr 1fr;grid-template-rows:auto auto;}
+    .card-beneficio.grande{grid-row:span 2;display:flex;flex-direction:column;justify-content:center;}
     .grid-testimonios{grid-template-columns:repeat(4,1fr);}
     .grid-bonus{grid-template-columns:repeat(3,1fr);}
     .cta-fija{display:none;}
-  }
-  @media (min-width:960px){
-    .hero h1{font-size:3.6rem;}
+    footer{padding-bottom:26px;}
   }
 </style>
 </head>
@@ -400,17 +552,15 @@
   <div class="barra-urgencia">⚡ Antes de que arranque el Mundial 2026 <span>· Acceso inmediato por mail</span></div>
 
   <main id="main">
+
     <!-- 2. HERO -->
-    <section class="hero">
-      <div class="hero-blobs" aria-hidden="true">
-        <span class="blob b1"></span>
-        <span class="blob b2"></span>
-        <span class="blob b3"></span>
-      </div>
+    <section class="hero grano">
+      <span class="haz h1" aria-hidden="true"></span>
+      <span class="haz h2" aria-hidden="true"></span>
       <div class="wrap">
         <div>
           <span class="hero-badge"><span class="dot"></span> MUNDIAL 2026 · KIT IMPRIMIBLE</span>
-          <h1>¿Tu hijo solo vive el Mundial pegado al celular?</h1>
+          <h1>¿Tu hijo solo vive el Mundial <span class="oro">pegado al celular?</span></h1>
           <p class="subhead">Armá con él a los cracks de la Selección: un kit para imprimir en casa y vivir este Mundial en familia, no cada uno con su pantalla.</p>
           <div class="prueba-rapida">⭐⭐⭐⭐⭐ <span class="num" data-contador data-hasta="4.9">0</span> · +<span class="num" data-contador data-hasta="2847">0</span> familias ya lo armaron</div>
           <div class="hero-cta-row">
@@ -423,7 +573,10 @@
           </div>
         </div>
         <div class="hero-visual">
-          <img src="images/hero-personaje.webp" alt="Personaje ilustrado de ArmaCrack, un crack armable del Mundial 2026" width="900" height="1250" fetchpriority="high" decoding="async">
+          <div class="marco">
+            <img src="images/hero-estadio.webp" alt="Chico armando el estadio de cartón con las figuritas de los cracks del Mundial" width="1000" height="750" fetchpriority="high" decoding="async">
+          </div>
+          <div class="chip-flotante">🏟️ Estadio + 32 figuritas incluidas</div>
         </div>
       </div>
       <div class="wrap">
@@ -432,8 +585,80 @@
       <div id="heroSentinel"></div>
     </section>
 
+    <!-- MARQUEE DE FIGURITAS -->
+    <section class="marquee-seccion" aria-label="Figuritas incluidas en el kit">
+      <span class="marquee-fade izq" aria-hidden="true"></span>
+      <span class="marquee-fade der" aria-hidden="true"></span>
+      <div class="marquee">
+        <div class="pista">
+          <img src="images/figurita-01.webp" loading="lazy" decoding="async" alt="Figurita armable de un crack del Mundial" width="640" height="640">
+          <img src="images/figurita-02.webp" loading="lazy" decoding="async" alt="Figurita armable de un crack del Mundial" width="640" height="640">
+          <img src="images/figurita-03.webp" loading="lazy" decoding="async" alt="Figurita armable de un crack del Mundial" width="640" height="640">
+          <img src="images/figurita-04.webp" loading="lazy" decoding="async" alt="Figurita armable de un crack del Mundial" width="640" height="640">
+          <img src="images/figurita-05.webp" loading="lazy" decoding="async" alt="Figurita armable de un crack del Mundial" width="640" height="640">
+          <img src="images/figurita-06.webp" loading="lazy" decoding="async" alt="Figurita armable de un crack del Mundial" width="640" height="640">
+          <img src="images/figurita-07.webp" loading="lazy" decoding="async" alt="Figurita armable de un crack del Mundial" width="640" height="640">
+          <img src="images/figurita-08.webp" loading="lazy" decoding="async" alt="Figurita armable de un crack del Mundial" width="640" height="640">
+          <img src="images/figurita-09.webp" loading="lazy" decoding="async" alt="Figurita armable de un crack del Mundial" width="640" height="640">
+          <img src="images/figurita-10.webp" loading="lazy" decoding="async" alt="Figurita armable de un crack del Mundial" width="640" height="640">
+          <img src="images/figurita-11.webp" loading="lazy" decoding="async" alt="Figurita armable de un crack del Mundial" width="640" height="640">
+          <img src="images/figurita-12.webp" loading="lazy" decoding="async" alt="Figurita armable de un crack del Mundial" width="640" height="640">
+        </div>
+        <div class="pista" aria-hidden="true">
+          <img src="images/figurita-01.webp" loading="lazy" decoding="async" alt="" width="640" height="640">
+          <img src="images/figurita-02.webp" loading="lazy" decoding="async" alt="" width="640" height="640">
+          <img src="images/figurita-03.webp" loading="lazy" decoding="async" alt="" width="640" height="640">
+          <img src="images/figurita-04.webp" loading="lazy" decoding="async" alt="" width="640" height="640">
+          <img src="images/figurita-05.webp" loading="lazy" decoding="async" alt="" width="640" height="640">
+          <img src="images/figurita-06.webp" loading="lazy" decoding="async" alt="" width="640" height="640">
+          <img src="images/figurita-07.webp" loading="lazy" decoding="async" alt="" width="640" height="640">
+          <img src="images/figurita-08.webp" loading="lazy" decoding="async" alt="" width="640" height="640">
+          <img src="images/figurita-09.webp" loading="lazy" decoding="async" alt="" width="640" height="640">
+          <img src="images/figurita-10.webp" loading="lazy" decoding="async" alt="" width="640" height="640">
+          <img src="images/figurita-11.webp" loading="lazy" decoding="async" alt="" width="640" height="640">
+          <img src="images/figurita-12.webp" loading="lazy" decoding="async" alt="" width="640" height="640">
+        </div>
+      </div>
+    </section>
+
+    <!-- BANDA DE STATS -->
+    <section class="stats grano">
+      <div class="wrap" data-reveal-stagger>
+        <div class="stat"><div class="valor"><span data-contador data-hasta="32">0</span></div><div class="etiqueta">Figuritas para<br>coleccionar</div></div>
+        <div class="stat"><div class="valor">1</div><div class="etiqueta">Estadio armable<br>a escala</div></div>
+        <div class="stat"><div class="valor"><span data-contador data-hasta="3">0</span></div><div class="etiqueta">Bonus incluidos<br>sin costo extra</div></div>
+        <div class="stat"><div class="valor">∞</div><div class="etiqueta">Imprimís las veces<br>que quieras</div></div>
+      </div>
+    </section>
+
+    <!-- CÓMO FUNCIONA -->
+    <section class="seccion claro">
+      <div class="wrap" data-reveal>
+        <span class="kicker">Cómo funciona</span>
+        <h2 class="titulo-seccion">Tres pasos y ya están armando</h2>
+        <p class="intro-seccion">Sin esperar envíos, sin herramientas raras y sin saber nada de manualidades.</p>
+        <div class="pasos" data-reveal-stagger>
+          <div class="paso">
+            <div class="num">1</div>
+            <h3>Lo recibís por mail</h3>
+            <p>Apenas se acredita el pago te llega el acceso a todos los archivos. Es tuyo para siempre.</p>
+          </div>
+          <div class="paso">
+            <div class="num">2</div>
+            <h3>Lo imprimís</h3>
+            <p>En tu impresora de casa o en la fotocopiadora del barrio, en hoja común o cartulina.</p>
+          </div>
+          <div class="paso">
+            <div class="num">3</div>
+            <h3>Lo arman juntos</h3>
+            <p>Tijera, pegamento y el paso a paso. En una tarde ya tienen los primeros cracks en la mesa.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
     <!-- 3. QUÉ RECIBÍS -->
-    <section class="seccion claro" id="oferta">
+    <section class="seccion crema" id="oferta">
       <div class="wrap" data-reveal>
         <span class="kicker">Qué recibís</span>
         <h2 class="titulo-seccion">Todo lo que se arma con tus manos</h2>
@@ -443,42 +668,43 @@
             <div class="item-valor">$34.900</div>
           </div>
           <div class="item-recibis bonus">
-            <div class="item-nombre">BONUS — Álbum Argentina Campeona 2026<small>Álbum imprimible para coleccionar y pegar figuritas</small></div>
+            <div class="item-nombre"><span class="tag">BONUS</span>Álbum Argentina Campeona 2026<small>Álbum imprimible para coleccionar y pegar figuritas</small></div>
             <div class="item-valor">$19.900</div>
           </div>
           <div class="item-recibis bonus">
-            <div class="item-nombre">BONUS — Pack Extra de 20 Figuritas Sorpresa<small>Más selecciones para sumar al álbum y a los picados</small></div>
+            <div class="item-nombre"><span class="tag">BONUS</span>Pack Extra de 20 Figuritas Sorpresa<small>Más selecciones para sumar al álbum y a los picados</small></div>
             <div class="item-valor">$17.900</div>
           </div>
           <div class="item-recibis bonus">
-            <div class="item-nombre">BONUS — Cuadernillo de Actividades Futboleras<small>Sopa de letras, laberintos y Certificado de Crack</small></div>
+            <div class="item-nombre"><span class="tag">BONUS</span>Cuadernillo de Actividades Futboleras<small>Sopa de letras, laberintos y Certificado de Crack</small></div>
             <div class="item-valor">$17.500</div>
           </div>
         </div>
-        <div class="total-box">
-          <div>
+        <div class="total-box grano">
+          <div style="position:relative;z-index:2;">
             <div class="val-tachado">Valor total: $90.200</div>
-            <div class="val-hoy">Hoy: $21.990</div>
+            <div class="val-hoy">Hoy $21.990</div>
+            <span class="ahorro">Ahorrás $68.210</span>
           </div>
-          <button type="button" class="btn-cta chico" data-checkout-btn>Lo Quiero Hoy</button>
+          <button type="button" class="btn-cta chico" data-checkout-btn style="position:relative;z-index:2;">Lo Quiero Hoy</button>
         </div>
       </div>
     </section>
 
-    <!-- 4. BENEFICIOS TRANSFORMACIONALES -->
-    <section class="seccion">
+    <!-- 4. BENEFICIOS -->
+    <section class="seccion claro">
       <div class="wrap">
         <span class="kicker">Por qué vale la pena</span>
         <h2 class="titulo-seccion">Lo que cambia en tu casa</h2>
         <div class="grid-beneficios" data-reveal-stagger>
           <div class="card-beneficio grande">
-            <span class="icono">📱➡️✂️</span>
+            <span class="icono">✂️</span>
             <h3>Menos pantalla, más manos a la obra</h3>
             <p>Un ratito armando a los cracks vale más que otra tarde entera pegado al celular. Lo notás vos, lo siente él.</p>
           </div>
           <div class="card-beneficio">
             <span class="icono">🗓️</span>
-            <h3>Un plan que dura semanas, no una tarde</h3>
+            <h3>Un plan que dura semanas</h3>
             <p>32 figuritas para coleccionar y un álbum para completar: entretenimiento para rato, no para un ratito.</p>
           </div>
           <div class="card-beneficio">
@@ -488,7 +714,7 @@
           </div>
           <div class="card-beneficio">
             <span class="icono">🏆</span>
-            <h3>Un recuerdo de este Mundial que se queda en casa</h3>
+            <h3>Un recuerdo que se queda en casa</h3>
             <p>Armado por él, con vos al lado. No otro juguete comprado y olvidado a la semana.</p>
           </div>
         </div>
@@ -496,54 +722,67 @@
     </section>
 
     <!-- 5. PRODUCTO EN ACCIÓN -->
-    <section class="seccion claro">
+    <section class="seccion crema">
       <div class="wrap">
         <span class="kicker">Producto en acción</span>
         <h2 class="titulo-seccion">Así se arma cada crack</h2>
-        <div class="carrusel">
-          <figure class="ancho"><img src="images/estadio-armado.webp" loading="lazy" decoding="async" alt="Estadio de cartón armado con figuritas jugando un picado" width="1200" height="900"><figcaption>El estadio armado, listo para el picado</figcaption></figure>
-          <figure><img src="images/figurita-01.webp" loading="lazy" decoding="async" alt="Figurita armable de crack con camiseta celeste" width="640" height="640"><figcaption>Cada crack, armado a mano</figcaption></figure>
-          <figure><img src="images/figurita-02.webp" loading="lazy" decoding="async" alt="Figurita armable de crack con camiseta amarilla" width="640" height="640"><figcaption>Elegí tu selección favorita</figcaption></figure>
-          <figure><img src="images/figurita-03.webp" loading="lazy" decoding="async" alt="Figurita armable de crack con camiseta roja" width="640" height="640"><figcaption>Piezas de papel, resultado premium</figcaption></figure>
-          <figure class="ancho"><img src="images/estadio-molde.webp" loading="lazy" decoding="async" alt="Molde de papel del estadio para armar, visto desde arriba" width="1200" height="900"><figcaption>El molde del estadio, listo para imprimir</figcaption></figure>
-          <figure><img src="images/figurita-05.webp" loading="lazy" decoding="async" alt="Figurita armable de otro crack del Mundial" width="640" height="640"><figcaption>Armá el plantel completo</figcaption></figure>
-          <figure><img src="images/figurita-07.webp" loading="lazy" decoding="async" alt="Figurita armable de otro crack del Mundial" width="640" height="640"><figcaption>Cada figurita, distinta y única</figcaption></figure>
+        <div class="galeria" data-reveal-stagger>
+          <figure class="ancha">
+            <img src="images/estadio-armado.webp" loading="lazy" decoding="async" alt="Estadio de cartón armado con las figuritas jugando un picado" width="1200" height="900">
+            <figcaption>El estadio armado, listo para el picado</figcaption>
+          </figure>
+          <figure class="retrato">
+            <img src="images/figurita-01.webp" loading="lazy" decoding="async" alt="Figurita armable de crack con camiseta celeste" width="640" height="640">
+            <figcaption>Cada crack, armado a mano</figcaption>
+          </figure>
+          <figure class="retrato">
+            <img src="images/figurita-03.webp" loading="lazy" decoding="async" alt="Figurita armable de crack con camiseta roja" width="640" height="640">
+            <figcaption>Elegí tu selección</figcaption>
+          </figure>
+          <figure class="retrato">
+            <img src="images/figurita-05.webp" loading="lazy" decoding="async" alt="Figurita armable de otro crack del Mundial" width="640" height="640">
+            <figcaption>Armá el plantel completo</figcaption>
+          </figure>
+          <figure class="ancha">
+            <img src="images/estadio-molde.webp" loading="lazy" decoding="async" alt="Molde de papel del estadio para imprimir y armar, visto desde arriba" width="1200" height="900">
+            <figcaption>El molde del estadio, listo para imprimir</figcaption>
+          </figure>
         </div>
       </div>
     </section>
 
     <!-- 6. TESTIMONIOS -->
-    <section class="seccion" id="testimonios">
+    <section class="seccion claro" id="testimonios">
       <div class="wrap">
         <span class="kicker">Lo que dicen las familias</span>
         <h2 class="titulo-seccion">Padres que ya lo armaron</h2>
         <div class="grid-testimonios" data-reveal-stagger>
           <div class="testimonio">
-            <img src="images/testimonio-carlos.webp" loading="lazy" decoding="async" alt="Testimonio de Carlos por WhatsApp agradeciendo el material" width="1123" height="1400">
+            <img src="images/testimonio-carlos.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Carlos agradeciendo el material y contando que armó los modelos con su hijo" width="1123" height="1400">
             <div class="testimonio-footer">
-              <div class="estrellas">★★★★★</div>
-              <strong>Carlos, papá</strong><span>Rosario, Santa Fe</span>
+              <div class="avatar">C</div>
+              <div><div class="estrellas">★★★★★</div><strong>Carlos, papá</strong><span>Rosario, Santa Fe</span></div>
             </div>
           </div>
           <div class="testimonio">
-            <img src="images/testimonio-camila.webp" loading="lazy" decoding="async" alt="Testimonio de Camila por WhatsApp mostrando las figuritas armadas con su hijo" width="1075" height="1400">
+            <img src="images/testimonio-camila.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Camila mostrando las cuatro figuritas que armó con su hijo" width="1075" height="1400">
             <div class="testimonio-footer">
-              <div class="estrellas">★★★★★</div>
-              <strong>Camila, mamá</strong><span>CABA</span>
+              <div class="avatar">C</div>
+              <div><div class="estrellas">★★★★★</div><strong>Camila, mamá</strong><span>CABA</span></div>
             </div>
           </div>
           <div class="testimonio">
-            <img src="images/testimonio-cliente.webp" loading="lazy" decoding="async" alt="Testimonio de una mamá contando que sus hijos pasaron horas lejos de la pantalla" width="1074" height="1400">
+            <img src="images/testimonio-cliente.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de una mamá contando que sus hijos pasaron mucho tiempo lejos de la pantalla" width="1074" height="1400">
             <div class="testimonio-footer">
-              <div class="estrellas">★★★★★</div>
-              <strong>Romina, mamá</strong><span>Córdoba Capital</span>
+              <div class="avatar">R</div>
+              <div><div class="estrellas">★★★★★</div><strong>Romina, mamá</strong><span>Córdoba Capital</span></div>
             </div>
           </div>
           <div class="testimonio">
-            <img src="images/testimonio-juliana.webp" loading="lazy" decoding="async" alt="Testimonio de Juliana por WhatsApp contando que armó las figuritas con su hijo" width="941" height="1400">
+            <img src="images/testimonio-juliana.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Juliana contando que armó las figuritas con su hijo y ya quiere hacer la cancha" width="941" height="1400">
             <div class="testimonio-footer">
-              <div class="estrellas">★★★★★</div>
-              <strong>Juliana, mamá de Leo</strong><span>Mendoza</span>
+              <div class="avatar">J</div>
+              <div><div class="estrellas">★★★★★</div><strong>Juliana, mamá de Leo</strong><span>Mendoza</span></div>
             </div>
           </div>
         </div>
@@ -551,33 +790,36 @@
     </section>
 
     <!-- 7. REFUERZO DEL PACK -->
-    <section class="seccion claro">
+    <section class="seccion crema">
       <div class="wrap">
         <span class="kicker">El pack completo</span>
-        <h2 class="titulo-seccion">Todos los bonus, en detalle</h2>
+        <h2 class="titulo-seccion">Los tres bonus, en detalle</h2>
         <div class="grid-bonus" data-reveal-stagger>
           <div class="card-bonus">
-            <img src="images/bonus-album.webp" loading="lazy" decoding="async" alt="Álbum Argentina Campeona 2026 imprimible con figuritas" width="1200" height="800">
+            <span class="cinta">INCLUIDO</span>
+            <img src="images/bonus-album.webp" loading="lazy" decoding="async" alt="Álbum imprimible para coleccionar las figuritas del Mundial" width="1200" height="800">
             <div class="cuerpo">
               <h3>Álbum Argentina Campeona 2026</h3>
               <p>Para coleccionar y pegar las figuritas de todas las selecciones. Objetivo claro: completarlo.</p>
-              <div class="valor">Valor $19.900 — incluido</div>
+              <div class="valor">✦ Valor $19.900 — incluido</div>
             </div>
           </div>
           <div class="card-bonus">
+            <span class="cinta">INCLUIDO</span>
             <img src="images/bonus-figuritas.webp" loading="lazy" decoding="async" alt="Pack extra de 20 figuritas sorpresa imprimibles" width="1200" height="800">
             <div class="cuerpo">
-              <h3>Pack Extra de 20 Figuritas Sorpresa</h3>
-              <p>Más selecciones para sumar al álbum y armar picados más grandes.</p>
-              <div class="valor">Valor $17.900 — incluido</div>
+              <h3>Pack Extra de 20 Figuritas</h3>
+              <p>Más selecciones para sumar al álbum y armar picados más grandes en el estadio.</p>
+              <div class="valor">✦ Valor $17.900 — incluido</div>
             </div>
           </div>
           <div class="card-bonus">
-            <img src="images/bonus-actividades.webp" loading="lazy" decoding="async" alt="Cuadernillo de actividades futboleras imprimible con juegos y certificado" width="1200" height="800">
+            <span class="cinta">INCLUIDO</span>
+            <img src="images/bonus-actividades.webp" loading="lazy" decoding="async" alt="Cuadernillo de actividades futboleras con juegos y certificado" width="1200" height="800">
             <div class="cuerpo">
-              <h3>Cuadernillo de Actividades Futboleras</h3>
-              <p>Sopa de letras, laberintos, encontrá las diferencias y Certificado de Crack.</p>
-              <div class="valor">Valor $17.500 — incluido</div>
+              <h3>Cuadernillo de Actividades</h3>
+              <p>Sopa de letras, laberintos, encontrá las diferencias y el Certificado de Crack.</p>
+              <div class="valor">✦ Valor $17.500 — incluido</div>
             </div>
           </div>
         </div>
@@ -585,10 +827,10 @@
     </section>
 
     <!-- 8. GARANTÍA -->
-    <section class="seccion garantia">
-      <div class="wrap" data-reveal>
+    <section class="seccion garantia grano">
+      <div class="wrap" data-reveal style="position:relative;z-index:2;">
         <img src="images/garantia-7dias.webp" loading="lazy" decoding="async" alt="Sello de garantía de 7 días" width="720" height="720">
-        <h2>Garantía de 7 días</h2>
+        <h2 class="oro">Garantía de 7 días</h2>
         <p>Si no te cierra, te lo cambiamos por otro producto de nuestra web. Sin vueltas, sin letra chica.</p>
       </div>
     </section>
@@ -604,11 +846,11 @@
     </section>
 
     <!-- 10. FAQ -->
-    <section class="seccion" id="faq">
+    <section class="seccion crema" id="faq">
       <div class="wrap" data-reveal>
         <span class="kicker">Preguntas frecuentes</span>
         <h2 class="titulo-seccion">Todo lo que querés saber</h2>
-        <div style="margin-top:24px;" id="faqLista">
+        <div class="faq-lista">
           <div class="faq-item">
             <button type="button" class="faq-pregunta" aria-expanded="false">¿Esto es solo un PDF que tengo que imprimir yo?<span class="mas">+</span></button>
             <div class="faq-respuesta" data-abierta="false"><div><p>Sí, y esa es la gracia: recibís todo listo para imprimir en tu casa o en la fotocopiadora de la esquina por unas monedas. Nada de esperar envíos.</p></div></div>
@@ -642,13 +884,14 @@
     </section>
 
     <!-- 11. CTA FINAL -->
-    <section class="seccion cta-final">
-      <div class="wrap" data-reveal>
-        <h2>Armá con él este Mundial, antes de que empiece</h2>
-        <p>Kit ArmaCrack + Álbum + Pack Extra de Figuritas + Cuadernillo — todo incluido.</p>
-        <div class="precio-final">$21.990</div>
+    <section class="seccion cta-final grano">
+      <div class="wrap" data-reveal style="position:relative;z-index:2;">
+        <h2>Armá con él este Mundial, <span class="oro">antes de que empiece</span></h2>
+        <p>Kit ArmaCrack + Álbum + Pack Extra de Figuritas + Cuadernillo. Todo incluido, acceso inmediato.</p>
+        <div class="val-tachado">$90.200</div>
+        <div class="precio-final oro">$21.990</div>
         <button type="button" class="btn-cta" data-checkout-btn>Quiero Armarlo Ya</button>
-        <div class="trust-badges" style="justify-content:center;margin-top:20px;">
+        <div class="trust-badges" style="justify-content:center;margin-top:24px;">
           <span class="trust-badge">🔒 Compra 100% segura · MercadoPago</span>
           <span class="trust-badge">🛡️ Garantía 7 días</span>
         </div>
@@ -663,19 +906,13 @@
 
   <!-- CTA fija (solo mobile) -->
   <div class="cta-fija" id="ctaFija">
-    <div class="precio"><small>Hoy</small>$21.990</div>
+    <div class="precio"><small>$90.200</small>$21.990</div>
     <button type="button" class="btn-cta chico" data-checkout-btn>Quiero Armarlo Ya</button>
   </div>
 
   <!-- ===================== PIXEL DE META (placeholder) =====================
-    Pegá tu Pixel ID acá abajo reemplazando "TU_PIXEL_ID". Mientras tanto queda comentado.
-
-    <script>
-    !function(f,b,e,v,n,t,s){...fbq init estándar de Meta...}
-    fbq('init', 'TU_PIXEL_ID');
-    fbq('track', 'PageView');
-    </script>
-    Y en cada botón de compra (data-checkout-btn) se dispara fbq('track','Lead') o 'InitiateCheckout'.
+    Pegá tu Pixel ID reemplazando "TU_PIXEL_ID". Mientras tanto queda comentado.
+    Al conectarlo, disparar fbq('track','InitiateCheckout') en los data-checkout-btn.
   ===================================================================== -->
 
   <script>
@@ -683,15 +920,19 @@
 
     // Barra de progreso de scroll
     var progressBar = document.getElementById('progressBar');
+    var ticking = false;
     function actualizarProgreso(){
       var alto = document.documentElement.scrollHeight - window.innerHeight;
       var pct = alto > 0 ? (window.scrollY / alto) * 100 : 0;
       progressBar.style.width = pct + '%';
+      ticking = false;
     }
-    window.addEventListener('scroll', actualizarProgreso, { passive: true });
+    window.addEventListener('scroll', function(){
+      if(!ticking){ requestAnimationFrame(actualizarProgreso); ticking = true; }
+    }, { passive: true });
     actualizarProgreso();
 
-    // Reveal on scroll (respeta prefers-reduced-motion vía CSS)
+    // Reveal on scroll
     document.documentElement.classList.add('js-anim');
     var objetivos = document.querySelectorAll('[data-reveal], [data-reveal-stagger]');
     if('IntersectionObserver' in window){
@@ -702,32 +943,32 @@
             obs.unobserve(entry.target);
           }
         });
-      }, {threshold:.15});
+      }, {threshold:.12});
       objetivos.forEach(function(el){ obs.observe(el); });
     } else {
       objetivos.forEach(function(el){ el.classList.add('visto'); });
     }
 
-    // Contador animado de prueba social
+    // Contadores animados
     document.querySelectorAll('[data-contador]').forEach(function(el){
       var meta = parseFloat(el.getAttribute('data-hasta'));
       var esDecimal = meta % 1 !== 0;
-      if(reduceMotion){
-        el.textContent = esDecimal ? meta.toFixed(1) : meta.toLocaleString('es-AR');
-        return;
+      function pintar(v){
+        el.textContent = esDecimal ? v.toFixed(1).replace('.', ',') : Math.floor(v).toLocaleString('es-AR');
       }
+      if(reduceMotion){ pintar(meta); return; }
       var contado = false;
       var obsNum = new IntersectionObserver(function(entries){
         entries.forEach(function(entry){
           if(entry.isIntersecting && !contado){
             contado = true;
-            var inicio = null, duracion = 1400;
+            var inicio = null, duracion = 1500;
             function paso(ts){
               if(!inicio) inicio = ts;
               var prog = Math.min((ts - inicio) / duracion, 1);
-              var actual = meta * prog;
-              el.textContent = esDecimal ? actual.toFixed(1) : Math.floor(actual).toLocaleString('es-AR');
-              if(prog < 1) requestAnimationFrame(paso);
+              var eased = 1 - Math.pow(1 - prog, 3);
+              pintar(meta * eased);
+              if(prog < 1) requestAnimationFrame(paso); else pintar(meta);
             }
             requestAnimationFrame(paso);
             obsNum.unobserve(el);
@@ -737,7 +978,7 @@
       obsNum.observe(el);
     });
 
-    // CTA fija en mobile: aparece después del hero
+    // CTA fija en mobile
     var ctaFija = document.getElementById('ctaFija');
     var heroSentinel = document.getElementById('heroSentinel');
     if(ctaFija && heroSentinel && 'IntersectionObserver' in window){
@@ -749,7 +990,7 @@
       obsCta.observe(heroSentinel);
     }
 
-    // FAQ acordeón animado
+    // FAQ acordeón
     document.querySelectorAll('.faq-pregunta').forEach(function(btn){
       btn.addEventListener('click', function(){
         var respuesta = btn.nextElementSibling;
@@ -759,12 +1000,11 @@
       });
     });
 
-    // Botones de checkout: todavía no hay link conectado.
-    // TODO: cuando tengas el link/variant de MercadoPago o Shopify, reemplazá esta función
-    // para que redirija (window.location.href = 'TU_LINK_DE_CHECKOUT').
+    // Botones de checkout: todavía no conectados.
+    // TODO: reemplazar por window.location.href = 'TU_LINK_DE_CHECKOUT';
     document.querySelectorAll('[data-checkout-btn]').forEach(function(btn){
       btn.addEventListener('click', function(){
-        console.info('Checkout todavía no conectado. Pegá el link de pago en el botón data-checkout-btn.');
+        console.info('Checkout todavía no conectado. Pegá el link de pago en los botones data-checkout-btn.');
       });
     });
   </script>
