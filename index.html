@@ -368,8 +368,19 @@
     color:var(--azul-royal);font-weight:800;font-size:.85rem;
   }
   .incluye-item .valor-tag{
-    margin-top:16px;padding-top:14px;border-top:1px dashed rgba(27,79,156,.18);
-    font-size:.82rem;font-weight:800;color:var(--dorado-oscuro);
+    margin-top:auto;padding-top:16px;border-top:1px dashed rgba(27,79,156,.18);
+    display:flex;align-items:center;gap:10px;flex-wrap:wrap;
+  }
+  .incluye-item .precio-viejo{
+    font-size:.85rem;font-weight:700;color:#C0474A;text-decoration:line-through;
+  }
+  .incluye-item .gratis{
+    background:linear-gradient(135deg,var(--dorado-claro),var(--dorado));
+    color:var(--azul-noche);font-size:.72rem;font-weight:800;letter-spacing:.06em;
+    padding:6px 13px;border-radius:100px;
+  }
+  .incluye-item .valor-principal{
+    font-size:.82rem;font-weight:800;color:var(--azul-royal);
   }
 
   /* ---------- Secciones ---------- */
@@ -402,24 +413,6 @@
   }
   .paso h3{font-size:1.12rem;color:var(--azul-profundo);margin-bottom:8px;}
   .paso p{margin:0;font-size:.92rem;color:var(--gris-texto);line-height:1.6;}
-
-  /* ---------- Qué recibís ---------- */
-  .items-recibis{display:flex;flex-direction:column;gap:13px;margin-top:34px;}
-  .item-recibis{
-    display:flex;justify-content:space-between;align-items:center;gap:14px;
-    background:#fff;border-radius:var(--radio-b);padding:17px 20px;
-    border:1px solid rgba(27,79,156,.1);border-left:5px solid var(--azul-royal);
-    transition:transform .25s var(--ease), box-shadow .25s var(--ease);
-  }
-  .item-recibis:hover{transform:translateX(5px);box-shadow:var(--sombra-suave);}
-  .item-recibis.bonus{border-left-color:var(--dorado);}
-  .item-nombre{font-weight:700;font-size:.97rem;color:var(--texto);}
-  .item-nombre .tag{
-    display:inline-block;background:rgba(232,179,60,.2);color:var(--dorado-oscuro);
-    font-size:.63rem;font-weight:800;letter-spacing:.09em;padding:3px 8px;border-radius:6px;margin-right:7px;
-  }
-  .item-nombre small{display:block;font-weight:400;color:var(--gris-texto);font-size:.81rem;margin-top:3px;}
-  .item-valor{white-space:nowrap;font-weight:700;color:#A6AEBE;text-decoration:line-through;font-size:.9rem;}
 
   .total-box{
     margin-top:26px;border-radius:var(--radio-a);padding:30px 26px;
@@ -799,60 +792,59 @@
               <img src="images/estadio-armado.webp" loading="lazy" decoding="async" alt="Estadio de cartón armado con las figuritas sobre el campo de juego" width="1200" height="900">
             </div>
             <div class="cuerpo">
-              <h3>Kit PaperStars</h3>
+              <h3>🏟️ Estadio de Fútbol</h3>
               <ul class="detalle">
-                <li>Moldes de 12 figuritas armables de los cracks</li>
-                <li>Estadio de cartón con sus 4 tribunas</li>
-                <li>Arcos y banderines de córner</li>
+                <li>Listo para imprimir y armar</li>
+                <li>Sus 4 tribunas, arcos y banderines de córner</li>
+                <li>12 figuritas armables de los cracks</li>
                 <li>Instrucciones paso a paso</li>
               </ul>
-              <div class="valor-tag">Valor $34.900</div>
+              <div class="valor-tag"><span class="valor-principal">Valor $34.900</span></div>
             </div>
           </div>
           <div class="incluye-item">
             <div class="visual">
-              <span class="etiqueta-num">BONUS 1</span>
+              <span class="etiqueta-num">BONO 01</span>
               <img src="images/bonus-album.webp" loading="lazy" decoding="async" alt="Álbum imprimible con las páginas para pegar las figuritas por selección" width="1200" height="800">
             </div>
             <div class="cuerpo">
-              <h3>Álbum Mundialista de Figuritas</h3>
+              <h3>🏆 Álbum del Mundial</h3>
               <ul class="detalle">
+                <li>Coleccioná a las estrellas en un álbum para imprimir en casa</li>
                 <li>Páginas organizadas por selección</li>
                 <li>Espacios numerados para pegar cada figurita</li>
-                <li>Un objetivo claro: completarlo</li>
               </ul>
-              <div class="valor-tag">Valor $19.900 — incluido</div>
+              <div class="valor-tag"><span class="precio-viejo">$19.900</span><span class="gratis">GRATIS HOY</span></div>
             </div>
           </div>
           <div class="incluye-item">
             <div class="visual">
-              <span class="etiqueta-num">BONUS 2</span>
-              <img src="images/bonus-figuritas.webp" loading="lazy" decoding="async" alt="Pack extra de figuritas imprimibles de distintas selecciones" width="1200" height="800">
+              <span class="etiqueta-num">BONO 02</span>
+              <img src="images/bonus-figuritas.webp" loading="lazy" decoding="async" alt="Pack de figuritas coleccionables imprimibles de las principales selecciones" width="1200" height="800">
             </div>
             <div class="cuerpo">
-              <h3>Pack Extra de 20 Figuritas</h3>
+              <h3>⚽ Figuritas Coleccionables Exclusivas</h3>
               <ul class="detalle">
-                <li>20 figuritas más para sumar a la colección</li>
-                <li>Estrellas de más selecciones</li>
-                <li>Para armar picados más grandes</li>
+                <li>20 figuritas de las mayores estrellas y selecciones</li>
+                <li>Para intercambiar y completar el álbum</li>
+                <li>Suman más jugadores a los picados</li>
               </ul>
-              <div class="valor-tag">Valor $17.900 — incluido</div>
+              <div class="valor-tag"><span class="precio-viejo">$17.900</span><span class="gratis">GRATIS HOY</span></div>
             </div>
           </div>
           <div class="incluye-item">
             <div class="visual">
-              <span class="etiqueta-num">BONUS 3</span>
-              <img src="images/bonus-actividades.webp" loading="lazy" decoding="async" alt="Cuadernillo de actividades con sopa de letras, crucigrama, laberinto y certificado" width="1200" height="800">
+              <span class="etiqueta-num">BONO 03</span>
+              <img src="images/bonus-actividades.webp" loading="lazy" decoding="async" alt="Cuadernillo de actividades del Mundial con sopa de letras, crucigrama, laberinto y certificado" width="1200" height="800">
             </div>
             <div class="cuerpo">
-              <h3>Cuadernillo de Actividades</h3>
+              <h3>📚 Actividades del Mundial</h3>
               <ul class="detalle">
-                <li>Sopa de letras y crucigrama futbolero</li>
+                <li>Sopas de letras, crucigramas y ejercicios futboleros</li>
                 <li>Laberintos y "encontrá las 7 diferencias"</li>
-                <li>Páginas para colorear y crear</li>
-                <li>Certificado de Crack para completar y colgar</li>
+                <li>Páginas para colorear y Certificado de Crack</li>
               </ul>
-              <div class="valor-tag">Valor $17.500 — incluido</div>
+              <div class="valor-tag"><span class="precio-viejo">$17.500</span><span class="gratis">GRATIS HOY</span></div>
             </div>
           </div>
         </div>
@@ -991,7 +983,7 @@
     <section class="seccion cta-final grano">
       <div class="wrap" data-reveal style="position:relative;z-index:2;">
         <h2>Dale algo mejor <span class="oro">que otra pantalla</span></h2>
-        <p>Kit PaperStars + Álbum + Pack Extra de Figuritas + Cuadernillo. Todo incluido, acceso inmediato.</p>
+        <p>Estadio de Fútbol + Álbum del Mundial + Figuritas Coleccionables + Actividades. Todo incluido, acceso inmediato.</p>
         <div class="val-tachado">$90.200</div>
         <div class="precio-final oro">$21.990</div>
         <div class="cta-wrap">
