@@ -135,12 +135,6 @@
   }
   .skip-link:focus{top:12px;}
 
-  .progress-bar{
-    position:fixed;top:0;left:0;height:3px;width:0%;
-    background:linear-gradient(90deg,var(--dorado-claro),var(--dorado),var(--celeste));
-    z-index:60;transition:width .1s linear;
-  }
-
   /* ---------- Botón CTA (shine continuo, sin borde 3D) ---------- */
   .btn-cta{
     display:inline-flex;align-items:center;justify-content:center;gap:10px;
@@ -550,22 +544,7 @@
   .cta-final .cta-wrap{display:flex;justify-content:center;}
 
   /* ---------- Footer ---------- */
-  footer{background:var(--azul-noche);color:#7B93AF;text-align:center;padding:26px 0 100px;font-size:.8rem;}
-
-  /* ---------- CTA fija mobile ---------- */
-  .cta-fija{
-    position:fixed;left:0;right:0;bottom:0;z-index:55;
-    background:rgba(5,19,43,.94);backdrop-filter:blur(14px);
-    border-top:1px solid rgba(232,179,60,.3);
-    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
-    display:flex;align-items:center;gap:14px;
-    transform:translateY(130%);transition:transform .4s var(--ease);
-    box-shadow:0 -10px 30px rgba(0,0,0,.35);
-  }
-  .cta-fija.visible{transform:translateY(0);}
-  .cta-fija .precio{color:var(--dorado-claro);font-family:'Outfit',sans-serif;font-weight:700;font-size:1.18rem;line-height:1.15;flex:none;}
-  .cta-fija .precio small{display:block;color:#93AFC9;font-family:'Inter',sans-serif;font-size:.64rem;font-weight:400;text-decoration:line-through;}
-  .cta-fija .btn-cta{flex:1;max-width:none;}
+  footer{background:var(--azul-noche);color:#7B93AF;text-align:center;padding:26px 0;font-size:.8rem;}
 
   /* ---------- Reveal ---------- */
   [data-reveal]{opacity:1;transform:none;}
@@ -615,15 +594,12 @@
     .grid-porque{grid-template-columns:repeat(3,1fr);}
     .incluye-grid{grid-template-columns:repeat(3,1fr);}
 
-    .cta-fija{display:none;}
-    footer{padding-bottom:26px;}
   }
 </style>
 </head>
 <body>
 
   <a class="skip-link" href="#main">Saltar al contenido</a>
-  <div class="progress-bar" id="progressBar"></div>
 
   <!-- 1. BARRA DE URGENCIA -->
   <div class="barra-urgencia">
@@ -684,7 +660,6 @@
       <div class="wrap">
         <div class="scroll-cue" aria-hidden="true"><span>Mirá cómo funciona</span><span class="flecha"></span></div>
       </div>
-      <div id="heroSentinel"></div>
     </section>
 
     <!-- MARQUEE DE FIGURITAS -->
@@ -1082,12 +1057,6 @@
     <div class="wrap">© 2026 PaperStars. Todos los derechos reservados.</div>
   </footer>
 
-  <!-- CTA fija (solo mobile) -->
-  <div class="cta-fija" id="ctaFija">
-    <div class="precio"><small>$63.290</small>$21.990</div>
-    <button type="button" class="btn-cta" data-checkout-btn>Quiero Armarlo Ya</button>
-  </div>
-
   <!-- ===================== PIXEL DE META (placeholder) =====================
     Pegá tu Pixel ID reemplazando "TU_PIXEL_ID". Mientras tanto queda comentado.
     Al conectarlo, disparar fbq('track','InitiateCheckout') en los data-checkout-btn.
@@ -1095,20 +1064,6 @@
 
   <script>
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    // Barra de progreso de scroll
-    var progressBar = document.getElementById('progressBar');
-    var ticking = false;
-    function actualizarProgreso(){
-      var alto = document.documentElement.scrollHeight - window.innerHeight;
-      var pct = alto > 0 ? (window.scrollY / alto) * 100 : 0;
-      progressBar.style.width = pct + '%';
-      ticking = false;
-    }
-    window.addEventListener('scroll', function(){
-      if(!ticking){ requestAnimationFrame(actualizarProgreso); ticking = true; }
-    }, { passive: true });
-    actualizarProgreso();
 
     // Reveal on scroll
     document.documentElement.classList.add('js-anim');
@@ -1155,18 +1110,6 @@
       }, { threshold: .6 });
       obsNum.observe(el);
     });
-
-    // CTA fija en mobile
-    var ctaFija = document.getElementById('ctaFija');
-    var heroSentinel = document.getElementById('heroSentinel');
-    if(ctaFija && heroSentinel && 'IntersectionObserver' in window){
-      var obsCta = new IntersectionObserver(function(entries){
-        entries.forEach(function(entry){
-          ctaFija.classList.toggle('visible', !entry.isIntersecting && entry.boundingClientRect.top < 0);
-        });
-      }, { threshold: 0 });
-      obsCta.observe(heroSentinel);
-    }
 
     // FAQ acordeón
     document.querySelectorAll('.faq-pregunta').forEach(function(btn){
