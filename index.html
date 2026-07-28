@@ -411,23 +411,6 @@
   .paso h3{font-size:1.12rem;color:var(--azul-profundo);margin-bottom:8px;}
   .paso p{margin:0;font-size:.92rem;color:var(--gris-texto);line-height:1.6;}
 
-  .total-box{
-    margin-top:26px;border-radius:var(--radio-a);padding:30px 26px;
-    background:
-      radial-gradient(ellipse 60% 80% at 85% 10%, rgba(232,179,60,.22), transparent 65%),
-      linear-gradient(135deg,var(--azul-profundo),var(--azul-noche));
-    color:#EAF2FB;text-align:center;
-    display:flex;flex-direction:column;align-items:center;gap:20px;
-    position:relative;overflow:hidden;border:1px solid rgba(232,179,60,.28);
-  }
-  .total-box .val-tachado{text-decoration:line-through;color:#8FB0D0;font-size:.98rem;}
-  .total-box .val-hoy{font-family:'Outfit',sans-serif;font-weight:700;font-size:clamp(2rem,8vw,2.5rem);color:var(--dorado-claro);line-height:1.1;margin-top:6px;}
-  .total-box .ahorro{
-    display:inline-block;background:var(--dorado);color:var(--azul-noche);
-    font-size:.72rem;font-weight:800;padding:5px 12px;border-radius:100px;margin-top:10px;letter-spacing:.03em;
-  }
-
-
   /* ---------- Galería ---------- */
   .galeria{display:grid;grid-template-columns:repeat(2,1fr);gap:14px;margin-top:38px;}
   .galeria figure{
@@ -445,6 +428,61 @@
     color:#fff;font-size:.79rem;font-weight:700;
   }
   .galeria figure.retrato figcaption{background:linear-gradient(transparent,rgba(5,19,43,.75));}
+
+  /* ---------- Card de compra ---------- */
+  .card-compra{
+    max-width:560px;margin:0 auto;position:relative;overflow:hidden;
+    background:
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(232,179,60,.16), transparent 62%),
+      linear-gradient(165deg,var(--azul-profundo),var(--azul-noche));
+    border:1px solid rgba(232,179,60,.4);border-radius:28px;
+    padding:38px 26px 32px;text-align:center;color:#EAF2FB;
+    box-shadow:0 30px 70px rgba(5,19,43,.4);
+  }
+  .card-compra::after{
+    content:'';position:absolute;top:0;left:12%;right:12%;height:3px;border-radius:0 0 4px 4px;
+    background:linear-gradient(90deg,transparent,var(--dorado),transparent);
+  }
+  .card-compra h2{font-size:clamp(1.5rem,5vw,2rem);color:#fff;margin-bottom:6px;}
+  .card-compra .separador{
+    width:60px;height:2px;background:rgba(232,179,60,.5);border-radius:2px;margin:20px auto 18px;
+  }
+  .card-compra .de{
+    font-size:.82rem;font-weight:700;letter-spacing:.1em;color:#9FB8D2;text-transform:uppercase;
+  }
+  .card-compra .de s{color:#C0474A;margin:0 4px;}
+  .card-compra .precio-grande{
+    font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:-.03em;
+    font-size:clamp(2.6rem,11vw,3.5rem);line-height:1.05;margin-top:4px;
+    background:linear-gradient(135deg,#F9DE8A,#E8B33C);
+    -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .lista-check{
+    list-style:none;margin:26px 0 0;padding:0;
+    display:flex;flex-direction:column;gap:11px;text-align:left;
+  }
+  .lista-check li{
+    display:flex;align-items:flex-start;gap:11px;
+    font-size:.93rem;line-height:1.45;color:#DCE9F6;
+  }
+  .lista-check li::before{
+    content:'✓';flex:none;width:22px;height:22px;border-radius:7px;margin-top:1px;
+    display:grid;place-items:center;font-size:.75rem;font-weight:800;
+    background:rgba(232,179,60,.18);color:var(--dorado-claro);
+  }
+  .caja-bonos{
+    margin-top:26px;border:1px solid rgba(232,179,60,.35);border-radius:18px;
+    background:rgba(232,179,60,.06);padding:20px 20px 18px;
+  }
+  .caja-bonos .titulo-bonos{
+    font-family:'Outfit',sans-serif;font-weight:700;font-size:.95rem;
+    color:var(--dorado-claro);letter-spacing:.04em;margin-bottom:14px;
+  }
+  .caja-bonos ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;text-align:left;}
+  .caja-bonos li{display:flex;align-items:center;gap:10px;font-size:.9rem;color:#E4EEF8;}
+  .caja-bonos li span.regalo{flex:none;font-size:.95rem;}
+  .card-compra .btn-cta{margin-top:26px;}
+  .card-compra .trust-badges{justify-content:center;margin-top:20px;}
 
   /* ---------- Garantía ---------- */
   .garantia{
@@ -548,8 +586,6 @@
     .chat-card{flex-basis:290px;}
     .galeria{grid-template-columns:repeat(3,1fr);}
     .galeria figure.ancha{grid-column:span 2;}
-    .total-box{flex-direction:row;justify-content:space-between;text-align:left;}
-    .total-box .btn-cta{width:auto;}
   }
   @media (min-width:900px){
     .hero{padding:64px 0 72px;}
@@ -846,13 +882,46 @@
           </div>
         </div>
 
-        <div class="total-box grano" data-reveal>
+      </div>
+    </section>
+
+    <!-- CARD DE COMPRA -->
+    <section class="seccion claro" id="comprar">
+      <div class="wrap">
+        <div class="card-compra grano" data-reveal>
           <div style="position:relative;z-index:2;">
-            <div class="val-tachado">Valor total: $63.290</div>
-            <div class="val-hoy">Hoy $21.990</div>
-            <span class="ahorro">Ahorrás $41.300</span>
+            <h2>Kit Completo <span class="oro">PaperStars</span></h2>
+            <div class="separador"></div>
+            <div class="de">De <s>$63.290</s> por solo</div>
+            <div class="precio-grande">$21.990</div>
+
+            <ul class="lista-check">
+              <li>Todas las selecciones disponibles</li>
+              <li>12 figuritas armables de los cracks, listas para imprimir</li>
+              <li>Guía simple de armado, paso a paso</li>
+              <li>Pensado para armar en familia, sin pantallas</li>
+              <li>Impresiones ilimitadas, para siempre</li>
+              <li>Acceso inmediato por mail</li>
+            </ul>
+
+            <div class="caja-bonos">
+              <div class="titulo-bonos">🎁 + 4 BONOS EXCLUSIVOS</div>
+              <ul>
+                <li><span class="regalo">🎁</span> Estadio de Fútbol armable</li>
+                <li><span class="regalo">🎁</span> Álbum del Mundial</li>
+                <li><span class="regalo">🎁</span> Figuritas Coleccionables Exclusivas</li>
+                <li><span class="regalo">🎁</span> Actividades del Mundial</li>
+              </ul>
+            </div>
+
+            <button type="button" class="btn-cta" data-checkout-btn>Quiero el Kit Completo →</button>
+
+            <div class="trust-badges">
+              <span class="trust-badge">🔒 Compra segura</span>
+              <span class="trust-badge">🛡️ Garantía 7 días</span>
+              <span class="trust-badge">⚡ Acceso inmediato</span>
+            </div>
           </div>
-          <button type="button" class="btn-cta" data-checkout-btn style="position:relative;z-index:2;">Lo Quiero Hoy</button>
         </div>
       </div>
     </section>
