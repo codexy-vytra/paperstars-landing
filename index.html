@@ -166,14 +166,19 @@
   .btn-cta:focus-visible{outline:3px solid var(--celeste);outline-offset:3px;}
   .btn-cta.chico{padding:15px 26px;font-size:1.08rem;width:auto;max-width:none;}
 
-  /* ---------- 1. Barra de urgencia ---------- */
+  /* ---------- 1. Barra de urgencia (marquee de beneficios) ---------- */
   .barra-urgencia{
     background:linear-gradient(90deg,var(--azul-noche),var(--azul-royal),var(--azul-noche));
     color:var(--dorado-claro);
-    text-align:center;font-weight:700;font-size:.79rem;
-    padding:10px 14px;position:sticky;top:0;z-index:50;
+    font-weight:700;font-size:.79rem;
+    padding:10px 0;position:sticky;top:0;z-index:50;overflow:hidden;
   }
-  .barra-urgencia span{color:#D6E6F7;font-weight:400;}
+  .barra-marquee{display:flex;width:max-content;animation:barra-desfilar 30s linear infinite;}
+  .barra-marquee:hover{animation-play-state:paused;}
+  .barra-pista{display:flex;align-items:center;gap:22px;padding-right:22px;white-space:nowrap;}
+  .barra-pista .frase{display:inline-flex;align-items:center;gap:7px;}
+  .barra-pista .sep{color:var(--celeste);opacity:.45;font-size:.6rem;}
+  @keyframes barra-desfilar{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
   /* ---------- 2. Hero ---------- */
   .hero{
@@ -529,6 +534,8 @@
     .btn-cta::after, .marquee, .hero-visual{animation:none !important;}
     .btn-cta::after{display:none;}
     .marquee{width:100%;overflow-x:auto;transform:none !important;}
+    .barra-marquee{animation:none !important;transform:none !important;width:100%;overflow-x:auto;}
+    .barra-pista{justify-content:center;flex-wrap:wrap;}
   }
 
   /* ---------- Responsive ---------- */
@@ -568,7 +575,28 @@
   <div class="progress-bar" id="progressBar"></div>
 
   <!-- 1. BARRA DE URGENCIA -->
-  <div class="barra-urgencia">⚡ Lo imprimís hoy y hoy mismo lo arman <span>· Acceso inmediato por mail</span></div>
+  <div class="barra-urgencia">
+    <div class="barra-marquee">
+      <div class="barra-pista">
+        <span class="frase">⚡ Acceso inmediato</span><span class="sep">◆</span>
+        <span class="frase">💳 Pago único</span><span class="sep">◆</span>
+        <span class="frase">🔥 Oferta especial</span><span class="sep">◆</span>
+        <span class="frase">🔒 Pago seguro</span><span class="sep">◆</span>
+        <span class="frase">🛒 Mercado Pago</span><span class="sep">◆</span>
+        <span class="frase">🛡️ Garantía de 7 días</span><span class="sep">◆</span>
+        <span class="frase">🖨️ Lo imprimís en casa</span><span class="sep">◆</span>
+      </div>
+      <div class="barra-pista" aria-hidden="true">
+        <span class="frase">⚡ Acceso inmediato</span><span class="sep">◆</span>
+        <span class="frase">💳 Pago único</span><span class="sep">◆</span>
+        <span class="frase">🔥 Oferta especial</span><span class="sep">◆</span>
+        <span class="frase">🔒 Pago seguro</span><span class="sep">◆</span>
+        <span class="frase">🛒 Mercado Pago</span><span class="sep">◆</span>
+        <span class="frase">🛡️ Garantía de 7 días</span><span class="sep">◆</span>
+        <span class="frase">🖨️ Lo imprimís en casa</span><span class="sep">◆</span>
+      </div>
+    </div>
+  </div>
 
   <main id="main">
 
