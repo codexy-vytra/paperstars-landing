@@ -429,7 +429,7 @@
     background:
       radial-gradient(ellipse 70% 50% at 50% 0%, rgba(232,179,60,.16), transparent 62%),
       linear-gradient(165deg,var(--azul-profundo),var(--azul-noche));
-    border:1px solid rgba(232,179,60,.4);border-radius:0;
+    border:1px solid rgba(232,179,60,.4);border-radius:14px;
     padding:38px 26px 32px;text-align:center;color:#EAF2FB;
     box-shadow:0 30px 70px rgba(5,19,43,.4);
   }
@@ -437,21 +437,35 @@
   .card-compra .separador{
     width:60px;height:2px;background:rgba(232,179,60,.5);border-radius:2px;margin:20px auto 22px;
   }
-  /* comparativa de precio, debajo del listado */
-  .comparativa{margin-top:26px;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;}
-  .comparativa .fila{
-    display:flex;justify-content:space-between;align-items:baseline;gap:14px;
-    font-size:.92rem;color:#B9CFE6;text-align:left;
+  /* bloque de precio, debajo del listado y los bonos */
+  .precio-box{
+    margin-top:26px;border:1px solid rgba(232,179,60,.3);border-radius:12px;
+    background:linear-gradient(180deg, rgba(232,179,60,.09), rgba(232,179,60,.02));
+    padding:18px 20px 22px;
   }
-  .comparativa .fila + .fila{margin-top:12px;}
-  .comparativa .fila s{color:#C0474A;font-weight:700;font-size:1.02rem;white-space:nowrap;}
-  .comparativa .fila.hoy{align-items:center;}
-  .comparativa .fila.hoy span{color:#fff;font-weight:700;font-size:1rem;}
-  .comparativa .precio-grande{
-    font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:-.03em;
-    font-size:clamp(2.1rem,9vw,2.9rem);line-height:1;white-space:nowrap;
-    background:linear-gradient(135deg,#F9DE8A,#E8B33C);
+  .precio-box .fila-total{
+    display:flex;justify-content:space-between;align-items:center;gap:14px;text-align:left;
+    font-size:.85rem;color:#9FB8D2;
+    padding-bottom:15px;border-bottom:1px solid rgba(255,255,255,.1);
+  }
+  .precio-box .fila-total s{color:#C0474A;font-weight:700;font-size:1.05rem;white-space:nowrap;}
+  .precio-box .bloque-hoy{padding-top:17px;text-align:center;}
+  .precio-box .lbl-hoy{
+    display:block;font-size:.72rem;letter-spacing:.15em;text-transform:uppercase;
+    color:var(--dorado-claro);font-weight:700;margin-bottom:4px;
+  }
+  .precio-box .precio-grande{
+    font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:-.035em;
+    font-size:clamp(2.6rem,11vw,3.6rem);line-height:1.02;white-space:nowrap;
+    background:linear-gradient(135deg,#FCEBB0,#F9DE8A 30%,#E8B33C 70%,#D3A02F);
     -webkit-background-clip:text;background-clip:text;color:transparent;
+  }
+  .precio-box .pill-ahorro{
+    display:inline-block;margin-top:12px;
+    background:linear-gradient(135deg,var(--dorado-claro),var(--dorado));
+    color:var(--azul-noche);font-size:.75rem;font-weight:800;
+    padding:7px 16px;border-radius:100px;letter-spacing:.02em;
+    box-shadow:0 6px 18px rgba(232,179,60,.32);
   }
   .lista-check{
     list-style:none;margin:0;padding:0;
@@ -467,7 +481,7 @@
     background:rgba(232,179,60,.18);color:var(--dorado-claro);
   }
   .caja-bonos{
-    margin-top:24px;border:1px solid rgba(232,179,60,.35);border-radius:0;
+    margin-top:24px;border:1px solid rgba(232,179,60,.35);border-radius:10px;
     background:rgba(232,179,60,.06);padding:20px 20px 18px;
   }
   .caja-bonos .titulo-bonos{
@@ -880,12 +894,11 @@
             <div class="separador"></div>
 
             <ul class="lista-check">
-              <li>Todas las selecciones disponibles</li>
-              <li>12 figuritas armables de los cracks, listas para imprimir</li>
-              <li>Guía simple de armado, paso a paso</li>
-              <li>Pensado para armar en familia, sin pantallas</li>
-              <li>Impresiones ilimitadas, para siempre</li>
-              <li>Acceso inmediato por mail</li>
+              <li>Todas las Selecciones disponibles</li>
+              <li>Más de 90 jugadores listos para imprimir y armar</li>
+              <li>Guía paso a paso de armado</li>
+              <li>Acceso inmediato</li>
+              <li>Garantía de 7 días</li>
             </ul>
 
             <div class="caja-bonos">
@@ -898,9 +911,13 @@
               </ul>
             </div>
 
-            <div class="comparativa">
-              <div class="fila"><span>Kit + los 4 bonos por separado</span><s>$63.290</s></div>
-              <div class="fila hoy"><span>Precio de hoy</span><span class="precio-grande">$21.990</span></div>
+            <div class="precio-box">
+              <div class="fila-total"><span>Kit + los 4 bonos por separado</span><s>$63.290</s></div>
+              <div class="bloque-hoy">
+                <span class="lbl-hoy">Precio de hoy</span>
+                <div class="precio-grande">$21.990</div>
+                <span class="pill-ahorro">Ahorrás $41.300 · 65% OFF</span>
+              </div>
             </div>
 
             <button type="button" class="btn-cta" data-checkout-btn>Quiero el Kit Completo →</button>
