@@ -301,10 +301,16 @@
   .compraron .titulo-seccion{color:#fff;}
   .compraron .intro-seccion{color:#B9CFE6;}
   /* slider automatico, sin controles ni sombras */
-  .chats-marquee-wrap{margin-top:34px;overflow:hidden;}
+  .chats-marquee-wrap{
+    margin-top:34px;overflow:hidden;position:relative;
+    /* difuminado en los laterales */
+    -webkit-mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
+    mask-image:linear-gradient(90deg,transparent 0,#000 7%,#000 93%,transparent 100%);
+  }
   .chats-marquee{display:flex;width:max-content;animation:chats-desfilar 70s linear infinite;}
   .chats-marquee:hover{animation-play-state:paused;}
-  .chats-pista{display:flex;gap:16px;padding-right:16px;}
+  /* el gap y el padding-right deben coincidir para que el loop no salte */
+  .chats-pista{display:flex;gap:8px;padding-right:8px;}
   .chat-card{
     flex:0 0 248px;border-radius:20px;overflow:hidden;
     transition:transform .3s var(--ease);
