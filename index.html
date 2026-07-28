@@ -435,30 +435,32 @@
     background:
       radial-gradient(ellipse 70% 50% at 50% 0%, rgba(232,179,60,.16), transparent 62%),
       linear-gradient(165deg,var(--azul-profundo),var(--azul-noche));
-    border:1px solid rgba(232,179,60,.4);border-radius:28px;
+    border:1px solid rgba(232,179,60,.4);border-radius:0;
     padding:38px 26px 32px;text-align:center;color:#EAF2FB;
     box-shadow:0 30px 70px rgba(5,19,43,.4);
   }
-  .card-compra::after{
-    content:'';position:absolute;top:0;left:12%;right:12%;height:3px;border-radius:0 0 4px 4px;
-    background:linear-gradient(90deg,transparent,var(--dorado),transparent);
-  }
   .card-compra h2{font-size:clamp(1.5rem,5vw,2rem);color:#fff;margin-bottom:6px;}
   .card-compra .separador{
-    width:60px;height:2px;background:rgba(232,179,60,.5);border-radius:2px;margin:20px auto 18px;
+    width:60px;height:2px;background:rgba(232,179,60,.5);border-radius:2px;margin:20px auto 22px;
   }
-  .card-compra .de{
-    font-size:.82rem;font-weight:700;letter-spacing:.1em;color:#9FB8D2;text-transform:uppercase;
+  /* comparativa de precio, debajo del listado */
+  .comparativa{margin-top:26px;border-top:1px solid rgba(255,255,255,.1);padding-top:20px;}
+  .comparativa .fila{
+    display:flex;justify-content:space-between;align-items:baseline;gap:14px;
+    font-size:.92rem;color:#B9CFE6;text-align:left;
   }
-  .card-compra .de s{color:#C0474A;margin:0 4px;}
-  .card-compra .precio-grande{
+  .comparativa .fila + .fila{margin-top:12px;}
+  .comparativa .fila s{color:#C0474A;font-weight:700;font-size:1.02rem;white-space:nowrap;}
+  .comparativa .fila.hoy{align-items:center;}
+  .comparativa .fila.hoy span{color:#fff;font-weight:700;font-size:1rem;}
+  .comparativa .precio-grande{
     font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:-.03em;
-    font-size:clamp(2.6rem,11vw,3.5rem);line-height:1.05;margin-top:4px;
+    font-size:clamp(2.1rem,9vw,2.9rem);line-height:1;white-space:nowrap;
     background:linear-gradient(135deg,#F9DE8A,#E8B33C);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   .lista-check{
-    list-style:none;margin:26px 0 0;padding:0;
+    list-style:none;margin:0;padding:0;
     display:flex;flex-direction:column;gap:11px;text-align:left;
   }
   .lista-check li{
@@ -471,7 +473,7 @@
     background:rgba(232,179,60,.18);color:var(--dorado-claro);
   }
   .caja-bonos{
-    margin-top:26px;border:1px solid rgba(232,179,60,.35);border-radius:18px;
+    margin-top:24px;border:1px solid rgba(232,179,60,.35);border-radius:0;
     background:rgba(232,179,60,.06);padding:20px 20px 18px;
   }
   .caja-bonos .titulo-bonos{
@@ -481,8 +483,17 @@
   .caja-bonos ul{list-style:none;margin:0;padding:0;display:flex;flex-direction:column;gap:10px;text-align:left;}
   .caja-bonos li{display:flex;align-items:center;gap:10px;font-size:.9rem;color:#E4EEF8;}
   .caja-bonos li span.regalo{flex:none;font-size:.95rem;}
-  .card-compra .btn-cta{margin-top:26px;}
-  .card-compra .trust-badges{justify-content:center;margin-top:20px;}
+  .card-compra .btn-cta{
+    margin-top:26px;width:100%;max-width:none;
+    text-transform:uppercase;letter-spacing:.02em;
+    font-size:clamp(.92rem,3.4vw,1.1rem);white-space:nowrap;padding:19px 20px;
+  }
+  /* sellos en una sola linea, sin pastilla */
+  .card-compra .sellos{
+    display:flex;justify-content:center;align-items:center;flex-wrap:wrap;
+    gap:10px 18px;margin-top:18px;font-size:.76rem;color:#9FB8D2;font-weight:600;
+  }
+  .card-compra .sellos span{display:inline-flex;align-items:center;gap:6px;white-space:nowrap;}
 
   /* ---------- Garantía ---------- */
   .garantia{
@@ -892,8 +903,6 @@
           <div style="position:relative;z-index:2;">
             <h2>Kit Completo <span class="oro">PaperStars</span></h2>
             <div class="separador"></div>
-            <div class="de">De <s>$63.290</s> por solo</div>
-            <div class="precio-grande">$21.990</div>
 
             <ul class="lista-check">
               <li>Todas las selecciones disponibles</li>
@@ -914,12 +923,17 @@
               </ul>
             </div>
 
+            <div class="comparativa">
+              <div class="fila"><span>Kit + los 4 bonos por separado</span><s>$63.290</s></div>
+              <div class="fila hoy"><span>Precio de hoy</span><span class="precio-grande">$21.990</span></div>
+            </div>
+
             <button type="button" class="btn-cta" data-checkout-btn>Quiero el Kit Completo →</button>
 
-            <div class="trust-badges">
-              <span class="trust-badge">🔒 Compra segura</span>
-              <span class="trust-badge">🛡️ Garantía 7 días</span>
-              <span class="trust-badge">⚡ Acceso inmediato</span>
+            <div class="sellos">
+              <span>🔒 Compra segura</span>
+              <span>🛡️ Garantía 7 días</span>
+              <span>⚡ Acceso inmediato</span>
             </div>
           </div>
         </div>
