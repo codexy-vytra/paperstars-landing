@@ -310,13 +310,16 @@
   .chats-marquee{display:flex;width:max-content;animation:chats-desfilar 70s linear infinite;}
   .chats-marquee:hover{animation-play-state:paused;}
   /* el gap y el padding-right deben coincidir para que el loop no salte */
-  .chats-pista{display:flex;gap:8px;padding-right:8px;}
+  .chats-pista{display:flex;gap:6px;padding-right:6px;}
   .chat-card{
-    flex:0 0 248px;border-radius:20px;overflow:hidden;
+    flex:0 0 236px;border-radius:18px;overflow:hidden;
+    /* borde sutil: sin esto la captura oscura se funde con el fondo navy */
+    border:1px solid rgba(255,255,255,.09);
     transition:transform .3s var(--ease);
   }
   .chat-card:hover{transform:translateY(-6px);}
-  .chat-card img{width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top center;}
+  /* las imagenes ya vienen en 9:16 real, asi que no se recorta nada */
+  .chat-card img{width:100%;aspect-ratio:9/16;object-fit:cover;}
   @keyframes chats-desfilar{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
   /* ---------- Por qué elegir ---------- */
