@@ -300,40 +300,18 @@
   .compraron .kicker::before,.compraron .kicker::after{background:var(--dorado);}
   .compraron .titulo-seccion{color:#fff;}
   .compraron .intro-seccion{color:#B9CFE6;}
-  .chats-slider{
-    display:flex;gap:16px;overflow-x:auto;scroll-snap-type:x mandatory;
-    padding:34px 4px 10px;-webkit-overflow-scrolling:touch;scrollbar-width:none;
-  }
-  .chats-slider::-webkit-scrollbar{display:none;}
+  /* slider automatico, sin controles ni sombras */
+  .chats-marquee-wrap{margin-top:34px;overflow:hidden;}
+  .chats-marquee{display:flex;width:max-content;animation:chats-desfilar 70s linear infinite;}
+  .chats-marquee:hover{animation-play-state:paused;}
+  .chats-pista{display:flex;gap:16px;padding-right:16px;}
   .chat-card{
-    flex:0 0 262px;scroll-snap-align:center;border-radius:20px;overflow:hidden;
-    border:1px solid rgba(255,255,255,.13);background:#0b1a2e;
-    box-shadow:0 20px 44px rgba(0,0,0,.4);
-    transition:transform .3s var(--ease), border-color .3s var(--ease);
+    flex:0 0 248px;border-radius:20px;overflow:hidden;
+    transition:transform .3s var(--ease);
   }
-  .chat-card:hover{transform:translateY(-6px);border-color:rgba(232,179,60,.5);}
-  .chat-card img{width:100%;height:400px;object-fit:cover;object-position:top center;}
-  .chat-card .pie{
-    padding:13px 16px;display:flex;align-items:center;gap:10px;
-    border-top:1px solid rgba(255,255,255,.08);
-  }
-  .chat-card .avatar{
-    width:34px;height:34px;border-radius:50%;flex:none;display:grid;place-items:center;
-    background:linear-gradient(135deg,var(--dorado),var(--dorado-oscuro));
-    color:var(--azul-noche);font-weight:800;font-size:.85rem;
-  }
-  .chat-card .estrellas{color:var(--dorado);font-size:.76rem;letter-spacing:1px;}
-  .chat-card strong{font-size:.85rem;display:block;font-weight:700;color:#fff;}
-  .chat-card span.lugar{display:block;font-size:.73rem;color:#93AFC9;}
-  .slider-controles{display:flex;justify-content:center;gap:12px;margin-top:22px;}
-  .slider-btn{
-    width:46px;height:46px;border-radius:50%;cursor:pointer;
-    background:rgba(255,255,255,.08);border:1px solid rgba(232,179,60,.4);
-    color:var(--dorado-claro);font-size:1.1rem;display:grid;place-items:center;
-    transition:background .2s ease, transform .2s var(--ease);
-  }
-  .slider-btn:hover{background:rgba(232,179,60,.2);transform:scale(1.07);}
-  .slider-btn:focus-visible{outline:3px solid var(--celeste);outline-offset:2px;}
+  .chat-card:hover{transform:translateY(-6px);}
+  .chat-card img{width:100%;aspect-ratio:9/16;object-fit:cover;object-position:top center;}
+  @keyframes chats-desfilar{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
   /* ---------- Por qué elegir ---------- */
   .grid-porque{display:grid;grid-template-columns:1fr;gap:16px;margin-top:38px;}
@@ -559,6 +537,7 @@
     .marquee{width:100%;overflow-x:auto;transform:none !important;}
     .barra-marquee{animation:none !important;transform:none !important;width:100%;overflow-x:auto;}
     .barra-pista{justify-content:center;flex-wrap:wrap;}
+    .chats-marquee{animation:none !important;transform:none !important;width:100%;overflow-x:auto;}
   }
 
   /* ---------- Responsive ---------- */
@@ -722,48 +701,30 @@
           <h2 class="titulo-seccion">Los mensajes que nos llegan después de imprimirlo</h2>
           <p class="intro-seccion">Padres contando lo mismo una y otra vez: se sientan a armar y el celular queda de lado.</p>
         </div>
-        <div data-slider>
-          <div class="chats-slider" data-chats>
-            <figure class="chat-card">
-              <img src="images/testimonio-carlos.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Carlos contando que pasó la tarde armando con su hijo, lejos de la pantalla" width="1123" height="1400">
-              <figcaption class="pie"><span class="avatar">C</span><span><span class="estrellas">★★★★★</span><strong>Carlos</strong><span class="lugar">Rosario, Santa Fe</span></span></figcaption>
-            </figure>
-            <figure class="chat-card">
-              <img src="images/testimonio-camila.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Camila mostrando las figuritas que armó con su hijo" width="1075" height="1400">
-              <figcaption class="pie"><span class="avatar">C</span><span><span class="estrellas">★★★★★</span><strong>Camila</strong><span class="lugar">CABA</span></span></figcaption>
-            </figure>
-            <figure class="chat-card">
-              <img src="images/testimonio-cliente.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de una mamá contando que sus hijos pasaron mucho tiempo lejos de la pantalla" width="1074" height="1400">
-              <figcaption class="pie"><span class="avatar">R</span><span><span class="estrellas">★★★★★</span><strong>Romina</strong><span class="lugar">Córdoba Capital</span></span></figcaption>
-            </figure>
-            <figure class="chat-card">
-              <img src="images/testimonio-juliana.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Juliana contando que su hijo ya quiere armar la cancha también" width="941" height="1400">
-              <figcaption class="pie"><span class="avatar">J</span><span><span class="estrellas">★★★★★</span><strong>Juliana</strong><span class="lugar">Mendoza</span></span></figcaption>
-            </figure>
-            <figure class="chat-card">
-              <img src="images/testimonio-silvana.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Silvana mostrando las figuritas terminadas sobre la mesa" width="853" height="1400">
-              <figcaption class="pie"><span class="avatar">S</span><span><span class="estrellas">★★★★★</span><strong>Silvana</strong><span class="lugar">La Plata, Buenos Aires</span></span></figcaption>
-            </figure>
-            <figure class="chat-card">
-              <img src="images/testimonio-marcia.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Marcia con las figuritas armadas y los moldes recortados sobre la mesa" width="853" height="1400">
-              <figcaption class="pie"><span class="avatar">M</span><span><span class="estrellas">★★★★★</span><strong>Marcia</strong><span class="lugar">Santa Fe</span></span></figcaption>
-            </figure>
-            <figure class="chat-card">
-              <img src="images/testimonio-erico.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Erico mostrando todo el plantel de figuritas armado" width="853" height="1400">
-              <figcaption class="pie"><span class="avatar">E</span><span><span class="estrellas">★★★★★</span><strong>Erico</strong><span class="lugar">Neuquén</span></span></figcaption>
-            </figure>
-            <figure class="chat-card">
-              <img src="images/testimonio-valdete.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp con cuatro figuritas armadas sobre la mesa del comedor" width="853" height="1400">
-              <figcaption class="pie"><span class="avatar">V</span><span><span class="estrellas">★★★★★</span><strong>Valeria</strong><span class="lugar">Salta</span></span></figcaption>
-            </figure>
-            <figure class="chat-card">
-              <img src="images/testimonio-maria.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de María contando que a sus nietos les encantaron las figuritas" width="941" height="1400">
-              <figcaption class="pie"><span class="avatar">M</span><span><span class="estrellas">★★★★★</span><strong>María Lucía</strong><span class="lugar">Tucumán</span></span></figcaption>
-            </figure>
+        <div class="chats-marquee-wrap">
+          <div class="chats-marquee">
+          <div class="chats-pista">
+            <figure class="chat-card"><img src="images/testimonio-carlos.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Carlos contando que pasó la tarde armando con su hijo, lejos de la pantalla" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-camila.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Camila mostrando las figuritas que armó con su hijo" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-cliente.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de una mamá contando que sus hijos pasaron mucho tiempo lejos de la pantalla" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-juliana.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Juliana contando que su hijo ya quiere armar la cancha también" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-silvana.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Silvana mostrando las figuritas terminadas sobre la mesa" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-marcia.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Marcia con las figuritas armadas y los moldes recortados" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-erico.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Erico mostrando todo el plantel de figuritas armado" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-valdete.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp con cuatro figuritas armadas sobre la mesa del comedor" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-maria.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de María contando que a sus nietos les encantaron las figuritas" width="900" height="1600"></figure>
           </div>
-          <div class="slider-controles">
-            <button type="button" class="slider-btn" data-dir="prev" aria-label="Ver mensajes anteriores">←</button>
-            <button type="button" class="slider-btn" data-dir="next" aria-label="Ver más mensajes">→</button>
+          <div class="chats-pista" aria-hidden="true">
+            <figure class="chat-card"><img src="images/testimonio-carlos.webp" loading="lazy" decoding="async" alt="" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-camila.webp" loading="lazy" decoding="async" alt="" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-cliente.webp" loading="lazy" decoding="async" alt="" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-juliana.webp" loading="lazy" decoding="async" alt="" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-silvana.webp" loading="lazy" decoding="async" alt="" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-marcia.webp" loading="lazy" decoding="async" alt="" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-erico.webp" loading="lazy" decoding="async" alt="" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-valdete.webp" loading="lazy" decoding="async" alt="" width="900" height="1600"></figure>
+            <figure class="chat-card"><img src="images/testimonio-maria.webp" loading="lazy" decoding="async" alt="" width="900" height="1600"></figure>
+          </div>
           </div>
         </div>
       </div>
@@ -1123,20 +1084,6 @@
       }, { threshold: 0 });
       obsCta.observe(heroSentinel);
     }
-
-    // Slider de chats: flechas prev/next
-    document.querySelectorAll('[data-slider]').forEach(function(slider){
-      var pista = slider.querySelector('[data-chats]');
-      if(!pista) return;
-      slider.querySelectorAll('[data-dir]').forEach(function(btn){
-        btn.addEventListener('click', function(){
-          var dir = btn.getAttribute('data-dir') === 'next' ? 1 : -1;
-          var card = pista.querySelector('.chat-card');
-          var paso = card ? card.getBoundingClientRect().width + 16 : pista.clientWidth * .8;
-          pista.scrollBy({ left: dir * paso, behavior: reduceMotion ? 'auto' : 'smooth' });
-        });
-      });
-    });
 
     // FAQ acordeón
     document.querySelectorAll('.faq-pregunta').forEach(function(btn){
