@@ -1,9 +1,77 @@
-<title>ArmaCrack — Armá a los Cracks del Mundial 2026</title>
-<meta name="description" content="Kit imprimible para armar figuritas coleccionables y un estadio de cartón. Viví el Mundial 2026 en casa, en familia, lejos de la pantalla.">
-<meta name="viewport" content="width=device-width, initial-scale=1">
+<!doctype html>
+<html lang="es-AR">
+<head>
+<meta charset="UTF-8">
+<title>ArmaCrack — Armá a los Cracks del Mundial 2026 en Casa</title>
+<meta name="description" content="Kit imprimible para armar figuritas coleccionables y un estadio de cartón. Viví el Mundial 2026 en casa, en familia, lejos de la pantalla. Envío digital inmediato.">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<meta name="robots" content="index, follow">
+<meta name="theme-color" content="#0D3B1E">
+<link rel="canonical" href="https://landing-armacrack.vercel.app/">
+
+<!-- Open Graph / redes sociales -->
+<meta property="og:type" content="website">
+<meta property="og:locale" content="es_AR">
+<meta property="og:title" content="ArmaCrack — Armá a los Cracks del Mundial 2026 en Casa">
+<meta property="og:description" content="El kit imprimible para armar figuritas coleccionables y un estadio de cartón. Menos pantalla, más Mundial en familia.">
+<meta property="og:image" content="https://landing-armacrack.vercel.app/images/og-cover.jpg">
+<meta property="og:image:width" content="1200">
+<meta property="og:image:height" content="630">
+<meta property="og:url" content="https://landing-armacrack.vercel.app/">
+<meta property="og:site_name" content="ArmaCrack">
+<meta name="twitter:card" content="summary_large_image">
+<meta name="twitter:title" content="ArmaCrack — Armá a los Cracks del Mundial 2026 en Casa">
+<meta name="twitter:description" content="El kit imprimible para armar figuritas coleccionables y un estadio de cartón. Menos pantalla, más Mundial en familia.">
+<meta name="twitter:image" content="https://landing-armacrack.vercel.app/images/og-cover.jpg">
+
+<!-- Favicon -->
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E%E2%9A%BD%3C/text%3E%3C/svg%3E">
+
+<!-- Recursos críticos -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preload" as="image" href="images/hero-personaje.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+<!-- SEO: datos estructurados -->
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "Product",
+  "name": "ArmaCrack — Kit imprimible Mundial 2026",
+  "image": "https://landing-armacrack.vercel.app/images/hero-personaje.webp",
+  "description": "Kit imprimible para armar figuritas coleccionables y un estadio de cartón del Mundial 2026, con álbum, pack extra de figuritas y cuadernillo de actividades.",
+  "brand": { "@type": "Brand", "name": "ArmaCrack" },
+  "offers": {
+    "@type": "Offer",
+    "priceCurrency": "ARS",
+    "price": "21990",
+    "availability": "https://schema.org/InStock",
+    "url": "https://landing-armacrack.vercel.app/"
+  },
+  "aggregateRating": {
+    "@type": "AggregateRating",
+    "ratingValue": "4.9",
+    "reviewCount": "2847"
+  }
+}
+</script>
+<script type="application/ld+json">
+{
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {"@type":"Question","name":"¿Esto es solo un PDF que tengo que imprimir yo?","acceptedAnswer":{"@type":"Answer","text":"Sí, y esa es la gracia: recibís todo listo para imprimir en tu casa o en la fotocopiadora de la esquina por unas monedas. Nada de esperar envíos."}},
+    {"@type":"Question","name":"¿Se va a aburrir a la semana?","acceptedAnswer":{"@type":"Answer","text":"Con 32 figuritas para coleccionar, el álbum para completar y el estadio para armar picados, hay entretenimiento para varias semanas."}},
+    {"@type":"Question","name":"¿Cuándo recibo el material?","acceptedAnswer":{"@type":"Answer","text":"Apenas se acredita el pago, te llega un mail con el acceso a todos los archivos. Podés imprimirlos las veces que quieras, para siempre."}},
+    {"@type":"Question","name":"¿Lo puedo armar si no soy bueno con las manualidades?","acceptedAnswer":{"@type":"Answer","text":"Sí. Viene con instrucciones paso a paso pensadas para cualquiera, no hace falta experiencia previa ni herramientas especiales."}},
+    {"@type":"Question","name":"¿Necesito una impresora especial?","acceptedAnswer":{"@type":"Answer","text":"No, con cualquier impresora de casa o de una fotocopiadora del barrio alcanza. Recomendamos hoja tipo cartulina o A4 común."}},
+    {"@type":"Question","name":"¿Qué pasa si no me convence?","acceptedAnswer":{"@type":"Answer","text":"Tenés 7 días de garantía para pedir el cambio por otro producto de la web, sin vueltas."}},
+    {"@type":"Question","name":"¿Puedo imprimirlo más de una vez?","acceptedAnswer":{"@type":"Answer","text":"Sí, el acceso es tuyo para siempre: podés volver a imprimir cuando quieras, para sumar más figuritas o compartir con otro chico de la familia."}}
+  ]
+}
+</script>
+
 <style>
   :root{
     --verde-oscuro:#0D3B1E;
@@ -15,6 +83,10 @@
     --blanco:#FFFFFF;
     --radio-a:22px;
     --radio-b:10px;
+    --ease:cubic-bezier(.22,1,.36,1);
+    --dur:.7s;
+    --sombra-suave:0 10px 26px rgba(13,59,30,.08);
+    --sombra-fuerte:0 20px 45px rgba(13,59,30,.18);
   }
   *{box-sizing:border-box;}
   html{scroll-behavior:smooth;}
@@ -24,72 +96,126 @@
     color:var(--texto);
     background:var(--crema);
     overflow-x:hidden;
+    -webkit-font-smoothing:antialiased;
+    text-rendering:optimizeLegibility;
   }
   img{max-width:100%;display:block;}
-  h1,h2,h3{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.5px;margin:0;line-height:1.05;}
+  h1,h2,h3{font-family:'Anton',sans-serif;font-weight:400;letter-spacing:.3px;margin:0;line-height:1.05;}
   a{color:inherit;}
   .wrap{max-width:1180px;margin:0 auto;padding:0 20px;}
+
+  .skip-link{
+    position:absolute;top:-100px;left:12px;background:var(--dorado);color:var(--verde-oscuro);
+    padding:10px 16px;border-radius:8px;font-weight:700;z-index:200;transition:top .2s ease;
+  }
+  .skip-link:focus{top:12px;}
+
+  /* Barra de progreso de scroll */
+  .progress-bar{
+    position:fixed;top:0;left:0;height:3px;width:0%;
+    background:linear-gradient(90deg,var(--dorado),var(--celeste));
+    z-index:60;transition:width .1s linear;
+  }
+
   .btn-cta{
     display:inline-flex;align-items:center;justify-content:center;gap:8px;
-    background:var(--dorado);color:var(--verde-oscuro);
+    background:var(--dorado);color:var(--verde-oscuro);position:relative;overflow:hidden;
     font-family:'Poppins',sans-serif;font-weight:800;font-size:1.05rem;
     border:none;border-radius:100px;padding:18px 34px;cursor:pointer;
     box-shadow:0 8px 0 #c99618, 0 14px 24px rgba(0,0,0,.25);
-    transition:transform .15s ease, box-shadow .15s ease;
+    transition:transform .18s var(--ease), box-shadow .18s var(--ease);
     text-decoration:none;
   }
-  .btn-cta:hover{transform:translateY(-3px);}
+  .btn-cta::after{
+    content:'';position:absolute;top:0;left:-60%;width:40%;height:100%;
+    background:linear-gradient(120deg,transparent,rgba(255,255,255,.55),transparent);
+    transform:skewX(-20deg);
+  }
+  .btn-cta:hover{transform:translateY(-3px) scale(1.02);}
+  .btn-cta:hover::after{animation:brillo 1.1s ease forwards;}
   .btn-cta:active{transform:translateY(2px);box-shadow:0 4px 0 #c99618;}
   .btn-cta.chico{padding:14px 26px;font-size:.95rem;box-shadow:0 6px 0 #c99618, 0 10px 18px rgba(0,0,0,.2);}
+  @keyframes brillo{from{left:-60%;}to{left:130%;}}
+  @keyframes pulso-cta{
+    0%,100%{box-shadow:0 8px 0 #c99618, 0 14px 24px rgba(0,0,0,.25), 0 0 0 0 rgba(255,201,60,.5);}
+    50%{box-shadow:0 8px 0 #c99618, 0 14px 24px rgba(0,0,0,.25), 0 0 0 12px rgba(255,201,60,0);}
+  }
+  .btn-cta.pulsante{animation:pulso-cta 2.6s ease-in-out infinite;}
 
   /* 1. Barra de urgencia */
   .barra-urgencia{
     background:var(--verde-oscuro);color:var(--dorado);
-    text-align:center;font-weight:600;font-size:.82rem;
+    text-align:center;font-weight:600;font-size:.8rem;
     padding:9px 12px;position:sticky;top:0;z-index:50;
   }
   .barra-urgencia span{color:var(--crema);font-weight:400;}
 
   /* 2. Hero */
   .hero{
-    background:radial-gradient(circle at 15% 0%, #14572a 0%, var(--verde-oscuro) 55%);
+    background:var(--verde-oscuro);
     color:var(--crema);
-    padding:38px 0 46px;
+    padding:40px 0 40px;
     position:relative;
+    overflow:hidden;
+    isolation:isolate;
   }
-  .hero .wrap{display:grid;grid-template-columns:1fr;gap:26px;}
+  .hero-blobs{position:absolute;inset:0;z-index:-1;}
+  .blob{
+    position:absolute;border-radius:50%;filter:blur(60px);opacity:.35;
+    animation:flotar 14s ease-in-out infinite;
+  }
+  .blob.b1{width:340px;height:340px;background:var(--verde-cancha);top:-100px;left:-80px;}
+  .blob.b2{width:280px;height:280px;background:var(--celeste);bottom:-100px;right:-60px;animation-delay:-6s;}
+  .blob.b3{width:200px;height:200px;background:var(--dorado);opacity:.18;top:30%;right:15%;animation-delay:-3s;}
+  @keyframes flotar{
+    0%,100%{transform:translate(0,0) scale(1);}
+    50%{transform:translate(20px,-24px) scale(1.08);}
+  }
+  .hero .wrap{display:grid;grid-template-columns:1fr;gap:26px;position:relative;}
   .hero-badge{
-    display:inline-block;background:rgba(255,201,60,.15);border:1px solid var(--dorado);
-    color:var(--dorado);font-size:.78rem;font-weight:700;padding:6px 14px;border-radius:100px;
-    margin-bottom:14px;letter-spacing:.5px;
+    display:inline-flex;align-items:center;gap:6px;background:rgba(255,201,60,.15);border:1px solid var(--dorado);
+    color:var(--dorado);font-size:.76rem;font-weight:700;padding:6px 14px;border-radius:100px;
+    margin-bottom:16px;letter-spacing:.5px;
   }
+  .hero-badge .dot{width:7px;height:7px;border-radius:50%;background:var(--dorado);animation:parpadeo 1.6s ease-in-out infinite;}
+  @keyframes parpadeo{0%,100%{opacity:1;}50%{opacity:.25;}}
   .hero h1{
-    font-size:2.35rem;
+    font-size:clamp(1.9rem, 6vw, 3.5rem);
     background:linear-gradient(180deg,#fff, #dcefe1 70%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   .hero p.subhead{
-    font-size:1.08rem;line-height:1.5;margin-top:16px;max-width:520px;color:#e7f2ea;
+    font-size:clamp(1rem, 2.4vw, 1.15rem);line-height:1.55;margin-top:18px;max-width:540px;color:#e7f2ea;
   }
-  .hero-cta-row{margin-top:26px;display:flex;flex-direction:column;gap:12px;align-items:flex-start;}
-  .prueba-rapida{display:flex;align-items:center;gap:8px;font-size:.92rem;color:var(--dorado);font-weight:600;}
-  .trust-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:18px;}
+  .hero-cta-row{margin-top:26px;display:flex;flex-direction:column;gap:14px;align-items:flex-start;}
+  .prueba-rapida{display:flex;align-items:center;gap:8px;font-size:.94rem;color:var(--dorado);font-weight:600;}
+  .prueba-rapida .num{font-variant-numeric:tabular-nums;}
+  .trust-badges{display:flex;flex-wrap:wrap;gap:10px;margin-top:20px;}
   .trust-badge{
     font-size:.74rem;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.18);
-    padding:6px 12px;border-radius:100px;color:#dfeee3;
+    padding:6px 12px;border-radius:100px;color:#dfeee3;backdrop-filter:blur(6px);
   }
   .hero-visual{
     position:relative;border-radius:var(--radio-a);overflow:hidden;
     transform:rotate(-1.2deg);
-    box-shadow:0 25px 50px rgba(0,0,0,.35);
-    justify-self:center;max-width:340px;
+    box-shadow:var(--sombra-fuerte);
+    justify-self:center;max-width:320px;
+    animation:hero-in 1s var(--ease) both, hero-flotar 5s ease-in-out 1s infinite;
   }
   .hero-visual img{width:100%;}
+  @keyframes hero-in{from{opacity:0;transform:translateY(40px) rotate(-1.2deg);}to{opacity:1;transform:translateY(0) rotate(-1.2deg);}}
+  @keyframes hero-flotar{0%,100%{transform:translateY(0) rotate(-1.2deg);}50%{transform:translateY(-10px) rotate(-.4deg);}}
+  .scroll-cue{
+    display:flex;flex-direction:column;align-items:center;gap:6px;margin-top:34px;opacity:.7;font-size:.72rem;
+  }
+  .scroll-cue .flecha{width:18px;height:18px;border-right:2px solid var(--dorado);border-bottom:2px solid var(--dorado);
+    transform:rotate(45deg);animation:rebote 1.8s ease-in-out infinite;}
+  @keyframes rebote{0%,100%{transform:rotate(45deg) translate(0,0);}50%{transform:rotate(45deg) translate(4px,4px);}}
 
   /* 3. Qué recibís */
-  .seccion{padding:56px 0;}
+  .seccion{padding:clamp(44px,8vw,64px) 0;}
   .seccion.claro{background:var(--blanco);}
-  .titulo-seccion{font-size:1.9rem;color:var(--verde-oscuro);margin-bottom:8px;}
+  .titulo-seccion{font-size:clamp(1.5rem,4vw,2rem);color:var(--verde-oscuro);margin-bottom:8px;}
   .kicker{
     text-transform:uppercase;font-size:.75rem;font-weight:700;letter-spacing:1.5px;
     color:var(--verde-cancha);margin-bottom:10px;display:block;
@@ -99,7 +225,9 @@
     display:flex;justify-content:space-between;align-items:center;gap:14px;
     background:var(--crema);border-radius:var(--radio-b);padding:16px 20px;
     border-left:5px solid var(--verde-cancha);
+    transition:transform .25s var(--ease), box-shadow .25s var(--ease);
   }
+  .item-recibis:hover{transform:translateX(4px);box-shadow:var(--sombra-suave);}
   .item-recibis.bonus{border-left-color:var(--dorado);}
   .item-nombre{font-weight:600;font-size:.98rem;}
   .item-nombre small{display:block;font-weight:400;color:#5a6b57;font-size:.8rem;margin-top:2px;}
@@ -107,6 +235,7 @@
   .total-box{
     margin-top:22px;background:var(--verde-oscuro);color:var(--crema);border-radius:var(--radio-b);
     padding:22px;display:flex;flex-wrap:wrap;justify-content:space-between;align-items:center;gap:14px;
+    position:relative;overflow:hidden;
   }
   .total-box .val-tachado{text-decoration:line-through;color:#9fd1ac;font-size:1rem;}
   .total-box .val-hoy{font-family:'Anton',sans-serif;font-size:2.1rem;color:var(--dorado);}
@@ -118,8 +247,11 @@
   }
   .card-beneficio{
     background:var(--blanco);border-radius:var(--radio-a);padding:24px;
-    box-shadow:0 10px 26px rgba(13,59,30,.08);
+    box-shadow:var(--sombra-suave);
+    transition:transform .3s var(--ease), box-shadow .3s var(--ease);
+    will-change:transform;
   }
+  .card-beneficio:hover{transform:translateY(-6px);box-shadow:var(--sombra-fuerte);}
   .card-beneficio.grande{background:linear-gradient(135deg,var(--verde-cancha),#166b38);color:#fff;}
   .card-beneficio .icono{font-size:2rem;margin-bottom:10px;display:block;}
   .card-beneficio h3{font-size:1.15rem;margin-bottom:8px;}
@@ -127,7 +259,7 @@
 
   /* 5. Producto en acción */
   .carrusel{
-    display:flex;gap:14px;overflow-x:auto;padding:26px 4px 10px;scroll-snap-type:x mandatory;
+    display:flex;gap:14px;overflow-x:auto;padding:26px 4px 14px;scroll-snap-type:x mandatory;
     -webkit-overflow-scrolling:touch;
   }
   .carrusel::-webkit-scrollbar{height:6px;}
@@ -135,7 +267,9 @@
   .carrusel figure{
     flex:0 0 190px;scroll-snap-align:start;margin:0;background:var(--blanco);
     border-radius:var(--radio-b);padding:10px;box-shadow:0 8px 18px rgba(0,0,0,.08);
+    transition:transform .3s var(--ease);
   }
+  .carrusel figure:hover{transform:translateY(-6px);}
   .carrusel figure img{border-radius:8px;}
   .carrusel figcaption{font-size:.76rem;text-align:center;margin-top:8px;color:#5a6b57;font-weight:600;}
   .carrusel figure.ancho{flex-basis:280px;}
@@ -144,8 +278,9 @@
   .grid-testimonios{display:grid;grid-template-columns:1fr;gap:20px;margin-top:30px;}
   .testimonio{
     background:var(--blanco);border-radius:var(--radio-a);overflow:hidden;
-    box-shadow:0 10px 24px rgba(0,0,0,.08);
+    box-shadow:var(--sombra-suave);transition:transform .3s var(--ease), box-shadow .3s var(--ease);
   }
+  .testimonio:hover{transform:translateY(-6px) scale(1.01);box-shadow:var(--sombra-fuerte);}
   .testimonio img{width:100%;}
   .testimonio-footer{padding:16px 18px;}
   .estrellas{color:var(--dorado);font-size:.95rem;margin-bottom:4px;}
@@ -156,8 +291,9 @@
   .grid-bonus{display:grid;grid-template-columns:1fr;gap:16px;margin-top:28px;}
   .card-bonus{
     background:var(--crema);border-radius:var(--radio-a);overflow:hidden;
-    border:2px solid #e7dfc9;
+    border:2px solid #e7dfc9;transition:transform .3s var(--ease), box-shadow .3s var(--ease);
   }
+  .card-bonus:hover{transform:translateY(-6px);box-shadow:var(--sombra-suave);}
   .card-bonus img{width:100%;}
   .card-bonus .cuerpo{padding:16px 18px;}
   .card-bonus h3{font-size:1.05rem;color:var(--verde-oscuro);margin-bottom:6px;}
@@ -170,7 +306,7 @@
     color:var(--crema);text-align:center;
   }
   .garantia img{width:150px;margin:0 auto 18px;}
-  .garantia h2{font-size:1.7rem;color:var(--dorado);margin-bottom:12px;}
+  .garantia h2{font-size:clamp(1.4rem,4vw,1.7rem);color:var(--dorado);margin-bottom:12px;}
   .garantia p{max-width:520px;margin:0 auto;font-size:.98rem;line-height:1.6;color:#e2efe4;}
 
   /* 9. Política de devolución */
@@ -182,34 +318,52 @@
   .devolucion h3{font-size:1.1rem;color:var(--verde-oscuro);margin-bottom:8px;}
   .devolucion p{font-size:.9rem;line-height:1.6;color:#3d3d3d;margin:0;}
 
-  /* 10. FAQ */
-  .faq-item{border-bottom:1px solid #e2dcc9;padding:16px 0;}
-  .faq-item summary{
+  /* 10. FAQ (acordeón animado) */
+  .faq-item{border-bottom:1px solid #e2dcc9;}
+  .faq-pregunta{
     cursor:pointer;font-weight:700;font-size:.98rem;color:var(--verde-oscuro);
-    list-style:none;display:flex;justify-content:space-between;align-items:center;
+    display:flex;justify-content:space-between;align-items:center;gap:14px;
+    width:100%;background:none;border:none;text-align:left;padding:16px 0;font-family:inherit;
   }
-  .faq-item summary::-webkit-details-marker{display:none;}
-  .faq-item summary::after{content:'+';font-size:1.4rem;color:var(--verde-cancha);}
-  .faq-item[open] summary::after{content:'–';}
-  .faq-item p{margin:10px 0 0;font-size:.9rem;color:#4a4a4a;line-height:1.6;}
+  .faq-pregunta .mas{font-size:1.4rem;color:var(--verde-cancha);transition:transform .3s var(--ease);flex:none;}
+  .faq-pregunta[aria-expanded="true"] .mas{transform:rotate(45deg);}
+  .faq-respuesta{
+    display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease);
+  }
+  .faq-respuesta[data-abierta="true"]{grid-template-rows:1fr;}
+  .faq-respuesta > div{overflow:hidden;}
+  .faq-respuesta p{margin:0 0 16px;font-size:.9rem;color:#4a4a4a;line-height:1.6;}
 
   /* 11. CTA final */
   .cta-final{
     background:radial-gradient(circle at 80% 20%, #1E8E4A 0%, var(--verde-oscuro) 60%);
     color:var(--crema);text-align:center;
   }
-  .cta-final h2{font-size:1.9rem;color:#fff;margin-bottom:10px;}
+  .cta-final h2{font-size:clamp(1.5rem,4.5vw,1.9rem);color:#fff;margin-bottom:10px;}
   .cta-final p{font-size:1rem;color:#dcefe1;margin-bottom:26px;}
-  .cta-final .precio-final{font-family:'Anton',sans-serif;font-size:2.3rem;color:var(--dorado);margin-bottom:22px;}
+  .cta-final .precio-final{font-family:'Anton',sans-serif;font-size:clamp(1.8rem,6vw,2.3rem);color:var(--dorado);margin-bottom:22px;}
 
   /* 12. Footer */
-  footer{background:var(--verde-oscuro);color:#9fbfa8;text-align:center;padding:22px 0;font-size:.8rem;}
+  footer{background:var(--verde-oscuro);color:#9fbfa8;text-align:center;padding:22px 0 90px;font-size:.8rem;}
+
+  /* CTA fija mobile */
+  .cta-fija{
+    position:fixed;left:0;right:0;bottom:0;z-index:55;
+    background:rgba(13,59,30,.92);backdrop-filter:blur(10px);
+    padding:12px 16px calc(12px + env(safe-area-inset-bottom));
+    display:flex;align-items:center;justify-content:space-between;gap:12px;
+    transform:translateY(120%);transition:transform .4s var(--ease);
+    box-shadow:0 -8px 24px rgba(0,0,0,.25);
+  }
+  .cta-fija.visible{transform:translateY(0);}
+  .cta-fija .precio{color:var(--dorado);font-family:'Anton',sans-serif;font-size:1.15rem;}
+  .cta-fija .precio small{display:block;color:#cfe6d6;font-family:'Poppins',sans-serif;font-size:.65rem;font-weight:400;text-decoration:line-through;}
 
   /* Reveal on scroll */
   [data-reveal]{opacity:1;transform:none;}
-  .js-anim [data-reveal]{opacity:0;transform:translateY(24px);transition:opacity .6s ease, transform .6s ease;}
+  .js-anim [data-reveal]{opacity:0;transform:translateY(28px);transition:opacity var(--dur) var(--ease), transform var(--dur) var(--ease);}
   .js-anim [data-reveal].visto{opacity:1;transform:none;}
-  .js-anim [data-reveal-stagger] > *{opacity:0;transform:translateY(18px);transition:opacity .5s ease, transform .5s ease;}
+  .js-anim [data-reveal-stagger] > *{opacity:0;transform:translateY(20px) scale(.98);transition:opacity .55s var(--ease), transform .55s var(--ease);}
   .js-anim [data-reveal-stagger].visto > *{opacity:1;transform:none;}
   .js-anim [data-reveal-stagger].visto > *:nth-child(1){transition-delay:.05s;}
   .js-anim [data-reveal-stagger].visto > *:nth-child(2){transition-delay:.15s;}
@@ -217,278 +371,301 @@
   .js-anim [data-reveal-stagger].visto > *:nth-child(4){transition-delay:.35s;}
 
   @media (prefers-reduced-motion: reduce){
+    html{scroll-behavior:auto;}
     .js-anim [data-reveal], .js-anim [data-reveal-stagger] > *{opacity:1 !important;transform:none !important;transition:none !important;}
+    .blob, .hero-badge .dot, .scroll-cue .flecha, .hero-visual, .btn-cta.pulsante{animation:none !important;}
   }
 
   @media (min-width:700px){
     .hero .wrap{grid-template-columns:1.15fr .85fr;align-items:center;}
-    .hero h1{font-size:3.2rem;}
     .hero-visual{justify-self:end;transform:rotate(2deg);}
+    @keyframes hero-flotar{0%,100%{transform:translateY(0) rotate(2deg);}50%{transform:translateY(-10px) rotate(3deg);}}
     .grid-beneficios{grid-template-columns:1.3fr 1fr 1fr;grid-template-rows:auto auto;}
     .card-beneficio.grande{grid-row:span 2;}
     .grid-testimonios{grid-template-columns:repeat(4,1fr);}
     .grid-bonus{grid-template-columns:repeat(3,1fr);}
+    .cta-fija{display:none;}
   }
   @media (min-width:960px){
     .hero h1{font-size:3.6rem;}
   }
 </style>
-
+</head>
 <body>
+
+  <a class="skip-link" href="#main">Saltar al contenido</a>
+  <div class="progress-bar" id="progressBar"></div>
 
   <!-- 1. BARRA DE URGENCIA -->
   <div class="barra-urgencia">⚡ Antes de que arranque el Mundial 2026 <span>· Acceso inmediato por mail</span></div>
 
-  <!-- 2. HERO -->
-  <header class="hero">
-    <div class="wrap">
-      <div>
-        <span class="hero-badge">MUNDIAL 2026 · EDICIÓN FAMILIAR</span>
-        <h1>Armá a los cracks del Mundial con tus propias manos</h1>
-        <p class="subhead">El kit imprimible para armar figuritas coleccionables y un estadio de cartón — para vivir el Mundial 2026 en casa, en familia, lejos de la pantalla.</p>
-        <div class="prueba-rapida">⭐⭐⭐⭐⭐ 4.9 · +2.847 familias ya lo armaron</div>
-        <div class="hero-cta-row">
-          <button type="button" class="btn-cta" data-checkout-btn>Quiero Armarlo Ya</button>
+  <main id="main">
+    <!-- 2. HERO -->
+    <section class="hero">
+      <div class="hero-blobs" aria-hidden="true">
+        <span class="blob b1"></span>
+        <span class="blob b2"></span>
+        <span class="blob b3"></span>
+      </div>
+      <div class="wrap">
+        <div>
+          <span class="hero-badge"><span class="dot"></span> MUNDIAL 2026 · KIT IMPRIMIBLE</span>
+          <h1>¿Tu hijo solo vive el Mundial pegado al celular?</h1>
+          <p class="subhead">Armá con él a los cracks de la Selección: un kit para imprimir en casa y vivir este Mundial en familia, no cada uno con su pantalla.</p>
+          <div class="prueba-rapida">⭐⭐⭐⭐⭐ <span class="num" data-contador data-hasta="4.9">0</span> · +<span class="num" data-contador data-hasta="2847">0</span> familias ya lo armaron</div>
+          <div class="hero-cta-row">
+            <button type="button" class="btn-cta pulsante" data-checkout-btn>Quiero Armarlo Ya</button>
+          </div>
+          <div class="trust-badges">
+            <span class="trust-badge">🔒 Compra 100% segura · MercadoPago</span>
+            <span class="trust-badge">🛡️ Garantía 7 días</span>
+            <span class="trust-badge">📩 Acceso inmediato</span>
+          </div>
         </div>
-        <div class="trust-badges">
+        <div class="hero-visual">
+          <img src="images/hero-personaje.webp" alt="Personaje ilustrado de ArmaCrack, un crack armable del Mundial 2026" width="900" height="1250" fetchpriority="high" decoding="async">
+        </div>
+      </div>
+      <div class="wrap">
+        <div class="scroll-cue" aria-hidden="true"><span>Mirá cómo funciona</span><span class="flecha"></span></div>
+      </div>
+      <div id="heroSentinel"></div>
+    </section>
+
+    <!-- 3. QUÉ RECIBÍS -->
+    <section class="seccion claro" id="oferta">
+      <div class="wrap" data-reveal>
+        <span class="kicker">Qué recibís</span>
+        <h2 class="titulo-seccion">Todo lo que se arma con tus manos</h2>
+        <div class="items-recibis">
+          <div class="item-recibis">
+            <div class="item-nombre">Kit ArmaCrack<small>12 figuritas armables + estadio de cartón a escala</small></div>
+            <div class="item-valor">$34.900</div>
+          </div>
+          <div class="item-recibis bonus">
+            <div class="item-nombre">BONUS — Álbum Argentina Campeona 2026<small>Álbum imprimible para coleccionar y pegar figuritas</small></div>
+            <div class="item-valor">$19.900</div>
+          </div>
+          <div class="item-recibis bonus">
+            <div class="item-nombre">BONUS — Pack Extra de 20 Figuritas Sorpresa<small>Más selecciones para sumar al álbum y a los picados</small></div>
+            <div class="item-valor">$17.900</div>
+          </div>
+          <div class="item-recibis bonus">
+            <div class="item-nombre">BONUS — Cuadernillo de Actividades Futboleras<small>Sopa de letras, laberintos y Certificado de Crack</small></div>
+            <div class="item-valor">$17.500</div>
+          </div>
+        </div>
+        <div class="total-box">
+          <div>
+            <div class="val-tachado">Valor total: $90.200</div>
+            <div class="val-hoy">Hoy: $21.990</div>
+          </div>
+          <button type="button" class="btn-cta chico" data-checkout-btn>Lo Quiero Hoy</button>
+        </div>
+      </div>
+    </section>
+
+    <!-- 4. BENEFICIOS TRANSFORMACIONALES -->
+    <section class="seccion">
+      <div class="wrap">
+        <span class="kicker">Por qué vale la pena</span>
+        <h2 class="titulo-seccion">Lo que cambia en tu casa</h2>
+        <div class="grid-beneficios" data-reveal-stagger>
+          <div class="card-beneficio grande">
+            <span class="icono">📱➡️✂️</span>
+            <h3>Menos pantalla, más manos a la obra</h3>
+            <p>Un ratito armando a los cracks vale más que otra tarde entera pegado al celular. Lo notás vos, lo siente él.</p>
+          </div>
+          <div class="card-beneficio">
+            <span class="icono">🗓️</span>
+            <h3>Un plan que dura semanas, no una tarde</h3>
+            <p>32 figuritas para coleccionar y un álbum para completar: entretenimiento para rato, no para un ratito.</p>
+          </div>
+          <div class="card-beneficio">
+            <span class="icono">✋</span>
+            <h3>Lo armás aunque no seas de las manualidades</h3>
+            <p>Instrucciones paso a paso. Tijera, pegamento y listo — no hace falta ser artista.</p>
+          </div>
+          <div class="card-beneficio">
+            <span class="icono">🏆</span>
+            <h3>Un recuerdo de este Mundial que se queda en casa</h3>
+            <p>Armado por él, con vos al lado. No otro juguete comprado y olvidado a la semana.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 5. PRODUCTO EN ACCIÓN -->
+    <section class="seccion claro">
+      <div class="wrap">
+        <span class="kicker">Producto en acción</span>
+        <h2 class="titulo-seccion">Así se arma cada crack</h2>
+        <div class="carrusel">
+          <figure class="ancho"><img src="images/estadio-armado.webp" loading="lazy" decoding="async" alt="Estadio de cartón armado con figuritas jugando un picado" width="1200" height="900"><figcaption>El estadio armado, listo para el picado</figcaption></figure>
+          <figure><img src="images/figurita-01.webp" loading="lazy" decoding="async" alt="Figurita armable de crack con camiseta celeste" width="640" height="640"><figcaption>Cada crack, armado a mano</figcaption></figure>
+          <figure><img src="images/figurita-02.webp" loading="lazy" decoding="async" alt="Figurita armable de crack con camiseta amarilla" width="640" height="640"><figcaption>Elegí tu selección favorita</figcaption></figure>
+          <figure><img src="images/figurita-03.webp" loading="lazy" decoding="async" alt="Figurita armable de crack con camiseta roja" width="640" height="640"><figcaption>Piezas de papel, resultado premium</figcaption></figure>
+          <figure class="ancho"><img src="images/estadio-molde.webp" loading="lazy" decoding="async" alt="Molde de papel del estadio para armar, visto desde arriba" width="1200" height="900"><figcaption>El molde del estadio, listo para imprimir</figcaption></figure>
+          <figure><img src="images/figurita-05.webp" loading="lazy" decoding="async" alt="Figurita armable de otro crack del Mundial" width="640" height="640"><figcaption>Armá el plantel completo</figcaption></figure>
+          <figure><img src="images/figurita-07.webp" loading="lazy" decoding="async" alt="Figurita armable de otro crack del Mundial" width="640" height="640"><figcaption>Cada figurita, distinta y única</figcaption></figure>
+        </div>
+      </div>
+    </section>
+
+    <!-- 6. TESTIMONIOS -->
+    <section class="seccion" id="testimonios">
+      <div class="wrap">
+        <span class="kicker">Lo que dicen las familias</span>
+        <h2 class="titulo-seccion">Padres que ya lo armaron</h2>
+        <div class="grid-testimonios" data-reveal-stagger>
+          <div class="testimonio">
+            <img src="images/testimonio-carlos.webp" loading="lazy" decoding="async" alt="Testimonio de Carlos por WhatsApp agradeciendo el material" width="1123" height="1400">
+            <div class="testimonio-footer">
+              <div class="estrellas">★★★★★</div>
+              <strong>Carlos, papá</strong><span>Rosario, Santa Fe</span>
+            </div>
+          </div>
+          <div class="testimonio">
+            <img src="images/testimonio-camila.webp" loading="lazy" decoding="async" alt="Testimonio de Camila por WhatsApp mostrando las figuritas armadas con su hijo" width="1075" height="1400">
+            <div class="testimonio-footer">
+              <div class="estrellas">★★★★★</div>
+              <strong>Camila, mamá</strong><span>CABA</span>
+            </div>
+          </div>
+          <div class="testimonio">
+            <img src="images/testimonio-cliente.webp" loading="lazy" decoding="async" alt="Testimonio de una mamá contando que sus hijos pasaron horas lejos de la pantalla" width="1074" height="1400">
+            <div class="testimonio-footer">
+              <div class="estrellas">★★★★★</div>
+              <strong>Romina, mamá</strong><span>Córdoba Capital</span>
+            </div>
+          </div>
+          <div class="testimonio">
+            <img src="images/testimonio-juliana.webp" loading="lazy" decoding="async" alt="Testimonio de Juliana por WhatsApp contando que armó las figuritas con su hijo" width="941" height="1400">
+            <div class="testimonio-footer">
+              <div class="estrellas">★★★★★</div>
+              <strong>Juliana, mamá de Leo</strong><span>Mendoza</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 7. REFUERZO DEL PACK -->
+    <section class="seccion claro">
+      <div class="wrap">
+        <span class="kicker">El pack completo</span>
+        <h2 class="titulo-seccion">Todos los bonus, en detalle</h2>
+        <div class="grid-bonus" data-reveal-stagger>
+          <div class="card-bonus">
+            <img src="images/bonus-album.webp" loading="lazy" decoding="async" alt="Álbum Argentina Campeona 2026 imprimible con figuritas" width="1200" height="800">
+            <div class="cuerpo">
+              <h3>Álbum Argentina Campeona 2026</h3>
+              <p>Para coleccionar y pegar las figuritas de todas las selecciones. Objetivo claro: completarlo.</p>
+              <div class="valor">Valor $19.900 — incluido</div>
+            </div>
+          </div>
+          <div class="card-bonus">
+            <img src="images/bonus-figuritas.webp" loading="lazy" decoding="async" alt="Pack extra de 20 figuritas sorpresa imprimibles" width="1200" height="800">
+            <div class="cuerpo">
+              <h3>Pack Extra de 20 Figuritas Sorpresa</h3>
+              <p>Más selecciones para sumar al álbum y armar picados más grandes.</p>
+              <div class="valor">Valor $17.900 — incluido</div>
+            </div>
+          </div>
+          <div class="card-bonus">
+            <img src="images/bonus-actividades.webp" loading="lazy" decoding="async" alt="Cuadernillo de actividades futboleras imprimible con juegos y certificado" width="1200" height="800">
+            <div class="cuerpo">
+              <h3>Cuadernillo de Actividades Futboleras</h3>
+              <p>Sopa de letras, laberintos, encontrá las diferencias y Certificado de Crack.</p>
+              <div class="valor">Valor $17.500 — incluido</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 8. GARANTÍA -->
+    <section class="seccion garantia">
+      <div class="wrap" data-reveal>
+        <img src="images/garantia-7dias.webp" loading="lazy" decoding="async" alt="Sello de garantía de 7 días" width="720" height="720">
+        <h2>Garantía de 7 días</h2>
+        <p>Si no te cierra, te lo cambiamos por otro producto de nuestra web. Sin vueltas, sin letra chica.</p>
+      </div>
+    </section>
+
+    <!-- 9. POLÍTICA DE DEVOLUCIÓN -->
+    <section class="seccion claro devolucion">
+      <div class="wrap" data-reveal>
+        <div class="caja">
+          <h3>Política de devolución</h3>
+          <p>Si dentro de los 7 días hábiles posteriores a la compra no estás conforme, te ofrecemos el cambio por otro producto de nuestra web (no reintegro de dinero, ya que se trata de contenido digital descargado), siempre que no exista un reclamo previamente abierto en la pasarela de pago. Escribinos y te acompañamos con el cambio.</p>
+        </div>
+      </div>
+    </section>
+
+    <!-- 10. FAQ -->
+    <section class="seccion" id="faq">
+      <div class="wrap" data-reveal>
+        <span class="kicker">Preguntas frecuentes</span>
+        <h2 class="titulo-seccion">Todo lo que querés saber</h2>
+        <div style="margin-top:24px;" id="faqLista">
+          <div class="faq-item">
+            <button type="button" class="faq-pregunta" aria-expanded="false">¿Esto es solo un PDF que tengo que imprimir yo?<span class="mas">+</span></button>
+            <div class="faq-respuesta" data-abierta="false"><div><p>Sí, y esa es la gracia: recibís todo listo para imprimir en tu casa o en la fotocopiadora de la esquina por unas monedas. Nada de esperar envíos.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-pregunta" aria-expanded="false">¿Se va a aburrir a la semana?<span class="mas">+</span></button>
+            <div class="faq-respuesta" data-abierta="false"><div><p>Con 32 figuritas para coleccionar, el álbum para completar y el estadio para armar picados, hay entretenimiento para varias semanas.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-pregunta" aria-expanded="false">¿Cuándo recibo el material?<span class="mas">+</span></button>
+            <div class="faq-respuesta" data-abierta="false"><div><p>Apenas se acredita el pago, te llega un mail con el acceso a todos los archivos. Podés imprimirlos las veces que quieras, para siempre.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-pregunta" aria-expanded="false">¿Lo puedo armar si no soy bueno con las manualidades?<span class="mas">+</span></button>
+            <div class="faq-respuesta" data-abierta="false"><div><p>Sí. Viene con instrucciones paso a paso pensadas para cualquiera, no hace falta experiencia previa ni herramientas especiales.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-pregunta" aria-expanded="false">¿Necesito una impresora especial?<span class="mas">+</span></button>
+            <div class="faq-respuesta" data-abierta="false"><div><p>No, con cualquier impresora de casa o de una fotocopiadora del barrio alcanza. Recomendamos hoja tipo cartulina o A4 común.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-pregunta" aria-expanded="false">¿Qué pasa si no me convence?<span class="mas">+</span></button>
+            <div class="faq-respuesta" data-abierta="false"><div><p>Tenés 7 días de garantía para pedir el cambio por otro producto de la web, sin vueltas.</p></div></div>
+          </div>
+          <div class="faq-item">
+            <button type="button" class="faq-pregunta" aria-expanded="false">¿Puedo imprimirlo más de una vez?<span class="mas">+</span></button>
+            <div class="faq-respuesta" data-abierta="false"><div><p>Sí, el acceso es tuyo para siempre: podés volver a imprimir cuando quieras, para sumar más figuritas o compartir con otro chico de la familia.</p></div></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- 11. CTA FINAL -->
+    <section class="seccion cta-final">
+      <div class="wrap" data-reveal>
+        <h2>Armá con él este Mundial, antes de que empiece</h2>
+        <p>Kit ArmaCrack + Álbum + Pack Extra de Figuritas + Cuadernillo — todo incluido.</p>
+        <div class="precio-final">$21.990</div>
+        <button type="button" class="btn-cta" data-checkout-btn>Quiero Armarlo Ya</button>
+        <div class="trust-badges" style="justify-content:center;margin-top:20px;">
           <span class="trust-badge">🔒 Compra 100% segura · MercadoPago</span>
           <span class="trust-badge">🛡️ Garantía 7 días</span>
-          <span class="trust-badge">📩 Acceso inmediato</span>
         </div>
       </div>
-      <div class="hero-visual">
-        <img src="images/hero-personaje.webp" alt="Personaje ilustrado de ArmaCrack, un crack armable del Mundial 2026" width="900" height="1250">
-      </div>
-    </div>
-  </header>
-
-  <!-- 3. QUÉ RECIBÍS -->
-  <section class="seccion claro" id="oferta">
-    <div class="wrap" data-reveal>
-      <span class="kicker">Qué recibís</span>
-      <h2 class="titulo-seccion">Todo lo que se arma con tus manos</h2>
-      <div class="items-recibis">
-        <div class="item-recibis">
-          <div class="item-nombre">Kit ArmaCrack<small>12 figuritas armables + estadio de cartón a escala</small></div>
-          <div class="item-valor">$34.900</div>
-        </div>
-        <div class="item-recibis bonus">
-          <div class="item-nombre">BONUS — Álbum Argentina Campeona 2026<small>Álbum imprimible para coleccionar y pegar figuritas</small></div>
-          <div class="item-valor">$19.900</div>
-        </div>
-        <div class="item-recibis bonus">
-          <div class="item-nombre">BONUS — Pack Extra de 20 Figuritas Sorpresa<small>Más selecciones para sumar al álbum y a los picados</small></div>
-          <div class="item-valor">$17.900</div>
-        </div>
-        <div class="item-recibis bonus">
-          <div class="item-nombre">BONUS — Cuadernillo de Actividades Futboleras<small>Sopa de letras, laberintos y Certificado de Crack</small></div>
-          <div class="item-valor">$17.500</div>
-        </div>
-      </div>
-      <div class="total-box">
-        <div>
-          <div class="val-tachado">Valor total: $90.200</div>
-          <div class="val-hoy">Hoy: $21.990</div>
-        </div>
-        <button type="button" class="btn-cta chico" data-checkout-btn>Lo Quiero Hoy</button>
-      </div>
-    </div>
-  </section>
-
-  <!-- 4. BENEFICIOS TRANSFORMACIONALES -->
-  <section class="seccion">
-    <div class="wrap">
-      <span class="kicker">Por qué vale la pena</span>
-      <h2 class="titulo-seccion">Lo que cambia en tu casa</h2>
-      <div class="grid-beneficios" data-reveal-stagger>
-        <div class="card-beneficio grande">
-          <span class="icono">📱➡️✂️</span>
-          <h3>Menos pantalla, más manos a la obra</h3>
-          <p>Un ratito armando a los cracks vale más que otra tarde entera pegado al celular. Lo notás vos, lo siente él.</p>
-        </div>
-        <div class="card-beneficio">
-          <span class="icono">🗓️</span>
-          <h3>Un plan que dura semanas, no una tarde</h3>
-          <p>32 figuritas para coleccionar y un álbum para completar: entretenimiento para rato, no para un ratito.</p>
-        </div>
-        <div class="card-beneficio">
-          <span class="icono">✋</span>
-          <h3>Lo armás aunque no seas de las manualidades</h3>
-          <p>Instrucciones paso a paso. Tijera, pegamento y listo — no hace falta ser artista.</p>
-        </div>
-        <div class="card-beneficio">
-          <span class="icono">🏆</span>
-          <h3>Un recuerdo de este Mundial que se queda en casa</h3>
-          <p>Armado por él, con vos al lado. No otro juguete comprado y olvidado a la semana.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 5. PRODUCTO EN ACCIÓN -->
-  <section class="seccion claro">
-    <div class="wrap">
-      <span class="kicker">Producto en acción</span>
-      <h2 class="titulo-seccion">Así se arma cada crack</h2>
-      <div class="carrusel">
-        <figure class="ancho"><img src="images/estadio-armado.webp" loading="lazy" alt="Estadio de cartón armado con figuritas jugando un picado" width="1200" height="900"><figcaption>El estadio armado, listo para el picado</figcaption></figure>
-        <figure><img src="images/figurita-01.webp" loading="lazy" alt="Figurita armable de crack con camiseta celeste" width="640" height="640"><figcaption>Cada crack, armado a mano</figcaption></figure>
-        <figure><img src="images/figurita-02.webp" loading="lazy" alt="Figurita armable de crack con camiseta amarilla" width="640" height="640"><figcaption>Elegí tu selección favorita</figcaption></figure>
-        <figure><img src="images/figurita-03.webp" loading="lazy" alt="Figurita armable de crack con camiseta roja" width="640" height="640"><figcaption>Piezas de papel, resultado premium</figcaption></figure>
-        <figure class="ancho"><img src="images/estadio-molde.webp" loading="lazy" alt="Molde de papel del estadio para armar, visto desde arriba" width="1200" height="900"><figcaption>El molde del estadio, listo para imprimir</figcaption></figure>
-        <figure><img src="images/figurita-05.webp" loading="lazy" alt="Figurita armable de otro crack del Mundial" width="640" height="640"><figcaption>Armá el plantel completo</figcaption></figure>
-        <figure><img src="images/figurita-07.webp" loading="lazy" alt="Figurita armable de otro crack del Mundial" width="640" height="640"><figcaption>Cada figurita, distinta y única</figcaption></figure>
-      </div>
-    </div>
-  </section>
-
-  <!-- 6. TESTIMONIOS -->
-  <section class="seccion" id="testimonios">
-    <div class="wrap">
-      <span class="kicker">Lo que dicen las familias</span>
-      <h2 class="titulo-seccion">Padres que ya lo armaron</h2>
-      <div class="grid-testimonios" data-reveal-stagger>
-        <div class="testimonio">
-          <img src="images/testimonio-carlos.webp" loading="lazy" alt="Testimonio de Carlos por WhatsApp agradeciendo el material" width="1123" height="1400">
-          <div class="testimonio-footer">
-            <div class="estrellas">★★★★★</div>
-            <strong>Carlos, papá</strong><span>Rosario, Santa Fe</span>
-          </div>
-        </div>
-        <div class="testimonio">
-          <img src="images/testimonio-camila.webp" loading="lazy" alt="Testimonio de Camila por WhatsApp mostrando las figuritas armadas con su hijo" width="1075" height="1400">
-          <div class="testimonio-footer">
-            <div class="estrellas">★★★★★</div>
-            <strong>Camila, mamá</strong><span>CABA</span>
-          </div>
-        </div>
-        <div class="testimonio">
-          <img src="images/testimonio-cliente.webp" loading="lazy" alt="Testimonio de una mamá contando que sus hijos pasaron horas lejos de la pantalla" width="1074" height="1400">
-          <div class="testimonio-footer">
-            <div class="estrellas">★★★★★</div>
-            <strong>Romina, mamá</strong><span>Córdoba Capital</span>
-          </div>
-        </div>
-        <div class="testimonio">
-          <img src="images/testimonio-juliana.webp" loading="lazy" alt="Testimonio de Juliana por WhatsApp contando que armó las figuritas con su hijo" width="941" height="1400">
-          <div class="testimonio-footer">
-            <div class="estrellas">★★★★★</div>
-            <strong>Juliana, mamá de Leo</strong><span>Mendoza</span>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 7. REFUERZO DEL PACK -->
-  <section class="seccion claro">
-    <div class="wrap">
-      <span class="kicker">El pack completo</span>
-      <h2 class="titulo-seccion">Todos los bonus, en detalle</h2>
-      <div class="grid-bonus" data-reveal-stagger>
-        <div class="card-bonus">
-          <img src="images/bonus-album.webp" loading="lazy" alt="Álbum Argentina Campeona 2026 imprimible con figuritas" width="1200" height="800">
-          <div class="cuerpo">
-            <h3>Álbum Argentina Campeona 2026</h3>
-            <p>Para coleccionar y pegar las figuritas de todas las selecciones. Objetivo claro: completarlo.</p>
-            <div class="valor">Valor $19.900 — incluido</div>
-          </div>
-        </div>
-        <div class="card-bonus">
-          <img src="images/bonus-figuritas.webp" loading="lazy" alt="Pack extra de 20 figuritas sorpresa imprimibles" width="1200" height="800">
-          <div class="cuerpo">
-            <h3>Pack Extra de 20 Figuritas Sorpresa</h3>
-            <p>Más selecciones para sumar al álbum y armar picados más grandes.</p>
-            <div class="valor">Valor $17.900 — incluido</div>
-          </div>
-        </div>
-        <div class="card-bonus">
-          <img src="images/bonus-actividades.webp" loading="lazy" alt="Cuadernillo de actividades futboleras imprimible con juegos y certificado" width="1200" height="800">
-          <div class="cuerpo">
-            <h3>Cuadernillo de Actividades Futboleras</h3>
-            <p>Sopa de letras, laberintos, encontrá las diferencias y Certificado de Crack.</p>
-            <div class="valor">Valor $17.500 — incluido</div>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- 8. GARANTÍA -->
-  <section class="seccion garantia">
-    <div class="wrap" data-reveal>
-      <img src="images/garantia-7dias.webp" loading="lazy" alt="Sello de garantía de 7 días" width="720" height="720">
-      <h2>Garantía de 7 días</h2>
-      <p>Si no te cierra, te lo cambiamos por otro producto de nuestra web. Sin vueltas, sin letra chica.</p>
-    </div>
-  </section>
-
-  <!-- 9. POLÍTICA DE DEVOLUCIÓN -->
-  <section class="seccion claro devolucion">
-    <div class="wrap" data-reveal>
-      <div class="caja">
-        <h3>Política de devolución</h3>
-        <p>Si dentro de los 7 días hábiles posteriores a la compra no estás conforme, te ofrecemos el cambio por otro producto de nuestra web (no reintegro de dinero, ya que se trata de contenido digital descargado), siempre que no exista un reclamo previamente abierto en la pasarela de pago. Escribinos y te acompañamos con el cambio.</p>
-      </div>
-    </div>
-  </section>
-
-  <!-- 10. FAQ -->
-  <section class="seccion" id="faq">
-    <div class="wrap" data-reveal>
-      <span class="kicker">Preguntas frecuentes</span>
-      <h2 class="titulo-seccion">Todo lo que querés saber</h2>
-      <div style="margin-top:24px;">
-        <details class="faq-item">
-          <summary>¿Esto es solo un PDF que tengo que imprimir yo?</summary>
-          <p>Sí, y esa es la gracia: recibís todo listo para imprimir en tu casa o en la fotocopiadora de la esquina por unas monedas. Nada de esperar envíos.</p>
-        </details>
-        <details class="faq-item">
-          <summary>¿Se va a aburrir a la semana?</summary>
-          <p>Con 32 figuritas para coleccionar, el álbum para completar y el estadio para armar picados, hay entretenimiento para varias semanas.</p>
-        </details>
-        <details class="faq-item">
-          <summary>¿Cuándo recibo el material?</summary>
-          <p>Apenas se acredita el pago, te llega un mail con el acceso a todos los archivos. Podés imprimirlos las veces que quieras, para siempre.</p>
-        </details>
-        <details class="faq-item">
-          <summary>¿Lo puedo armar si no soy bueno con las manualidades?</summary>
-          <p>Sí. Viene con instrucciones paso a paso pensadas para cualquiera, no hace falta experiencia previa ni herramientas especiales.</p>
-        </details>
-        <details class="faq-item">
-          <summary>¿Necesito una impresora especial?</summary>
-          <p>No, con cualquier impresora de casa o de una fotocopiadora del barrio alcanza. Recomendamos hoja tipo cartulina o A4 común.</p>
-        </details>
-        <details class="faq-item">
-          <summary>¿Qué pasa si no me convence?</summary>
-          <p>Tenés 7 días de garantía para pedir el cambio por otro producto de la web, sin vueltas.</p>
-        </details>
-        <details class="faq-item">
-          <summary>¿Puedo imprimirlo más de una vez?</summary>
-          <p>Sí, el acceso es tuyo para siempre: podés volver a imprimir cuando quieras, para sumar más figuritas o compartir con otro chico de la familia.</p>
-        </details>
-      </div>
-    </div>
-  </section>
-
-  <!-- 11. CTA FINAL -->
-  <section class="seccion cta-final">
-    <div class="wrap" data-reveal>
-      <h2>Armá con él este Mundial, antes de que empiece</h2>
-      <p>Kit ArmaCrack + Álbum + Pack Extra de Figuritas + Cuadernillo — todo incluido.</p>
-      <div class="precio-final">$21.990</div>
-      <button type="button" class="btn-cta" data-checkout-btn>Quiero Armarlo Ya</button>
-      <div class="trust-badges" style="justify-content:center;margin-top:20px;">
-        <span class="trust-badge">🔒 Compra 100% segura · MercadoPago</span>
-        <span class="trust-badge">🛡️ Garantía 7 días</span>
-      </div>
-    </div>
-  </section>
+    </section>
+  </main>
 
   <!-- 12. FOOTER -->
   <footer>
     <div class="wrap">© 2026 ArmaCrack. Todos los derechos reservados.</div>
   </footer>
+
+  <!-- CTA fija (solo mobile) -->
+  <div class="cta-fija" id="ctaFija">
+    <div class="precio"><small>Hoy</small>$21.990</div>
+    <button type="button" class="btn-cta chico" data-checkout-btn>Quiero Armarlo Ya</button>
+  </div>
 
   <!-- ===================== PIXEL DE META (placeholder) =====================
     Pegá tu Pixel ID acá abajo reemplazando "TU_PIXEL_ID". Mientras tanto queda comentado.
@@ -502,6 +679,18 @@
   ===================================================================== -->
 
   <script>
+    var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    // Barra de progreso de scroll
+    var progressBar = document.getElementById('progressBar');
+    function actualizarProgreso(){
+      var alto = document.documentElement.scrollHeight - window.innerHeight;
+      var pct = alto > 0 ? (window.scrollY / alto) * 100 : 0;
+      progressBar.style.width = pct + '%';
+    }
+    window.addEventListener('scroll', actualizarProgreso, { passive: true });
+    actualizarProgreso();
+
     // Reveal on scroll (respeta prefers-reduced-motion vía CSS)
     document.documentElement.classList.add('js-anim');
     var objetivos = document.querySelectorAll('[data-reveal], [data-reveal-stagger]');
@@ -519,6 +708,57 @@
       objetivos.forEach(function(el){ el.classList.add('visto'); });
     }
 
+    // Contador animado de prueba social
+    document.querySelectorAll('[data-contador]').forEach(function(el){
+      var meta = parseFloat(el.getAttribute('data-hasta'));
+      var esDecimal = meta % 1 !== 0;
+      if(reduceMotion){
+        el.textContent = esDecimal ? meta.toFixed(1) : meta.toLocaleString('es-AR');
+        return;
+      }
+      var contado = false;
+      var obsNum = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          if(entry.isIntersecting && !contado){
+            contado = true;
+            var inicio = null, duracion = 1400;
+            function paso(ts){
+              if(!inicio) inicio = ts;
+              var prog = Math.min((ts - inicio) / duracion, 1);
+              var actual = meta * prog;
+              el.textContent = esDecimal ? actual.toFixed(1) : Math.floor(actual).toLocaleString('es-AR');
+              if(prog < 1) requestAnimationFrame(paso);
+            }
+            requestAnimationFrame(paso);
+            obsNum.unobserve(el);
+          }
+        });
+      }, { threshold: .6 });
+      obsNum.observe(el);
+    });
+
+    // CTA fija en mobile: aparece después del hero
+    var ctaFija = document.getElementById('ctaFija');
+    var heroSentinel = document.getElementById('heroSentinel');
+    if(ctaFija && heroSentinel && 'IntersectionObserver' in window){
+      var obsCta = new IntersectionObserver(function(entries){
+        entries.forEach(function(entry){
+          ctaFija.classList.toggle('visible', !entry.isIntersecting && entry.boundingClientRect.top < 0);
+        });
+      }, { threshold: 0 });
+      obsCta.observe(heroSentinel);
+    }
+
+    // FAQ acordeón animado
+    document.querySelectorAll('.faq-pregunta').forEach(function(btn){
+      btn.addEventListener('click', function(){
+        var respuesta = btn.nextElementSibling;
+        var abierta = btn.getAttribute('aria-expanded') === 'true';
+        btn.setAttribute('aria-expanded', String(!abierta));
+        respuesta.setAttribute('data-abierta', String(!abierta));
+      });
+    });
+
     // Botones de checkout: todavía no hay link conectado.
     // TODO: cuando tengas el link/variant de MercadoPago o Shopify, reemplazá esta función
     // para que redirija (window.location.href = 'TU_LINK_DE_CHECKOUT').
@@ -529,3 +769,4 @@
     });
   </script>
 </body>
+</html>
