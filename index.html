@@ -355,7 +355,7 @@
   .incluye-item .desc{margin:0;font-size:.9rem;color:var(--gris-texto);line-height:1.62;}
   .incluye-item .valor-tag{
     margin-top:auto;padding-top:16px;
-    display:flex;align-items:center;justify-content:flex-end;gap:10px;flex-wrap:wrap;
+    display:flex;align-items:center;justify-content:flex-start;gap:10px;flex-wrap:wrap;
   }
   .incluye-item .precio-viejo{
     font-size:.85rem;font-weight:700;color:#C0474A;text-decoration:line-through;
@@ -602,6 +602,29 @@
 
   }
 </style>
+
+<!-- ===================== META PIXEL (Facebook/Instagram Ads) =====================
+  TODO: reemplazá TU_PIXEL_ID_AQUI (2 veces, acá abajo) por tu Pixel ID real.
+  Lo sacás en Meta Events Manager: business.facebook.com/events_manager
+  -> elegí tu pixel -> "Detalles del pixel" -> copiá el ID numérico (15-16 dígitos).
+========================================================================= -->
+<script>
+!function(f,b,e,v,n,t,s){
+  if(f.fbq)return; n=f.fbq=function(){n.callMethod?
+  n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+  if(!f._fbq)f._fbq=n; n.push=n; n.loaded=!0; n.version='2.0';
+  n.queue=[]; t=b.createElement(e); t.async=!0;
+  t.src=v; s=b.getElementsByTagName(e)[0];
+  s.parentNode.insertBefore(t,s)
+}(window, document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+fbq('init', 'TU_PIXEL_ID_AQUI');
+fbq('track', 'PageView');
+</script>
+<noscript><img height="1" width="1" style="display:none"
+  src="https://www.facebook.com/tr?id=TU_PIXEL_ID_AQUI&ev=PageView&noscript=1"
+/></noscript>
+<!-- ================================================================= -->
+
 </head>
 <body>
 
@@ -1049,11 +1072,6 @@
     <div class="wrap">© 2026 PaperStars. Todos los derechos reservados.</div>
   </footer>
 
-  <!-- ===================== PIXEL DE META (placeholder) =====================
-    Pegá tu Pixel ID reemplazando "TU_PIXEL_ID". Mientras tanto queda comentado.
-    Al conectarlo, disparar fbq('track','InitiateCheckout') en los data-checkout-btn.
-  ===================================================================== -->
-
   <script>
     var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
@@ -1113,10 +1131,15 @@
       });
     });
 
-    // Botones de checkout: todavía no conectados.
+    // Botones de checkout: todavía no conectados al link de pago.
     // TODO: reemplazar por window.location.href = 'TU_LINK_DE_CHECKOUT';
     document.querySelectorAll('[data-checkout-btn]').forEach(function(btn){
       btn.addEventListener('click', function(){
+        // Evento de Meta Pixel: avisa que alguien inició el checkout (clic en "comprar").
+        // Se dispara igual aunque el link de pago todavía no esté conectado.
+        if (typeof fbq === 'function') {
+          fbq('track', 'InitiateCheckout');
+        }
         console.info('Checkout todavía no conectado. Pegá el link de pago en los botones data-checkout-btn.');
       });
     });
