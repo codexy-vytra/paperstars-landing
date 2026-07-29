@@ -6,7 +6,7 @@
 <meta name="description" content="El kit imprimible que saca a tu hijo de la pantalla: armá con él a los cracks del fútbol y su propio estadio de cartón. Acceso digital inmediato.">
 <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
 <meta name="robots" content="index, follow">
-<meta name="theme-color" content="#05132B">
+<meta name="theme-color" content="#081F4D">
 <link rel="canonical" href="https://landing-armacrack.vercel.app/">
 
 <!-- Open Graph / redes sociales -->
@@ -72,14 +72,14 @@
 
 <style>
   :root{
-    /* Paleta azul + dorado */
-    --azul-noche:#05132B;
-    --azul-profundo:#0A2247;
-    --azul-royal:#1B4F9C;
-    --celeste:#7FB3E3;
-    --dorado:#E8B33C;
-    --dorado-claro:#F7D774;
-    --dorado-oscuro:#B8862A;
+    /* Paleta azul/celeste + blanco + amarillo (prueba visual) */
+    --azul-noche:#081F4D;
+    --azul-profundo:#0F3A8C;
+    --azul-royal:#1E6FD9;
+    --celeste:#6FC3EA;
+    --dorado:#FFCC00;
+    --dorado-claro:#FFE066;
+    --dorado-oscuro:#E0A800;
     --crema:#FBF7EF;
     --blanco:#FFFFFF;
     --texto:#132038;
@@ -89,9 +89,9 @@
     --radio-b:14px;
     --ease:cubic-bezier(.22,1,.36,1);
     --dur:.75s;
-    --sombra-suave:0 12px 30px rgba(10,34,71,.09);
-    --sombra-media:0 18px 44px rgba(10,34,71,.14);
-    --sombra-fuerte:0 28px 60px rgba(5,19,43,.30);
+    --sombra-suave:0 12px 30px rgba(15,58,140,.09);
+    --sombra-media:0 18px 44px rgba(15,58,140,.14);
+    --sombra-fuerte:0 28px 60px rgba(8,31,77,.30);
     --borde-glass:1px solid rgba(255,255,255,.14);
   }
   *{box-sizing:border-box;}
@@ -124,7 +124,7 @@
   }
 
   .oro{
-    background:linear-gradient(135deg,#F7D774 0%,#E8B33C 42%,#FFF1C2 58%,#C9962C 100%);
+    background:linear-gradient(135deg,#FFE066 0%,#FFCC00 42%,#FFF9D6 58%,#E0A800 100%);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
 
@@ -138,11 +138,11 @@
   .btn-cta{
     display:inline-flex;align-items:center;justify-content:center;gap:10px;
     width:100%;max-width:420px;
-    background:linear-gradient(135deg,#F9DE8A 0%,#E8B33C 50%,#D8A430 100%);
+    background:linear-gradient(135deg,#FFE066 0%,#FFCC00 50%,#E0A800 100%);
     color:var(--azul-noche);position:relative;overflow:hidden;
     font-family:'Outfit',sans-serif;font-weight:700;font-size:1.22rem;letter-spacing:-.005em;
     border:none;border-radius:100px;padding:19px 32px;cursor:pointer;
-    box-shadow:0 10px 30px rgba(232,179,60,.34);
+    box-shadow:0 10px 30px rgba(255,204,0,.34);
     transition:transform .2s var(--ease), box-shadow .2s var(--ease), filter .2s ease;
     text-decoration:none;
   }
@@ -156,8 +156,8 @@
     0%{left:-120%;}
     45%,100%{left:170%;}
   }
-  .btn-cta:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(232,179,60,.46);filter:brightness(1.04);}
-  .btn-cta:active{transform:translateY(0);box-shadow:0 8px 22px rgba(232,179,60,.3);}
+  .btn-cta:hover{transform:translateY(-2px);box-shadow:0 16px 40px rgba(255,204,0,.46);filter:brightness(1.04);}
+  .btn-cta:active{transform:translateY(0);box-shadow:0 8px 22px rgba(255,204,0,.3);}
   .btn-cta:focus-visible{outline:3px solid var(--celeste);outline-offset:3px;}
   .btn-cta.chico{padding:15px 26px;font-size:1.08rem;width:auto;max-width:none;}
 
@@ -178,9 +178,9 @@
   /* ---------- 2. Hero ---------- */
   .hero{
     background:
-      radial-gradient(ellipse 70% 50% at 15% -5%, rgba(27,79,156,.55) 0%, transparent 60%),
-      radial-gradient(ellipse 50% 40% at 88% 8%, rgba(232,179,60,.22) 0%, transparent 62%),
-      radial-gradient(ellipse 60% 50% at 60% 100%, rgba(127,179,227,.16) 0%, transparent 60%),
+      radial-gradient(ellipse 70% 50% at 15% -5%, rgba(30,111,217,.55) 0%, transparent 60%),
+      radial-gradient(ellipse 50% 40% at 88% 8%, rgba(255,204,0,.22) 0%, transparent 62%),
+      radial-gradient(ellipse 60% 50% at 60% 100%, rgba(111,195,234,.16) 0%, transparent 60%),
       linear-gradient(170deg, var(--azul-profundo) 0%, var(--azul-noche) 70%);
     color:#EAF2FB;
     padding:40px 0 52px;
@@ -188,7 +188,7 @@
   }
   .hero .haz{
     position:absolute;top:-30%;width:130px;height:160%;z-index:0;
-    background:linear-gradient(to bottom, rgba(232,179,60,.13), transparent 70%);
+    background:linear-gradient(to bottom, rgba(255,204,0,.13), transparent 70%);
     filter:blur(26px);
   }
   .hero .haz.h1{left:10%;transform:rotate(14deg);animation:haz-latir 7s ease-in-out infinite;}
@@ -200,7 +200,7 @@
 
   .hero-badge{
     display:inline-flex;align-items:center;gap:8px;
-    background:rgba(232,179,60,.12);border:1px solid rgba(232,179,60,.5);
+    background:rgba(255,204,0,.12);border:1px solid rgba(255,204,0,.5);
     color:var(--dorado-claro);font-size:.72rem;font-weight:700;padding:7px 16px;border-radius:100px;
     margin-bottom:20px;letter-spacing:.09em;text-transform:uppercase;backdrop-filter:blur(8px);
   }
@@ -227,7 +227,7 @@
   .hero-visual{position:relative;justify-self:center;width:100%;max-width:540px;animation:hero-in 1s var(--ease) both;}
   .hero-visual .marco{
     border-radius:var(--radio-a);overflow:hidden;
-    border:1px solid rgba(232,179,60,.4);
+    border:1px solid rgba(255,204,0,.4);
     box-shadow:var(--sombra-fuerte), 0 0 0 8px rgba(255,255,255,.04);
     transform:rotate(-1.2deg);
   }
@@ -235,7 +235,7 @@
   .hero-visual .marco img{width:100%;aspect-ratio:4/3;object-fit:cover;}
   .chip-flotante{
     position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);
-    background:rgba(5,19,43,.9);border:1px solid rgba(232,179,60,.5);backdrop-filter:blur(12px);
+    background:rgba(8,31,77,.9);border:1px solid rgba(255,204,0,.5);backdrop-filter:blur(12px);
     border-radius:100px;padding:10px 18px;display:flex;align-items:center;gap:8px;
     font-size:.76rem;font-weight:700;color:var(--dorado-claro);white-space:nowrap;
     box-shadow:0 12px 28px rgba(0,0,0,.35);
@@ -255,7 +255,7 @@
   /* ---------- Marquee (dos filas, direcciones opuestas) ---------- */
   .marquee-seccion{
     background:var(--azul-noche);padding:26px 0;position:relative;overflow:hidden;
-    border-top:1px solid rgba(232,179,60,.18);border-bottom:1px solid rgba(232,179,60,.18);
+    border-top:1px solid rgba(255,204,0,.18);border-bottom:1px solid rgba(255,204,0,.18);
   }
   /* el gap entre filas es el MISMO que el gap entre imagenes */
   .marquee-doble{display:flex;flex-direction:column;gap:16px;}
@@ -280,7 +280,7 @@
   /* ---------- Quienes ya compraron (slider de chats) ---------- */
   .compraron{
     background:
-      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(27,79,156,.4), transparent 62%),
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(30,111,217,.4), transparent 62%),
       linear-gradient(170deg,var(--azul-profundo),var(--azul-noche));
     color:#EAF2FB;position:relative;overflow:hidden;
   }
@@ -314,13 +314,13 @@
   .grid-porque{display:grid;grid-template-columns:1fr;gap:16px;margin-top:38px;}
   .card-porque{
     background:#fff;border-radius:var(--radio-a);padding:26px 24px;
-    border:1px solid rgba(27,79,156,.09);box-shadow:var(--sombra-suave);
+    border:1px solid rgba(30,111,217,.09);box-shadow:var(--sombra-suave);
     transition:transform .3s var(--ease), box-shadow .3s var(--ease);
   }
   .card-porque:hover{transform:translateY(-6px);box-shadow:var(--sombra-media);}
   .card-porque .ico{
     width:52px;height:52px;border-radius:15px;display:grid;place-items:center;font-size:1.45rem;
-    background:linear-gradient(135deg,rgba(232,179,60,.22),rgba(232,179,60,.08));margin-bottom:15px;
+    background:linear-gradient(135deg,rgba(255,204,0,.22),rgba(255,204,0,.08));margin-bottom:15px;
   }
   .card-porque h3{font-size:1.09rem;color:var(--azul-profundo);margin-bottom:8px;}
   .card-porque p{margin:0;font-size:.91rem;color:var(--gris-texto);line-height:1.62;}
@@ -329,7 +329,7 @@
   .incluye-grid{display:grid;grid-template-columns:1fr;gap:18px;margin-top:38px;}
   .incluye-item{
     background:#fff;border-radius:var(--radio-a);overflow:hidden;
-    border:1px solid rgba(27,79,156,.1);box-shadow:var(--sombra-suave);
+    border:1px solid rgba(30,111,217,.1);box-shadow:var(--sombra-suave);
     display:flex;flex-direction:column;
     transition:transform .3s var(--ease), box-shadow .3s var(--ease);
   }
@@ -377,20 +377,20 @@
   .card-compra{
     max-width:560px;margin:0 auto;position:relative;overflow:hidden;
     background:
-      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(232,179,60,.16), transparent 62%),
+      radial-gradient(ellipse 70% 50% at 50% 0%, rgba(255,204,0,.16), transparent 62%),
       linear-gradient(165deg,var(--azul-profundo),var(--azul-noche));
-    border:1px solid rgba(232,179,60,.4);border-radius:14px;
+    border:1px solid rgba(255,204,0,.4);border-radius:14px;
     padding:38px 26px 32px;text-align:center;color:#EAF2FB;
-    box-shadow:0 30px 70px rgba(5,19,43,.4);
+    box-shadow:0 30px 70px rgba(8,31,77,.4);
   }
   .card-compra h2{font-size:clamp(1.5rem,5vw,2rem);color:#fff;margin-bottom:6px;}
   .card-compra .separador{
-    width:60px;height:2px;background:rgba(232,179,60,.5);border-radius:2px;margin:20px auto 22px;
+    width:60px;height:2px;background:rgba(255,204,0,.5);border-radius:2px;margin:20px auto 22px;
   }
   /* bloque de precio, debajo del listado y los bonos */
   .precio-box{
-    margin-top:26px;border:1px solid rgba(232,179,60,.3);border-radius:12px;
-    background:linear-gradient(180deg, rgba(232,179,60,.09), rgba(232,179,60,.02));
+    margin-top:26px;border:1px solid rgba(255,204,0,.3);border-radius:12px;
+    background:linear-gradient(180deg, rgba(255,204,0,.09), rgba(255,204,0,.02));
     padding:18px 20px 22px;
   }
   .precio-box .fila-total{
@@ -407,7 +407,7 @@
   .precio-box .precio-grande{
     font-family:'Outfit',sans-serif;font-weight:800;letter-spacing:-.035em;
     font-size:clamp(2.6rem,11vw,3.6rem);line-height:1.02;white-space:nowrap;
-    background:linear-gradient(135deg,#FCEBB0,#F9DE8A 30%,#E8B33C 70%,#D3A02F);
+    background:linear-gradient(135deg,#FFF3B0,#FFE066 30%,#FFCC00 70%,#E0A800);
     -webkit-background-clip:text;background-clip:text;color:transparent;
   }
   .precio-box .pill-ahorro{
@@ -415,7 +415,7 @@
     background:linear-gradient(135deg,var(--dorado-claro),var(--dorado));
     color:var(--azul-noche);font-size:.75rem;font-weight:800;
     padding:7px 16px;border-radius:100px;letter-spacing:.02em;
-    box-shadow:0 6px 18px rgba(232,179,60,.32);
+    box-shadow:0 6px 18px rgba(255,204,0,.32);
   }
   .lista-check{
     list-style:none;margin:0;padding:0;
@@ -428,11 +428,11 @@
   .lista-check li::before{
     content:'✓';flex:none;width:22px;height:22px;border-radius:7px;margin-top:1px;
     display:grid;place-items:center;font-size:.75rem;font-weight:800;
-    background:rgba(232,179,60,.18);color:var(--dorado-claro);
+    background:rgba(255,204,0,.18);color:var(--dorado-claro);
   }
   .caja-bonos{
-    margin-top:24px;border:1px solid rgba(232,179,60,.35);border-radius:10px;
-    background:rgba(232,179,60,.06);padding:20px 20px 18px;
+    margin-top:24px;border:1px solid rgba(255,204,0,.35);border-radius:10px;
+    background:rgba(255,204,0,.06);padding:20px 20px 18px;
   }
   .caja-bonos .titulo-bonos{
     font-family:'Outfit',sans-serif;font-weight:700;font-size:.95rem;
@@ -456,28 +456,28 @@
   /* ---------- Garantía ---------- */
   .garantia{
     background:
-      radial-gradient(ellipse 60% 60% at 50% 0%, rgba(232,179,60,.20), transparent 62%),
+      radial-gradient(ellipse 60% 60% at 50% 0%, rgba(255,204,0,.20), transparent 62%),
       linear-gradient(150deg,var(--azul-profundo),var(--azul-noche));
     color:#EAF2FB;text-align:center;position:relative;overflow:hidden;
   }
-  .garantia img{width:146px;margin:0 auto 20px;filter:drop-shadow(0 14px 30px rgba(232,179,60,.35));}
+  .garantia img{width:146px;margin:0 auto 20px;filter:drop-shadow(0 14px 30px rgba(255,204,0,.35));}
   .garantia h2{font-size:clamp(1.5rem,4.5vw,2rem);margin-bottom:14px;}
   .garantia p{max-width:48ch;margin:0 auto;font-size:1rem;line-height:1.7;color:#C4D6EA;}
 
 
   /* ---------- FAQ ---------- */
-  .faq-lista{margin-top:34px;border-radius:var(--radio-a);overflow:hidden;border:1px solid rgba(27,79,156,.12);background:#fff;}
-  .faq-item + .faq-item{border-top:1px solid rgba(27,79,156,.1);}
+  .faq-lista{margin-top:34px;border-radius:var(--radio-a);overflow:hidden;border:1px solid rgba(30,111,217,.12);background:#fff;}
+  .faq-item + .faq-item{border-top:1px solid rgba(30,111,217,.1);}
   .faq-pregunta{
     cursor:pointer;font-family:'Outfit',sans-serif;font-weight:600;font-size:1rem;color:var(--azul-profundo);
     display:flex;justify-content:space-between;align-items:center;gap:16px;
     width:100%;background:none;border:none;text-align:left;padding:19px 22px;
     transition:background .2s ease;
   }
-  .faq-pregunta:hover{background:rgba(27,79,156,.03);}
+  .faq-pregunta:hover{background:rgba(30,111,217,.03);}
   .faq-pregunta .mas{
     font-size:1.25rem;color:var(--dorado-oscuro);transition:transform .3s var(--ease);flex:none;
-    width:28px;height:28px;display:grid;place-items:center;border-radius:9px;background:rgba(232,179,60,.15);line-height:1;
+    width:28px;height:28px;display:grid;place-items:center;border-radius:9px;background:rgba(255,204,0,.15);line-height:1;
   }
   .faq-pregunta[aria-expanded="true"] .mas{transform:rotate(45deg);}
   .faq-respuesta{display:grid;grid-template-rows:0fr;transition:grid-template-rows .35s var(--ease);}
@@ -488,8 +488,8 @@
   /* ---------- CTA final ---------- */
   .cta-final{
     background:
-      radial-gradient(ellipse 60% 50% at 20% 10%, rgba(27,79,156,.6), transparent 60%),
-      radial-gradient(ellipse 50% 50% at 85% 85%, rgba(232,179,60,.18), transparent 62%),
+      radial-gradient(ellipse 60% 50% at 20% 10%, rgba(30,111,217,.6), transparent 60%),
+      radial-gradient(ellipse 50% 50% at 85% 85%, rgba(255,204,0,.18), transparent 62%),
       linear-gradient(160deg,var(--azul-profundo),var(--azul-noche));
     color:#EAF2FB;text-align:center;position:relative;overflow:hidden;
   }
