@@ -858,7 +858,7 @@ fbq('track', 'PageView');
               </div>
             </div>
 
-            <button type="button" class="btn-cta" data-checkout-btn>Quiero el Pack Completo →</button>
+            <button type="button" class="btn-cta" data-checkout-btn data-checkout-url="https://paperstars.impultienda.ar/">Quiero el Pack Completo →</button>
 
             <div class="sellos">
               <span>🔒 Compra segura</span>
@@ -1003,16 +1003,20 @@ fbq('track', 'PageView');
       });
     });
 
-    // Botones de checkout: todavía no conectados al link de pago.
-    // TODO: reemplazar por window.location.href = 'TU_LINK_DE_CHECKOUT';
+    // Botones de checkout. Los que tienen data-checkout-url redirigen ahi;
+    // los que todavia no tienen link conectado solo loguean en consola.
     document.querySelectorAll('[data-checkout-btn]').forEach(function(btn){
       btn.addEventListener('click', function(){
         // Evento de Meta Pixel: avisa que alguien inició el checkout (clic en "comprar").
-        // Se dispara igual aunque el link de pago todavía no esté conectado.
         if (typeof fbq === 'function') {
           fbq('track', 'InitiateCheckout');
         }
-        console.info('Checkout todavía no conectado. Pegá el link de pago en los botones data-checkout-btn.');
+        var url = btn.getAttribute('data-checkout-url');
+        if (url) {
+          window.location.href = url;
+        } else {
+          console.info('Checkout todavía no conectado. Pegá el link de pago en los botones data-checkout-btn.');
+        }
       });
     });
   </script>
