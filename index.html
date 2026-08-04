@@ -29,7 +29,6 @@
 <!-- Recursos críticos -->
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preload" as="image" href="images/hero-estadio.webp" fetchpriority="high">
 <link href="https://fonts.googleapis.com/css2?family=Outfit:wght@500;600;700;800&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
 
 <!-- SEO: datos estructurados -->
@@ -231,11 +230,10 @@
     box-shadow:var(--sombra-fuerte), 0 0 0 8px rgba(255,255,255,.04);
     transform:rotate(-1.2deg);
   }
-  /* aspect-ratio + object-fit: la imagen nunca se deforma */
-  .hero-visual .marco img{width:100%;aspect-ratio:4/3;object-fit:cover;}
+  .hero-visual .marco svg{width:100%;height:auto;aspect-ratio:4/3;display:block;}
   .chip-flotante{
     position:absolute;bottom:-14px;left:50%;transform:translateX(-50%);
-    background:rgba(13,17,13,.9);border:1px solid rgba(139,92,246,.5);backdrop-filter:blur(12px);
+    background:rgba(10,36,21,.9);border:1px solid rgba(139,92,246,.5);backdrop-filter:blur(12px);
     border-radius:100px;padding:10px 18px;display:flex;align-items:center;gap:8px;
     font-size:.76rem;font-weight:700;color:var(--violeta-claro);white-space:nowrap;
     box-shadow:0 12px 28px rgba(0,0,0,.35);
@@ -264,13 +262,14 @@
   .marquee.hacia-der{animation:desfilar-der 44s linear infinite;}
   .marquee:hover{animation-play-state:paused;}
   .marquee .pista{display:flex;gap:16px;padding-right:16px;}
-  /* sin caja: solo la imagen con borde redondeado */
-  .marquee img{
-    width:152px;height:152px;object-fit:cover;
+  /* icono de bloque en vez de foto */
+  .marquee .bloque-icono{
+    width:152px;height:152px;
     border-radius:11px;
     transition:transform .3s var(--ease);
+    box-shadow:var(--sombra-suave);
   }
-  .marquee img:hover{transform:translateY(-6px) scale(1.05);}
+  .marquee .bloque-icono:hover{transform:translateY(-6px) scale(1.05);}
   @keyframes desfilar-izq{from{transform:translateX(0);}to{transform:translateX(-50%);}}
   @keyframes desfilar-der{from{transform:translateX(-50%);}to{transform:translateX(0);}}
   .marquee-fade{position:absolute;top:0;bottom:0;width:80px;z-index:2;pointer-events:none;}
@@ -300,14 +299,24 @@
   /* el gap y el padding-right deben coincidir para que el loop no salte */
   .chats-pista{display:flex;gap:6px;padding-right:6px;}
   .chat-card{
-    flex:0 0 236px;border-radius:18px;overflow:hidden;
-    /* borde sutil: sin esto la captura oscura se funde con el fondo navy */
+    flex:0 0 264px;border-radius:18px;
     border:1px solid rgba(255,255,255,.09);
+    background:rgba(255,255,255,.04);
+    padding:22px;display:flex;flex-direction:column;gap:16px;
     transition:transform .3s var(--ease);
   }
   .chat-card:hover{transform:translateY(-6px);}
-  /* las imagenes ya vienen en 9:16 real, asi que no se recorta nada */
-  .chat-card img{width:100%;aspect-ratio:9/16;object-fit:cover;}
+  .cita-estrellas{color:var(--violeta-claro);font-size:.8rem;letter-spacing:2px;}
+  .cita-texto{margin:0;color:#E4E6DF;font-size:.92rem;line-height:1.55;flex:1;}
+  .cita-autor{display:flex;align-items:center;gap:10px;}
+  .cita-avatar{
+    width:38px;height:38px;border-radius:50%;flex-shrink:0;
+    display:flex;align-items:center;justify-content:center;
+    font-family:'Outfit',sans-serif;font-weight:700;font-size:.95rem;color:#0A2415;
+  }
+  .cita-datos{display:flex;flex-direction:column;}
+  .cita-datos strong{color:#fff;font-size:.86rem;}
+  .cita-datos span{color:#9CA398;font-size:.76rem;}
   @keyframes chats-desfilar{from{transform:translateX(0);}to{transform:translateX(-50%);}}
 
   /* ---------- Por qué elegir ---------- */
@@ -335,7 +344,7 @@
   }
   .incluye-item:hover{transform:translateY(-6px);box-shadow:var(--sombra-media);}
   .incluye-item .visual{position:relative;}
-  .incluye-item .visual img{width:100%;aspect-ratio:3/2;object-fit:cover;}
+  .incluye-item .visual .visual-svg{width:100%;aspect-ratio:3/2;display:block;}
   .incluye-item .etiqueta-num{
     position:absolute;top:14px;left:14px;z-index:2;
     background:var(--fondo-medio);color:var(--violeta-claro);
@@ -460,7 +469,7 @@
       linear-gradient(150deg,var(--fondo-medio),var(--fondo-oscuro));
     color:#F0F1EE;text-align:center;position:relative;overflow:hidden;
   }
-  .garantia img{width:146px;margin:0 auto 20px;filter:drop-shadow(0 14px 30px rgba(139,92,246,.35));}
+  .garantia .sello-garantia{width:146px;display:block;margin:0 auto 20px;filter:drop-shadow(0 14px 30px rgba(139,92,246,.35));}
   .garantia h2{font-size:clamp(1.5rem,4.5vw,2rem);margin-bottom:14px;}
   .garantia p{max-width:48ch;margin:0 auto;font-size:1rem;line-height:1.7;color:#C7CBC2;}
 
@@ -620,8 +629,22 @@ fbq('track', 'PageView');
           </div>
         </div>
         <div class="hero-visual">
-          <div class="marco">
-            <img src="images/hero-estadio.webp" alt="Chico armando el mundo de cartón con sus personajes de papel, lejos del celular" width="900" height="675" fetchpriority="high" decoding="async">
+          <div class="marco marco-ilustracion" role="img" aria-label="Ilustración de bloques y un personaje armable de estilo voxel">
+            <svg viewBox="0 0 400 300" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect x="0" y="0" width="400" height="300" style="fill:var(--fondo-medio)"></rect>
+              <rect x="16" y="16" width="186" height="186" rx="18" style="fill:var(--verde)"></rect>
+              <rect x="212" y="16" width="88" height="88" rx="16" style="fill:var(--cian)"></rect>
+              <rect x="310" y="16" width="88" height="88" rx="16" style="fill:var(--violeta)"></rect>
+              <rect x="212" y="114" width="186" height="88" rx="16" style="fill:var(--fondo-oscuro)" opacity=".55"></rect>
+              <rect x="16" y="212" width="88" height="88" rx="16" style="fill:var(--violeta-oscuro)"></rect>
+              <rect x="114" y="212" width="88" height="88" rx="16" style="fill:var(--cian)" opacity=".8"></rect>
+              <rect x="212" y="212" width="186" height="88" rx="16" style="fill:var(--violeta)" opacity=".7"></rect>
+              <rect x="72" y="90" width="20" height="26" rx="7" style="fill:var(--fondo-oscuro)"></rect>
+              <rect x="128" y="90" width="20" height="26" rx="7" style="fill:var(--fondo-oscuro)"></rect>
+              <path d="M78 142 Q109 166 140 142" stroke="var(--fondo-oscuro)" stroke-width="9" stroke-linecap="round" fill="none"></path>
+              <circle cx="360" cy="250" r="7" style="fill:var(--violeta-claro)"></circle>
+              <circle cx="30" cy="150" r="5" style="fill:var(--cian)"></circle>
+            </svg>
           </div>
           <div class="chip-flotante">🧱 Mundo de bloques + 90 personajes armables</div>
         </div>
@@ -639,51 +662,267 @@ fbq('track', 'PageView');
         <!-- Fila superior: se desplaza hacia la izquierda -->
         <div class="marquee hacia-izq">
           <div class="pista">
-            <img src="images/figurita-01.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-02.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-03.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-04.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-05.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-06.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-07.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-08.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-16.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--verde)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--violeta)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--cian)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--violeta-oscuro)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--violeta)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--verde)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--violeta-oscuro)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--cian)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--verde)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--cian)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--cian)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--verde)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--verde)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--violeta)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--cian)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--violeta-oscuro)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--violeta)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--verde)"></rect>
+            </svg>
           </div>
           <div class="pista" aria-hidden="true">
-            <img src="images/figurita-01.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-02.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-03.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-04.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-05.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-06.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-07.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-08.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-16.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--verde)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--violeta)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--cian)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--violeta-oscuro)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--violeta)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--verde)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--violeta-oscuro)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--cian)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--verde)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--cian)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--cian)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--verde)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--verde)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--violeta)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--cian)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--violeta-oscuro)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--violeta)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--verde)"></rect>
+            </svg>
           </div>
         </div>
         <!-- Fila inferior: se desplaza hacia la derecha -->
         <div class="marquee hacia-der">
           <div class="pista">
-            <img src="images/figurita-09.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-10.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-11.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-12.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-13.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-14.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-15.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-17.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
-            <img src="images/figurita-18.webp" loading="lazy" decoding="async" alt="Figurita armable de un personaje de aventuras" width="320" height="320">
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--violeta-oscuro)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--cian)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--verde)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--cian)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--cian)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--verde)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--verde)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--violeta)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--cian)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--violeta-oscuro)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--violeta)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--verde)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--violeta-oscuro)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--cian)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--verde)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--cian)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--cian)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--verde)"></rect>
+            </svg>
           </div>
           <div class="pista" aria-hidden="true">
-            <img src="images/figurita-09.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-10.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-11.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-12.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-13.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-14.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-15.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-17.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
-            <img src="images/figurita-18.webp" loading="lazy" decoding="async" alt="" width="320" height="320">
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--violeta-oscuro)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--cian)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--verde)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--cian)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--cian)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--verde)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--verde)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--violeta)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--cian)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--violeta-oscuro)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--violeta)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--verde)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--violeta-oscuro)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--cian)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--verde)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--cian)"></rect>
+            </svg>
+            <svg class="bloque-icono" viewBox="0 0 80 80" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+              <rect width="80" height="80" rx="18" style="fill:var(--cian)"></rect>
+              <rect x="24" y="16" width="32" height="30" rx="9" fill="#F5F4F0"></rect>
+              <circle cx="34" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <circle cx="46" cy="31" r="3" style="fill:var(--fondo-oscuro)"></circle>
+              <rect x="21" y="50" width="38" height="20" rx="7" style="fill:var(--verde)"></rect>
+            </svg>
           </div>
         </div>
       </div>
@@ -700,26 +939,152 @@ fbq('track', 'PageView');
         <div class="chats-marquee-wrap">
           <div class="chats-marquee">
           <div class="chats-pista">
-            <figure class="chat-card"><img src="images/testimonio-carlos.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Carlos contando que pasó la tarde armando con su hijo, lejos de la pantalla" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-camila.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Camila mostrando las figuritas que armó con su hijo" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-cliente.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de una mamá contando que sus hijos pasaron mucho tiempo lejos de la pantalla" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-juliana.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Juliana contando que su hijo ya quiere armar el mundo de bloques también" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-silvana.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Silvana mostrando las figuritas terminadas sobre la mesa" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-marcia.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Marcia con las figuritas armadas y los moldes recortados" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-erico.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de Erico mostrando toda la colección de personajes armados" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-valdete.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp con cuatro figuritas armadas sobre la mesa del comedor" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-maria.webp" loading="lazy" decoding="async" alt="Mensaje de WhatsApp de María contando que a sus nietos les encantaron las figuritas" width="480" height="853"></figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Se sentó con mi hijo el sábado a la tarde y no escuché el celular en dos horas. Terminaron el primer personaje y ya me pidió imprimir el resto.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--verde)">C</span>
+                <span class="cita-datos"><strong>Carlos</strong><span>Rosario, Santa Fe</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Mi hijo arma uno nuevo cada fin de semana. Lo que más me gustó es que no necesité comprar nada extra, con la impresora de casa alcanzó.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--cian)">C</span>
+                <span class="cita-datos"><strong>Camila</strong><span>CABA</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Mis dos hijos pasaron toda la tarde armando y peleándose por quién terminaba primero. Cero pantalla, milagro en esta casa.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--violeta)">R</span>
+                <span class="cita-datos"><strong>Rocío</strong><span>La Plata, Buenos Aires</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Ya me está pidiendo armar el mundo de bloques completo. Antes tenía que rogarle que suelte la tablet, ahora me lo pide él.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--violeta-oscuro)">J</span>
+                <span class="cita-datos"><strong>Juliana</strong><span>Mendoza</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Las figuritas quedaron mejor de lo que esperaba. Las dejamos armadas sobre la mesa del living como decoración.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--verde)">S</span>
+                <span class="cita-datos"><strong>Silvana</strong><span>Córdoba</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Los moldes se recortan fácil y las instrucciones son clarísimas. Lo armamos entre los tres sin ningún lío.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--cian)">M</span>
+                <span class="cita-datos"><strong>Marcia</strong><span>Neuquén</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Ya tengo toda la colección armada arriba de la biblioteca de mi hijo. Cada personaje nuevo es una excusa para sentarnos juntos.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--violeta)">E</span>
+                <span class="cita-datos"><strong>Enzo</strong><span>San Miguel de Tucumán</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Armamos cuatro personajes en un solo domingo de lluvia. Mejor plan que cualquier pantalla, la pasamos redonda.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--violeta-oscuro)">V</span>
+                <span class="cita-datos"><strong>Valentina</strong><span>Bahía Blanca, Buenos Aires</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Se lo mandé a mis nietos y no lo pueden creer. Ahora cada vez que vienen a casa me piden armar uno nuevo.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--verde)">M</span>
+                <span class="cita-datos"><strong>Marta</strong><span>Salta</span></span>
+              </figcaption>
+            </figure>
           </div>
           <div class="chats-pista" aria-hidden="true">
-            <figure class="chat-card"><img src="images/testimonio-carlos.webp" loading="lazy" decoding="async" alt="" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-camila.webp" loading="lazy" decoding="async" alt="" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-cliente.webp" loading="lazy" decoding="async" alt="" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-juliana.webp" loading="lazy" decoding="async" alt="" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-silvana.webp" loading="lazy" decoding="async" alt="" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-marcia.webp" loading="lazy" decoding="async" alt="" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-erico.webp" loading="lazy" decoding="async" alt="" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-valdete.webp" loading="lazy" decoding="async" alt="" width="480" height="853"></figure>
-            <figure class="chat-card"><img src="images/testimonio-maria.webp" loading="lazy" decoding="async" alt="" width="480" height="853"></figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Se sentó con mi hijo el sábado a la tarde y no escuché el celular en dos horas. Terminaron el primer personaje y ya me pidió imprimir el resto.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--verde)">C</span>
+                <span class="cita-datos"><strong>Carlos</strong><span>Rosario, Santa Fe</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Mi hijo arma uno nuevo cada fin de semana. Lo que más me gustó es que no necesité comprar nada extra, con la impresora de casa alcanzó.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--cian)">C</span>
+                <span class="cita-datos"><strong>Camila</strong><span>CABA</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Mis dos hijos pasaron toda la tarde armando y peleándose por quién terminaba primero. Cero pantalla, milagro en esta casa.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--violeta)">R</span>
+                <span class="cita-datos"><strong>Rocío</strong><span>La Plata, Buenos Aires</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Ya me está pidiendo armar el mundo de bloques completo. Antes tenía que rogarle que suelte la tablet, ahora me lo pide él.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--violeta-oscuro)">J</span>
+                <span class="cita-datos"><strong>Juliana</strong><span>Mendoza</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Las figuritas quedaron mejor de lo que esperaba. Las dejamos armadas sobre la mesa del living como decoración.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--verde)">S</span>
+                <span class="cita-datos"><strong>Silvana</strong><span>Córdoba</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Los moldes se recortan fácil y las instrucciones son clarísimas. Lo armamos entre los tres sin ningún lío.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--cian)">M</span>
+                <span class="cita-datos"><strong>Marcia</strong><span>Neuquén</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Ya tengo toda la colección armada arriba de la biblioteca de mi hijo. Cada personaje nuevo es una excusa para sentarnos juntos.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--violeta)">E</span>
+                <span class="cita-datos"><strong>Enzo</strong><span>San Miguel de Tucumán</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Armamos cuatro personajes en un solo domingo de lluvia. Mejor plan que cualquier pantalla, la pasamos redonda.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--violeta-oscuro)">V</span>
+                <span class="cita-datos"><strong>Valentina</strong><span>Bahía Blanca, Buenos Aires</span></span>
+              </figcaption>
+            </figure>
+            <figure class="chat-card">
+              <span class="cita-estrellas" aria-hidden="true">★★★★★</span>
+              <blockquote class="cita-texto">“Se lo mandé a mis nietos y no lo pueden creer. Ahora cada vez que vienen a casa me piden armar uno nuevo.”</blockquote>
+              <figcaption class="cita-autor">
+                <span class="cita-avatar" style="background:var(--verde)">M</span>
+                <span class="cita-datos"><strong>Marta</strong><span>Salta</span></span>
+              </figcaption>
+            </figure>
           </div>
           </div>
         </div>
@@ -781,7 +1146,16 @@ fbq('track', 'PageView');
           <div class="incluye-item">
             <div class="visual">
               <span class="etiqueta-num">BONUS EXCLUSIVO</span>
-              <img src="images/estadio-armado.webp" loading="lazy" decoding="async" alt="Mundo de cartón armado con los personajes de bloques" width="800" height="600">
+              <svg class="visual-svg" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Mundo de cartón armado con los personajes de bloques">
+                <rect width="300" height="200" style="fill:var(--fondo-medio)"></rect>
+                <rect x="18" y="100" width="70" height="70" rx="12" style="fill:var(--verde)"></rect>
+                <rect x="98" y="60" width="70" height="110" rx="12" style="fill:var(--cian)"></rect>
+                <rect x="178" y="86" width="56" height="84" rx="12" style="fill:var(--violeta)"></rect>
+                <rect x="242" y="112" width="42" height="58" rx="10" style="fill:var(--violeta-oscuro)"></rect>
+                <rect x="118" y="24" width="30" height="28" rx="8" style="fill:var(--fondo-oscuro)"></rect>
+                <circle cx="127" cy="36" r="3" style="fill:var(--crema)"></circle>
+                <circle cx="139" cy="36" r="3" style="fill:var(--crema)"></circle>
+              </svg>
             </div>
             <div class="cuerpo">
               <h3>🧱 Mundo de Bloques</h3>
@@ -792,7 +1166,18 @@ fbq('track', 'PageView');
           <div class="incluye-item">
             <div class="visual">
               <span class="etiqueta-num">BONO 01</span>
-              <img src="images/bonus-album.webp" loading="lazy" decoding="async" alt="Álbum imprimible con las páginas para pegar los personajes coleccionables" width="800" height="533">
+              <svg class="visual-svg" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Álbum imprimible con las páginas para pegar los personajes coleccionables">
+                <rect width="300" height="200" style="fill:var(--fondo-medio)"></rect>
+                <rect x="60" y="34" width="90" height="132" rx="8" style="fill:var(--crema)"></rect>
+                <rect x="150" y="34" width="90" height="132" rx="8" style="fill:var(--crema)" opacity=".85"></rect>
+                <rect x="146" y="34" width="8" height="132" style="fill:var(--fondo-oscuro)" opacity=".3"></rect>
+                <rect x="76" y="52" width="26" height="26" rx="6" style="fill:var(--verde)"></rect>
+                <rect x="108" y="52" width="26" height="26" rx="6" style="fill:var(--cian)"></rect>
+                <rect x="76" y="86" width="26" height="26" rx="6" style="fill:var(--violeta)"></rect>
+                <rect x="108" y="86" width="26" height="26" rx="6" style="fill:var(--fondo-oscuro)" opacity=".18"></rect>
+                <rect x="166" y="52" width="26" height="26" rx="6" style="fill:var(--violeta-oscuro)"></rect>
+                <rect x="198" y="52" width="26" height="26" rx="6" style="fill:var(--fondo-oscuro)" opacity=".18"></rect>
+              </svg>
             </div>
             <div class="cuerpo">
               <h3>🏆 Álbum de Personajes</h3>
@@ -803,7 +1188,20 @@ fbq('track', 'PageView');
           <div class="incluye-item">
             <div class="visual">
               <span class="etiqueta-num">BONO 02</span>
-              <img src="images/bonus-figuritas.webp" loading="lazy" decoding="async" alt="Pack de personajes coleccionables imprimibles" width="800" height="533">
+              <svg class="visual-svg" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Pack de personajes coleccionables imprimibles">
+                <rect width="300" height="200" style="fill:var(--fondo-medio)"></rect>
+                <g transform="rotate(-8 150 100)">
+                  <rect x="108" y="46" width="84" height="108" rx="12" style="fill:var(--violeta-oscuro)"></rect>
+                </g>
+                <g transform="rotate(6 150 100)">
+                  <rect x="112" y="42" width="84" height="108" rx="12" style="fill:var(--cian)"></rect>
+                </g>
+                <rect x="118" y="50" width="72" height="92" rx="10" style="fill:var(--crema)"></rect>
+                <rect x="136" y="66" width="36" height="34" rx="9" style="fill:var(--verde)"></rect>
+                <circle cx="147" cy="80" r="3" style="fill:var(--fondo-oscuro)"></circle>
+                <circle cx="161" cy="80" r="3" style="fill:var(--fondo-oscuro)"></circle>
+                <rect x="132" y="110" width="44" height="8" rx="4" style="fill:var(--violeta)" opacity=".6"></rect>
+              </svg>
             </div>
             <div class="cuerpo">
               <h3>🎮 Personajes Coleccionables Exclusivos</h3>
@@ -814,7 +1212,19 @@ fbq('track', 'PageView');
           <div class="incluye-item">
             <div class="visual">
               <span class="etiqueta-num">BONO 03</span>
-              <img src="images/bonus-actividades.webp" loading="lazy" decoding="async" alt="Cuadernillo de actividades con sopa de letras, crucigrama, laberinto y certificado" width="800" height="533">
+              <svg class="visual-svg" viewBox="0 0 300 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Cuadernillo de actividades con sopa de letras, crucigrama, laberinto y certificado">
+                <rect width="300" height="200" style="fill:var(--fondo-medio)"></rect>
+                <rect x="70" y="30" width="130" height="140" rx="10" style="fill:var(--crema)"></rect>
+                <rect x="86" y="50" width="98" height="10" rx="5" style="fill:var(--violeta)"></rect>
+                <rect x="86" y="72" width="70" height="7" rx="3.5" style="fill:var(--fondo-oscuro)" opacity=".25"></rect>
+                <rect x="86" y="88" width="80" height="7" rx="3.5" style="fill:var(--fondo-oscuro)" opacity=".25"></rect>
+                <rect x="86" y="104" width="60" height="7" rx="3.5" style="fill:var(--fondo-oscuro)" opacity=".25"></rect>
+                <circle cx="90" cy="130" r="6" style="fill:none" stroke="var(--verde)" stroke-width="3"></circle>
+                <circle cx="112" cy="130" r="6" style="fill:var(--cian)"></circle>
+                <circle cx="134" cy="130" r="6" style="fill:none" stroke="var(--violeta)" stroke-width="3"></circle>
+                <rect x="190" y="118" width="46" height="46" rx="10" style="fill:var(--violeta)" transform="rotate(18 213 141)"></rect>
+                <path d="M198 152 L226 128" stroke="var(--crema)" stroke-width="6" stroke-linecap="round"></path>
+              </svg>
             </div>
             <div class="cuerpo">
               <h3>📚 Actividades de Aventura</h3>
@@ -877,7 +1287,13 @@ fbq('track', 'PageView');
     <!-- 8. GARANTÍA -->
     <section class="seccion garantia grano">
       <div class="wrap" data-reveal style="position:relative;z-index:2;">
-        <img src="images/garantia-7dias.webp" loading="lazy" decoding="async" alt="Sello de garantía de 7 días" width="300" height="200">
+        <svg class="sello-garantia" viewBox="0 0 200 200" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Sello de garantía de 7 días">
+          <circle cx="100" cy="100" r="92" style="fill:var(--violeta)"></circle>
+          <circle cx="100" cy="100" r="92" fill="none" style="stroke:var(--violeta-claro)" stroke-width="3" stroke-dasharray="6 7"></circle>
+          <circle cx="100" cy="100" r="74" fill="none" stroke="rgba(255,255,255,.35)" stroke-width="2"></circle>
+          <path d="M70 100 L90 120 L132 76" fill="none" stroke="#FFFFFF" stroke-width="10" stroke-linecap="round" stroke-linejoin="round"></path>
+          <text x="100" y="150" text-anchor="middle" font-family="Outfit, sans-serif" font-weight="700" font-size="22" fill="#FFFFFF">7 DÍAS</text>
+        </svg>
         <h2 class="acento">Vos contento o te devolvemos tu dinero</h2>
         <p>Tenés 7 días de garantía incondicional. Si en ese período considerás que no es para vos, solo tenés que solicitar el reembolso.</p>
         <p style="font-weight:700;color:#fff;margin-top:12px;">Sin burocracia.</p>
